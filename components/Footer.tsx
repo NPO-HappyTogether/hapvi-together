@@ -1,20 +1,20 @@
-import Image from "next/image";
-import {useTranslations} from "next-intl";
 import {FooterWaitlistForm} from "@/components/FooterWaitlistForm";
-import {Link} from "@/i18n/navigation";
+import ko from "@/messages/ko.json";
+import Image from "next/image";
+import Link from "next/link";
+
+const footer = ko.Footer;
+const header = ko.Header;
+const services = ko.Services;
 
 export function Footer() {
-  const t = useTranslations("Footer");
-  const th = useTranslations("Header");
-  const ts = useTranslations("Services");
-
   return (
     <footer className="bg-hapvi-dark text-white">
       <div className="mx-auto w-full max-w-6xl px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-xl text-center">
-          <h2 className="text-xl font-semibold tracking-tight md:text-2xl">{ts("comingSoon.title")}</h2>
+          <h2 className="text-xl font-semibold tracking-tight md:text-2xl">{services.comingSoon.title}</h2>
           <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-white/75 md:text-base">
-            {ts("comingSoon.description")}
+            {services.comingSoon.description}
           </p>
           <FooterWaitlistForm />
         </div>
@@ -35,15 +35,17 @@ export function Footer() {
                   HapVi Together
                 </span>
                 <span className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-white/70 md:text-xs md:tracking-[0.18em]">
-                  {th("tagline")}
+                  {header.tagline}
                 </span>
               </span>
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-white/75">{t("description")}</p>
+            <p className="mt-4 text-sm leading-relaxed text-white/75">{footer.description}</p>
           </div>
           <div className="space-y-3 text-sm text-white/80">
-            <p className="font-medium text-white">{t("email")}: info@hapvi.org</p>
-            <p className="leading-relaxed">{t("hours")}</p>
+            <p className="font-medium text-white">
+              {footer.email}: info@hapvi.org
+            </p>
+            <p className="leading-relaxed">{footer.hours}</p>
           </div>
         </div>
 

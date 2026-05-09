@@ -1,22 +1,22 @@
 import {StockPhoto} from "@/components/StockPhoto";
-import {Link} from "@/i18n/navigation";
+import ko from "@/messages/ko.json";
 import {STOCK_PHOTOS} from "@/lib/stock-photos";
 import {CheckCircle2, Circle} from "lucide-react";
-import {useTranslations} from "next-intl";
+import Link from "next/link";
+
+const t = ko.Services;
 
 export default function ServicesPage() {
-  const t = useTranslations("Services");
-
   return (
     <div className="bg-hapvi-light">
       {/* 히어로 스플릿 — 참고 5 */}
       <section className="grid min-h-[min(560px,88vh)] md:grid-cols-2">
         <div className="flex flex-col justify-center bg-hapvi-primary px-8 pb-14 pt-28 text-white md:px-14 lg:px-20 lg:pb-20 lg:pt-36">
-          <h1 className="max-w-xl text-3xl font-semibold leading-[1.15] tracking-tight md:text-4xl lg:text-[2.75rem]">
-            {t("hero.title")}
+          <h1 className="max-w-xl whitespace-pre-line text-3xl font-semibold leading-[1.15] tracking-tight md:text-4xl lg:text-[2.75rem]">
+            {t.hero.title}
           </h1>
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/88">{t("hero.descriptionLine1")}</p>
-          <p className="mt-3 max-w-xl text-lg leading-relaxed text-white/88">{t("hero.descriptionLine2")}</p>
+          <p className="mt-8 max-w-xl text-lg leading-snug text-white/88">{t.hero.descriptionLine1}</p>
+          <p className="mt-1.5 max-w-xl text-lg leading-snug text-white/88">{t.hero.descriptionLine2}</p>
         </div>
         <div className="relative min-h-[220px] md:min-h-full">
           <StockPhoto
@@ -32,13 +32,13 @@ export default function ServicesPage() {
       {/* 서브 헤더 바 */}
       <div className="bg-hapvi-dark px-5 py-3.5 text-white md:px-10">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 text-sm">
-          <span className="font-semibold tracking-tight">{t("hero.title")}</span>
-          <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-white/85" aria-label={t("hero.title")}>
+          <span className="font-semibold tracking-tight">{t.hero.titleInline}</span>
+          <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-white/85" aria-label={t.hero.titleInline}>
             <a
               href="#service-01"
               className="rounded transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-hapvi-dark"
             >
-              {t("service1.badge")}
+              {t.service1.badge}
             </a>
             <span className="hidden text-white/40 sm:inline" aria-hidden>
               ·
@@ -47,7 +47,7 @@ export default function ServicesPage() {
               href="#service-02"
               className="rounded transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-hapvi-dark"
             >
-              {t("service2.badge")}
+              {t.service2.badge}
             </a>
           </nav>
         </div>
@@ -70,38 +70,26 @@ export default function ServicesPage() {
           </div>
           <div className="flex flex-col justify-center p-8 md:p-10 lg:p-12">
             <span className="inline-flex w-fit rounded border border-hapvi-primary/25 bg-hapvi-light px-3 py-1 text-xs font-semibold uppercase tracking-wide text-hapvi-dark">
-              {t("service1.badge")}
+              {t.service1.badge}
             </span>
-            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-ink md:text-3xl">{t("service1.title")}</h2>
-            <p className="mt-6 whitespace-pre-line text-base leading-relaxed text-ink-muted md:text-lg">
-              {t("service1.description")}
-            </p>
+            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-ink md:text-3xl">{t.service1.title}</h2>
+            <p className="mt-6 whitespace-pre-line text-base leading-relaxed text-ink-muted md:text-lg">{t.service1.description}</p>
 
-            <p className="mt-8 text-sm font-semibold text-hapvi-primary">{t("service1.forWhoTitle")}</p>
+            <p className="mt-8 text-sm font-semibold text-hapvi-primary">{t.service1.forWhoTitle}</p>
             <ul className="mt-4 space-y-3 text-ink-muted">
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-hapvi-primary" strokeWidth={2} />
-                <span className="leading-relaxed">{t("service1.points.0")}</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-hapvi-primary" strokeWidth={2} />
-                <span className="leading-relaxed">{t("service1.points.1")}</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-hapvi-primary" strokeWidth={2} />
-                <span className="leading-relaxed">{t("service1.points.2")}</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-hapvi-primary" strokeWidth={2} />
-                <span className="leading-relaxed">{t("service1.points.3")}</span>
-              </li>
+              {t.service1.points.map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-hapvi-primary" strokeWidth={2} />
+                  <span className="leading-relaxed">{point}</span>
+                </li>
+              ))}
             </ul>
 
             <Link
               href="/contact"
               className="mt-10 inline-flex w-fit rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
             >
-              {t("apply")}
+              {t.apply}
             </Link>
           </div>
         </article>
@@ -121,58 +109,50 @@ export default function ServicesPage() {
           </div>
           <div className="flex flex-col justify-center p-8 md:order-2 md:p-10 lg:p-12">
             <span className="inline-flex w-fit rounded border border-hapvi-primary/25 bg-hapvi-light px-3 py-1 text-xs font-semibold uppercase tracking-wide text-hapvi-dark">
-              {t("service2.badge")}
+              {t.service2.badge}
             </span>
-            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-ink md:text-3xl">{t("service2.title")}</h2>
-            <p className="mt-6 whitespace-pre-line text-base leading-relaxed text-ink-muted md:text-lg">
-              {t("service2.description")}
-            </p>
+            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-ink md:text-3xl">{t.service2.title}</h2>
+            <p className="mt-6 whitespace-pre-line text-base leading-relaxed text-ink-muted md:text-lg">{t.service2.description}</p>
 
-            <p className="mt-8 text-sm font-semibold text-hapvi-primary">{t("service2.programsTitle")}</p>
+            <p className="mt-8 text-sm font-semibold text-hapvi-primary">{t.service2.programsTitle}</p>
             <ul className="mt-4 space-y-3 text-ink">
-              <li className="flex items-start gap-3 font-medium">
-                <Circle className="mt-1.5 h-2 w-2 shrink-0 fill-hapvi-primary text-hapvi-primary" />
-                <span className="leading-relaxed">{t("service2.programs.0")}</span>
-              </li>
-              <li className="flex items-start gap-3 font-medium">
-                <Circle className="mt-1.5 h-2 w-2 shrink-0 fill-hapvi-primary text-hapvi-primary" />
-                <span className="leading-relaxed">{t("service2.programs.1")}</span>
-              </li>
+              {t.service2.programs.map((program) => (
+                <li key={program} className="flex items-start gap-3 font-medium">
+                  <Circle className="mt-1.5 h-2 w-2 shrink-0 fill-hapvi-primary text-hapvi-primary" />
+                  <span className="leading-relaxed">{program}</span>
+                </li>
+              ))}
             </ul>
 
             <Link
               href="/contact"
               className="mt-10 inline-flex w-fit rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
             >
-              {t("apply")}
+              {t.apply}
             </Link>
           </div>
         </article>
       </section>
 
-      <section className="border-t border-stone-200/80 bg-cream-muted px-5 py-16 md:px-8 md:py-20">
+      <section
+        id="online-platform"
+        className="scroll-mt-28 border-t border-stone-200/80 bg-cream-muted px-5 py-16 md:px-8 md:py-20"
+      >
         <div className="mx-auto w-full max-w-2xl rounded-2xl border border-hapvi-primary/10 bg-white p-8 text-center shadow-soft md:p-10">
           <span className="inline-flex rounded-md border border-hapvi-primary/20 bg-hapvi-light px-3 py-1 text-xs font-semibold uppercase tracking-wide text-hapvi-dark">
-            {t("comingSoon.badge")}
+            {t.comingSoon.badge}
           </span>
-          <h2 className="mt-5 text-xl font-semibold tracking-tight text-ink md:text-2xl">{t("comingSoon.title")}</h2>
+          <h2 className="mt-5 text-xl font-semibold tracking-tight text-ink md:text-2xl">{t.comingSoon.title}</h2>
           <p className="mx-auto mt-5 max-w-lg whitespace-pre-line text-base leading-relaxed text-ink-muted md:text-lg">
-            {t("comingSoon.description")}
+            {t.comingSoon.description}
           </p>
 
-          <form className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <input
-              type="email"
-              placeholder={t("comingSoon.placeholder")}
-              className="w-full rounded-lg border border-stone-200 bg-cream px-4 py-3 text-sm text-ink outline-none ring-hapvi-primary/20 placeholder:text-ink-subtle focus:border-hapvi-primary/40 focus:ring-2 sm:max-w-xs"
-            />
-            <button
-              type="submit"
-              className="rounded-lg border border-hapvi-primary bg-white px-6 py-3 text-sm font-semibold text-hapvi-primary shadow-sm transition hover:bg-hapvi-light"
-            >
-              {t("comingSoon.button")}
-            </button>
-          </form>
+          <a
+            href="#online-platform"
+            className="mt-8 inline-flex justify-center rounded-lg border border-hapvi-primary bg-white px-6 py-3 text-sm font-semibold text-hapvi-primary shadow-sm transition hover:bg-hapvi-light focus:outline-none focus-visible:ring-2 focus-visible:ring-hapvi-primary/40 focus-visible:ring-offset-2"
+          >
+            {t.comingSoon.button}
+          </a>
         </div>
       </section>
     </div>

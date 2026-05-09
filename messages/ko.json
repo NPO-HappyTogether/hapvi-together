@@ -57,7 +57,8 @@
   },
   "Services": {
     "hero": {
-      "title": "HapVi Together가 도와드리는 것들",
+      "title": "HapVi Together가\n도와드리는 것들",
+      "titleInline": "HapVi Together가 도와드리는 것들",
       "descriptionLine1": "복잡한 미국 주거·복지 절차를 한국어로 처음부터 끝까지 함께합니다.",
       "descriptionLine2": "비용은 없습니다."
     },
@@ -80,6 +81,9 @@
       "programsTitle": "지원 가능한 주요 프로그램",
       "programs": [
         "섹션8 (Section 8 / Housing Choice Voucher)",
+        "캘프레시 — 식품 지원 (CalFresh / SNAP)",
+        "메디칼 — 의료 지원 (Medi-Cal)",
+        "LIHEAP — 공과금 지원",
         "긴급 주거 지원 (General Relief 등)"
       ]
     },
@@ -100,7 +104,7 @@
   },
   "About": {
     "hero": {
-      "title": "이 커뮤니티 안에서 시작되었습니다.",
+      "title": "이 커뮤니티 안에서\n시작되었습니다.",
       "description": "미국에는 저소득 가정을 위한 다양한 주거 지원과 복지 프로그램이 있습니다.\n하지만 영어 장벽, 복잡한 절차, 어디서 물어봐야 할지 모르는 상황 때문에\n많은 한인 가정이 마땅히 받아야 할 혜택을 받지 못하고 있습니다.\n\nHapVi Together는 그 간격을 채우기 위해\nLA 한인 커뮤니티 안에서 설립된 비영리 단체입니다.\n\n이름처럼 — Happy Village Together —\n함께 더 나은 마을을 만들어가는 것이 우리의 시작입니다."
     },
     "mission": {
