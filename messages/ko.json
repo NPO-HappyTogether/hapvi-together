@@ -1,0 +1,163 @@
+{
+  "Header": {
+    "tagline": "For a Better Village",
+    "nav": {
+      "home": "홈",
+      "services": "서비스",
+      "about": "소개",
+      "contact": "문의"
+    }
+  },
+  "Footer": {
+    "description": "캘리포니아 주 등록 501(c)(3) 비영리 단체 | 모든 서비스는 무료입니다.",
+    "email": "이메일",
+    "hours": "운영시간: 월–금 오전 9시 ~ 오후 5시 (태평양 표준시)"
+  },
+  "Home": {
+    "hero": {
+      "titleLine1": "미국 주거 지원,",
+      "titleLine2": "한국어로 함께합니다.",
+      "description": "LA에 사시는 한인 가정을 위해 주거 연결, 정부 혜택 신청, 지역 자원을 무료로 안내해드립니다.",
+      "ctaPrimary": "무료 상담 신청하기",
+      "ctaSecondary": "서비스 알아보기"
+    },
+    "problem": {
+      "titleLine1": "받을 수 있는 혜택인데,",
+      "titleLine2": "몰라서 못 받고 계신 건 아닌가요?",
+      "description": "미국에는 저소득 가정을 위한 주거 지원과 생활 혜택 프로그램이 많습니다. 하지만 영어 서류, 복잡한 절차, 어디서 시작해야 할지 몰라 지나치는 경우가 많습니다.",
+      "highlight": "HapVi Together는 그 과정을 한국어로 처음부터 끝까지 함께합니다."
+    },
+    "services": {
+      "title": "우리가 도와드리는 것들",
+      "learnMore": "자세히 보기 →",
+      "housing": {
+        "title": "주거 연결",
+        "description": "임대 주택·섹션8·공공 주거 프로그램 안내"
+      },
+      "benefits": {
+        "title": "정부 혜택 신청",
+        "description": "정부 혜택 자격 확인 및 신청 동행"
+      },
+      "community": {
+        "title": "지역 자원 연결",
+        "description": "커뮤니티 기관 및 긴급 지원 연결"
+      }
+    },
+    "quote": "모든 한인 가정이 이 땅에서 안정된 집을 갖고, 마땅히 받아야 할 혜택을 누릴 수 있는 커뮤니티.",
+    "finalCta": {
+      "title": "지금 도움이 필요하신가요?",
+      "description": "어디서 시작해야 할지 몰라도 괜찮습니다. 먼저 연락해주시면 함께 방법을 찾겠습니다.",
+      "free": "모든 서비스는 무료입니다.",
+      "button": "무료 상담 신청하기"
+    }
+  },
+  "Services": {
+    "hero": {
+      "title": "HapVi Together가 도와드리는 것들",
+      "descriptionLine1": "복잡한 미국 주거·복지 절차를 한국어로 처음부터 끝까지 함께합니다.",
+      "descriptionLine2": "비용은 없습니다."
+    },
+    "service1": {
+      "badge": "서비스 01",
+      "title": "주거 연결 및 매칭",
+      "description": "저렴한 임대 주택을 찾고 계신가요?\n섹션8(Section 8) 대기 리스트 신청이 필요하신가요?\n현재 주거 상황이 불안정하신가요?\n\n가족 상황에 맞는 주거 옵션을 함께 찾고, 신청 과정을 직접 안내해드립니다.",
+      "forWhoTitle": "이런 분께 해당됩니다",
+      "points": [
+        "LA에서 저렴한 임대 주택을 찾고 계신 분",
+        "섹션8 또는 HUD 프로그램 신청을 원하시는 분",
+        "주거가 불안정하거나 퇴거 위기에 처하신 분",
+        "공공 주거(Public Housing) 정보가 필요하신 분"
+      ]
+    },
+    "service2": {
+      "badge": "서비스 02",
+      "title": "정부 혜택 신청 지원",
+      "description": "자격이 있어도 신청하지 못하는 경우가 많습니다.\n어떤 혜택을 받을 수 있는지 확인부터,\n서류 준비와 제출까지 한국어로 함께 진행합니다.",
+      "programsTitle": "지원 가능한 주요 프로그램",
+      "programs": [
+        "섹션8 (Section 8 / Housing Choice Voucher)",
+        "긴급 주거 지원 (General Relief 등)"
+      ]
+    },
+    "apply": "상담 신청하기",
+    "illustration": "이미지/아이콘 일러스트",
+    "comingSoon": {
+      "badge": "준비 중 · Coming 2026",
+      "title": "온라인 혜택 신청 플랫폼",
+      "description": "주거 탐색부터 정부 혜택 신청까지 한 곳에서 할 수 있는\n한국어 온라인 플랫폼을 준비 중입니다.\n출시 소식을 가장 먼저 받아보세요.",
+      "placeholder": "이메일 주소",
+      "button": "출시 알림 신청하기"
+    }
+  },
+  "About": {
+    "hero": {
+      "title": "이 커뮤니티 안에서 시작되었습니다.",
+      "description": "미국에는 저소득 가정을 위한 다양한 주거 지원과 복지 프로그램이 있습니다.\n하지만 영어 장벽, 복잡한 절차, 어디서 물어봐야 할지 모르는 상황 때문에\n많은 한인 가정이 마땅히 받아야 할 혜택을 받지 못하고 있습니다.\n\nHapVi Together는 그 간격을 채우기 위해\nLA 한인 커뮤니티 안에서 설립된 비영리 단체입니다.\n\n이름처럼 — Happy Village Together —\n함께 더 나은 마을을 만들어가는 것이 우리의 시작입니다."
+    },
+    "mission": {
+      "label": "미션",
+      "textLine1": "LA 한인 가정이 언어와 정보의 장벽 없이",
+      "textLine2": "미국의 주거 지원과 정부 혜택을 온전히 누릴 수 있도록 함께합니다."
+    },
+    "vision": {
+      "label": "비전",
+      "textLine1": "모든 한인 가정이 안정된 집에서 시작해,",
+      "textLine2": "이 땅에서 다음 세대를 위한 삶을 만들어갈 수 있는 커뮤니티."
+    },
+    "work": {
+      "title": "우리가 일하는 방식",
+      "accompany": {
+        "title": "동행",
+        "description": "대신 해주는 것이 아닌, 옆에서 함께하는 방식으로 일합니다."
+      },
+      "accessibility": {
+        "title": "접근성",
+        "description": "언어·비용·신분의 장벽 없이 누구나 도움을 받을 수 있어야 합니다."
+      },
+      "community": {
+        "title": "커뮤니티",
+        "description": "우리 안에서, 우리를 위해 존재합니다."
+      }
+    },
+    "footerLine1": "HapVi Together는 캘리포니아 주 등록 501(c)(3) 비영리 단체입니다.",
+    "footerLine2": "모든 서비스는 무료로 제공됩니다."
+  },
+  "Contact": {
+    "hero": {
+      "title": "언제든지 연락해주세요.",
+      "description": "어디서부터 시작해야 할지 몰라도 괜찮습니다.\n지금 상황을 간단히 알려주시면, 함께 방법을 찾아드립니다."
+    },
+    "form": {
+      "name": {
+        "label": "이름",
+        "placeholder": "홍길동"
+      },
+      "contact": {
+        "label": "연락처 (전화번호 또는 이메일)",
+        "placeholder": "000-000-0000 또는 email@example.com"
+      },
+      "helpType": {
+        "legend": "필요한 도움을 선택해주세요",
+        "housing": "주거 연결",
+        "benefits": "정부 혜택 신청",
+        "unknown": "잘 모르겠음"
+      },
+      "message": {
+        "label": "상황을 간략히 알려주세요 (선택)",
+        "placeholder": "현재 상황을 자유롭게 적어주세요."
+      },
+      "submit": "상담 신청하기",
+      "success": "감사합니다! 빠른 시일 내에 연락드리겠습니다."
+    },
+    "info": {
+      "title": "연락처 정보",
+      "email": "이메일",
+      "hoursLabel": "운영시간",
+      "hoursValue": "월–금 오전 9시 ~ 오후 5시 (PT)"
+    },
+    "bottom": {
+      "free": "모든 상담은 무료이며 비밀이 보장됩니다.",
+      "safe": "체류 신분이나 서류 상태에 관계없이 도와드립니다."
+    }
+  }
+}

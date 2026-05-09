@@ -9,9 +9,9 @@ const config: Config = {
     extend: {
       colors: {
         hapvi: {
-          primary: "#1D9E75",
-          dark: "#0F6E56",
-          light: "#E1F5EE",
+          primary: "#5D1818",
+          dark: "#3D0A0A",
+          light: "#F5E8E8",
         },
       },
     },
