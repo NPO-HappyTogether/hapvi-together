@@ -5,8 +5,24 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: #ffffff;
-  color: #1f2937;
+  background: var(--hapvi-page-bg);
+  color: var(--hapvi-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #f5e8e8;
+  color: #3d0a0a;
+}
+
+:root {
+  --hapvi-page-bg: #fffbf7;
+  --hapvi-text: #2c2825;
 }

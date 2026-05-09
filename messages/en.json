@@ -8,6 +8,10 @@
       "contact": "Contact"
     }
   },
+  "FloatingDonate": {
+    "label": "DONATE",
+    "ariaLabel": "Donate to HapVi Together on Zeffy (opens in a new tab)"
+  },
   "Footer": {
     "description": "California-registered 501(c)(3) nonprofit | All services are free.",
     "email": "Email",
@@ -86,7 +90,12 @@
       "title": "Online Benefits Application Platform",
       "description": "We are building a Korean-language online platform\nfor both housing search and benefits applications in one place.\nBe the first to hear when it launches.",
       "placeholder": "Email address",
-      "button": "Notify Me at Launch"
+      "button": "Notify Me at Launch",
+      "submitting": "Sending…",
+      "submitSuccess": "Thank you. We will email you as soon as the platform launches.",
+      "errorInvalid": "Please enter a valid email address.",
+      "errorDelivery": "We could not save your signup right now. Please try again soon or email info@hapvi.org.",
+      "errorNetwork": "Something went wrong with your connection. Check your network and try again."
     }
   },
   "About": {
@@ -147,7 +156,10 @@
         "placeholder": "Please share your current situation."
       },
       "submit": "Submit Consultation Request",
-      "success": "Thank you! We will contact you as soon as possible."
+      "submitting": "Sending…",
+      "success": "Thank you! We will contact you as soon as possible.",
+      "helpRequired": "Please select at least one type of help you need.",
+      "errorDelivery": "We couldn't send your request. Please try again shortly or email info@hapvi.org directly."
     },
     "info": {
       "title": "Contact Information",

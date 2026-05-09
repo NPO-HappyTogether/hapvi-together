@@ -1,4 +1,6 @@
+import {StockPhoto} from "@/components/StockPhoto";
 import {Link} from "@/i18n/navigation";
+import {STOCK_PHOTOS} from "@/lib/stock-photos";
 import {CheckCircle2, Circle} from "lucide-react";
 import {useTranslations} from "next-intl";
 
@@ -6,89 +8,141 @@ export default function ServicesPage() {
   const t = useTranslations("Services");
 
   return (
-    <div className="bg-white">
-      <section className="mx-auto w-full max-w-3xl px-4 pb-12 pt-24 text-center">
-        <h1 className="text-4xl font-bold text-gray-900">{t("hero.title")}</h1>
-        <p className="mt-6 text-xl text-gray-600">
-          {t("hero.descriptionLine1")}
-          <br />
-          {t("hero.descriptionLine2")}
-        </p>
+    <div className="bg-hapvi-light">
+      {/* 히어로 스플릿 — 참고 5 */}
+      <section className="grid min-h-[min(560px,88vh)] md:grid-cols-2">
+        <div className="flex flex-col justify-center bg-hapvi-primary px-8 pb-14 pt-28 text-white md:px-14 lg:px-20 lg:pb-20 lg:pt-36">
+          <h1 className="max-w-xl text-3xl font-semibold leading-[1.15] tracking-tight md:text-4xl lg:text-[2.75rem]">
+            {t("hero.title")}
+          </h1>
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/88">{t("hero.descriptionLine1")}</p>
+          <p className="mt-3 max-w-xl text-lg leading-relaxed text-white/88">{t("hero.descriptionLine2")}</p>
+        </div>
+        <div className="relative min-h-[220px] md:min-h-full">
+          <StockPhoto
+            src={STOCK_PHOTOS.servicesCity}
+            alt="도시와 건물이 보이는 전경"
+            className="absolute inset-0 min-h-[220px] md:min-h-full"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            overlayClassName="bg-gradient-to-br from-stone-900/45 via-hapvi-primary/40 to-hapvi-dark/55"
+          />
+        </div>
       </section>
 
-      <section className="mx-auto w-full max-w-6xl space-y-12 px-4 pb-20">
-        <article className="grid gap-8 rounded-3xl border border-gray-100 bg-white p-6 shadow-sm md:grid-cols-2 md:p-10">
-          <div>
-            <span className="inline-flex rounded-full bg-hapvi-light px-3 py-1 text-sm font-medium text-hapvi-dark">
+      {/* 서브 헤더 바 */}
+      <div className="bg-hapvi-dark px-5 py-3.5 text-white md:px-10">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 text-sm">
+          <span className="font-semibold tracking-tight">{t("hero.title")}</span>
+          <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-white/85" aria-label={t("hero.title")}>
+            <a
+              href="#service-01"
+              className="rounded transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-hapvi-dark"
+            >
+              {t("service1.badge")}
+            </a>
+            <span className="hidden text-white/40 sm:inline" aria-hidden>
+              ·
+            </span>
+            <a
+              href="#service-02"
+              className="rounded transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-hapvi-dark"
+            >
+              {t("service2.badge")}
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      {/* 카드 리스트 — 참고 5 */}
+      <section className="mx-auto w-full max-w-6xl space-y-10 px-5 py-14 md:space-y-12 md:px-8 md:py-20">
+        <article
+          id="service-01"
+          className="scroll-mt-28 overflow-hidden rounded-xl bg-white shadow-card md:grid md:grid-cols-2 md:rounded-2xl"
+        >
+          <div className="relative min-h-[240px] md:min-h-full">
+            <StockPhoto
+              src={STOCK_PHOTOS.housingKeys}
+              alt="집 열쇠와 주거 상징"
+              className="absolute inset-0 min-h-[240px] md:min-h-full"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              overlayClassName="bg-gradient-to-t from-hapvi-dark/45 to-hapvi-primary/25"
+            />
+          </div>
+          <div className="flex flex-col justify-center p-8 md:p-10 lg:p-12">
+            <span className="inline-flex w-fit rounded border border-hapvi-primary/25 bg-hapvi-light px-3 py-1 text-xs font-semibold uppercase tracking-wide text-hapvi-dark">
               {t("service1.badge")}
             </span>
-            <h2 className="mt-4 text-3xl font-bold text-gray-900">{t("service1.title")}</h2>
-            <p className="mt-5 whitespace-pre-line text-lg leading-relaxed text-gray-700">
+            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-ink md:text-3xl">{t("service1.title")}</h2>
+            <p className="mt-6 whitespace-pre-line text-base leading-relaxed text-ink-muted md:text-lg">
               {t("service1.description")}
             </p>
 
-            <p className="mt-6 text-sm font-semibold text-hapvi-primary">{t("service1.forWhoTitle")}</p>
-            <ul className="mt-3 space-y-2 text-gray-700">
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 text-hapvi-primary" />
-                <span>{t("service1.points.0")}</span>
+            <p className="mt-8 text-sm font-semibold text-hapvi-primary">{t("service1.forWhoTitle")}</p>
+            <ul className="mt-4 space-y-3 text-ink-muted">
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-hapvi-primary" strokeWidth={2} />
+                <span className="leading-relaxed">{t("service1.points.0")}</span>
               </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 text-hapvi-primary" />
-                <span>{t("service1.points.1")}</span>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-hapvi-primary" strokeWidth={2} />
+                <span className="leading-relaxed">{t("service1.points.1")}</span>
               </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 text-hapvi-primary" />
-                <span>{t("service1.points.2")}</span>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-hapvi-primary" strokeWidth={2} />
+                <span className="leading-relaxed">{t("service1.points.2")}</span>
               </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 text-hapvi-primary" />
-                <span>{t("service1.points.3")}</span>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-hapvi-primary" strokeWidth={2} />
+                <span className="leading-relaxed">{t("service1.points.3")}</span>
               </li>
             </ul>
 
             <Link
               href="/contact"
-              className="mt-8 inline-block rounded-full bg-hapvi-primary px-6 py-3 text-base font-medium text-white transition hover:bg-hapvi-dark"
+              className="mt-10 inline-flex w-fit rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
             >
               {t("apply")}
             </Link>
           </div>
-          <div className="rounded-2xl bg-gradient-to-br from-hapvi-light to-white p-8 text-center text-gray-500">
-            {t("illustration")}
-          </div>
         </article>
 
-        <article className="grid gap-8 rounded-3xl border border-gray-100 bg-white p-6 shadow-sm md:grid-cols-2 md:p-10">
-          <div className="order-2 md:order-1 rounded-2xl bg-gradient-to-br from-hapvi-light to-white p-8 text-center text-gray-500">
-            {t("illustration")}
+        <article
+          id="service-02"
+          className="scroll-mt-28 overflow-hidden rounded-xl bg-white shadow-card md:grid md:grid-cols-2 md:rounded-2xl"
+        >
+          <div className="relative min-h-[240px] md:order-1 md:min-h-full">
+            <StockPhoto
+              src={STOCK_PHOTOS.benefitsDesk}
+              alt="문서와 신청 관련 업무 공간"
+              className="absolute inset-0 min-h-[240px] md:min-h-full"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              overlayClassName="bg-gradient-to-t from-hapvi-dark/40 to-stone-700/20"
+            />
           </div>
-          <div className="order-1 md:order-2">
-            <span className="inline-flex rounded-full bg-hapvi-light px-3 py-1 text-sm font-medium text-hapvi-dark">
+          <div className="flex flex-col justify-center p-8 md:order-2 md:p-10 lg:p-12">
+            <span className="inline-flex w-fit rounded border border-hapvi-primary/25 bg-hapvi-light px-3 py-1 text-xs font-semibold uppercase tracking-wide text-hapvi-dark">
               {t("service2.badge")}
             </span>
-            <h2 className="mt-4 text-3xl font-bold text-gray-900">{t("service2.title")}</h2>
-            <p className="mt-5 whitespace-pre-line text-lg leading-relaxed text-gray-700">
+            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-ink md:text-3xl">{t("service2.title")}</h2>
+            <p className="mt-6 whitespace-pre-line text-base leading-relaxed text-ink-muted md:text-lg">
               {t("service2.description")}
             </p>
 
-            <p className="mt-6 text-sm font-semibold text-hapvi-primary">
-              {t("service2.programsTitle")}
-            </p>
-            <ul className="mt-3 space-y-2 text-gray-800">
-              <li className="flex items-start gap-2 font-medium">
-                <Circle className="mt-1 h-3.5 w-3.5 fill-current text-hapvi-primary" />
-                <span>{t("service2.programs.0")}</span>
+            <p className="mt-8 text-sm font-semibold text-hapvi-primary">{t("service2.programsTitle")}</p>
+            <ul className="mt-4 space-y-3 text-ink">
+              <li className="flex items-start gap-3 font-medium">
+                <Circle className="mt-1.5 h-2 w-2 shrink-0 fill-hapvi-primary text-hapvi-primary" />
+                <span className="leading-relaxed">{t("service2.programs.0")}</span>
               </li>
-              <li className="flex items-start gap-2 font-medium">
-                <Circle className="mt-1 h-3.5 w-3.5 fill-current text-hapvi-primary" />
-                <span>{t("service2.programs.1")}</span>
+              <li className="flex items-start gap-3 font-medium">
+                <Circle className="mt-1.5 h-2 w-2 shrink-0 fill-hapvi-primary text-hapvi-primary" />
+                <span className="leading-relaxed">{t("service2.programs.1")}</span>
               </li>
             </ul>
 
             <Link
               href="/contact"
-              className="mt-8 inline-block rounded-full bg-hapvi-primary px-6 py-3 text-base font-medium text-white transition hover:bg-hapvi-dark"
+              className="mt-10 inline-flex w-fit rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
             >
               {t("apply")}
             </Link>
@@ -96,23 +150,25 @@ export default function ServicesPage() {
         </article>
       </section>
 
-      <section className="px-4 pb-24">
-        <div className="mx-auto w-full max-w-2xl rounded-3xl border-2 border-dashed border-[#d9cdb2] bg-[#F1EFE8] p-8 text-center">
-          <span className="inline-flex rounded-full bg-[#FAEEDA] px-3 py-1 text-sm font-medium text-[#854F0B]">
+      <section className="border-t border-stone-200/80 bg-cream-muted px-5 py-16 md:px-8 md:py-20">
+        <div className="mx-auto w-full max-w-2xl rounded-2xl border border-hapvi-primary/10 bg-white p-8 text-center shadow-soft md:p-10">
+          <span className="inline-flex rounded-md border border-hapvi-primary/20 bg-hapvi-light px-3 py-1 text-xs font-semibold uppercase tracking-wide text-hapvi-dark">
             {t("comingSoon.badge")}
           </span>
-          <h2 className="mt-4 text-2xl font-bold text-gray-900">{t("comingSoon.title")}</h2>
-          <p className="mt-4 whitespace-pre-line text-lg text-gray-700">{t("comingSoon.description")}</p>
+          <h2 className="mt-5 text-xl font-semibold tracking-tight text-ink md:text-2xl">{t("comingSoon.title")}</h2>
+          <p className="mx-auto mt-5 max-w-lg whitespace-pre-line text-base leading-relaxed text-ink-muted md:text-lg">
+            {t("comingSoon.description")}
+          </p>
 
-          <form className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <form className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <input
               type="email"
               placeholder={t("comingSoon.placeholder")}
-              className="w-full rounded-full border border-gray-300 bg-white px-4 py-3 text-sm outline-none ring-hapvi-primary placeholder:text-gray-400 focus:ring-2"
+              className="w-full rounded-lg border border-stone-200 bg-cream px-4 py-3 text-sm text-ink outline-none ring-hapvi-primary/20 placeholder:text-ink-subtle focus:border-hapvi-primary/40 focus:ring-2 sm:max-w-xs"
             />
             <button
               type="submit"
-              className="rounded-full border border-hapvi-primary px-5 py-3 text-sm font-medium text-hapvi-primary transition hover:bg-hapvi-light"
+              className="rounded-lg border border-hapvi-primary bg-white px-6 py-3 text-sm font-semibold text-hapvi-primary shadow-sm transition hover:bg-hapvi-light"
             >
               {t("comingSoon.button")}
             </button>

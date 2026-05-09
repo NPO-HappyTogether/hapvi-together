@@ -1,21 +1,54 @@
+import Image from "next/image";
 import {useTranslations} from "next-intl";
+import {FooterWaitlistForm} from "@/components/FooterWaitlistForm";
+import {Link} from "@/i18n/navigation";
 
 export function Footer() {
   const t = useTranslations("Footer");
+  const th = useTranslations("Header");
+  const ts = useTranslations("Services");
 
   return (
-    <footer className="border-t border-gray-100 bg-white">
-      <div className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6">
-        <h2 className="text-xl font-bold text-hapvi-dark">HapVi Together</h2>
-        <p className="mt-3 text-sm text-gray-700">{t("description")}</p>
-
-        <div className="mt-6 space-y-2 text-sm text-gray-700">
-          <p>{t("email")}: info@hapvi.org</p>
-          <p>{t("hours")}</p>
+    <footer className="bg-hapvi-dark text-white">
+      <div className="mx-auto w-full max-w-6xl px-5 py-16 md:px-8 md:py-20">
+        <div className="mx-auto max-w-xl text-center">
+          <h2 className="text-xl font-semibold tracking-tight md:text-2xl">{ts("comingSoon.title")}</h2>
+          <p className="mt-4 whitespace-pre-line text-sm leading-relaxed text-white/75 md:text-base">
+            {ts("comingSoon.description")}
+          </p>
+          <FooterWaitlistForm />
         </div>
 
-        <p className="mt-8 text-xs text-gray-500">
-          © 2025 HapVi Together. All rights reserved.
+        <div className="mt-14 flex flex-col gap-10 border-t border-white/15 pt-12 md:flex-row md:items-start md:justify-between md:gap-16">
+          <div className="max-w-md">
+            <Link href="/" className="group inline-flex items-center gap-3 md:gap-4">
+              <Image
+                src="/img/Logo%20White.png"
+                alt=""
+                width={503}
+                height={503}
+                aria-hidden
+                className="h-11 w-11 shrink-0 object-contain md:h-12 md:w-12"
+              />
+              <span className="flex min-w-0 flex-col gap-0.5 text-left leading-tight">
+                <span className="text-[1.05rem] font-semibold tracking-tight text-white transition group-hover:text-hapvi-light md:text-lg">
+                  HapVi Together
+                </span>
+                <span className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-white/70 md:text-xs md:tracking-[0.18em]">
+                  {th("tagline")}
+                </span>
+              </span>
+            </Link>
+            <p className="mt-4 text-sm leading-relaxed text-white/75">{t("description")}</p>
+          </div>
+          <div className="space-y-3 text-sm text-white/80">
+            <p className="font-medium text-white">{t("email")}: info@hapvi.org</p>
+            <p className="leading-relaxed">{t("hours")}</p>
+          </div>
+        </div>
+
+        <p className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-white/45">
+          © 2026 HapVi Together. All rights reserved.
         </p>
       </div>
     </footer>

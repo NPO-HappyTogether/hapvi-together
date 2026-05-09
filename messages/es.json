@@ -8,6 +8,10 @@
       "contact": "Contacto"
     }
   },
+  "FloatingDonate": {
+    "label": "DONAR",
+    "ariaLabel": "Donar a HapVi Together en Zeffy (se abre en una pestaña nueva)"
+  },
   "Footer": {
     "description": "Organizacion sin fines de lucro 501(c)(3) registrada en California | Todos los servicios son gratuitos.",
     "email": "Correo",
@@ -86,7 +90,12 @@
       "title": "Plataforma en Linea para Solicitud de Beneficios",
       "description": "Estamos preparando una plataforma en coreano\npara buscar vivienda y solicitar beneficios en un solo lugar.\nRecibe primero la noticia del lanzamiento.",
       "placeholder": "Correo electronico",
-      "button": "Avisarme del Lanzamiento"
+      "button": "Avisarme del Lanzamiento",
+      "submitting": "Enviando…",
+      "submitSuccess": "Gracias. Te avisaremos por correo cuando lancemos la plataforma.",
+      "errorInvalid": "Introduce una direccion de correo valida.",
+      "errorDelivery": "No pudimos guardar tu registro ahora. Intenta de nuevo pronto o escribe a info@hapvi.org.",
+      "errorNetwork": "Hubo un problema de conexion. Comprueba tu red e intenta otra vez."
     }
   },
   "About": {
@@ -147,7 +156,10 @@
         "placeholder": "Comparte libremente tu situacion actual."
       },
       "submit": "Enviar Solicitud de Consulta",
-      "success": "Gracias. Nos pondremos en contacto contigo pronto."
+      "submitting": "Enviando…",
+      "success": "Gracias. Nos pondremos en contacto contigo pronto.",
+      "helpRequired": "Selecciona al menos un tipo de ayuda que necesites.",
+      "errorDelivery": "No pudimos enviar tu solicitud. Intenta de nuevo en un momento o escribe a info@hapvi.org."
     },
     "info": {
       "title": "Informacion de Contacto",
