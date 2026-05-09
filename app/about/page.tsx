@@ -2,12 +2,16 @@ import {StockPhoto} from "@/components/StockPhoto";
 import ko from "@/messages/ko.json";
 import {STOCK_PHOTOS} from "@/lib/stock-photos";
 import {Heart, Unlock, Users} from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
+const COMPASS_IMAGE = "/images/compass.png";
+
 const t = ko.About;
-const header = ko.Header;
 const services = ko.Services;
 const home = ko.Home;
+
+const introParagraphs = t.intro.paragraphs;
 
 export default function AboutPage() {
   return (
@@ -30,35 +34,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="grid border-y border-stone-200/80 md:min-h-[520px] md:grid-cols-[minmax(4rem,5.5rem)_minmax(0,1fr)_minmax(3rem,4rem)]">
-        <div className="flex items-center justify-center bg-hapvi-light px-2 py-10 md:py-0">
-          <span className="text-xs font-bold uppercase tracking-[0.35em] text-hapvi-dark md:[writing-mode:vertical-rl]">
-            {header.nav.about}
-          </span>
-        </div>
-        <div className="bg-white px-8 py-14 md:px-14 lg:px-20 lg:py-20">
-          <p className="text-lg leading-relaxed text-ink-muted">
-            {t.mission.textLine1} {t.mission.textLine2}
-          </p>
-          <p className="mt-8 text-lg leading-relaxed text-ink-muted">
-            {t.vision.textLine1} {t.vision.textLine2}
-          </p>
-          <p className="mt-10">
-            <Link
-              href="/services"
-              className="text-base font-semibold text-hapvi-dark underline decoration-hapvi-primary/35 underline-offset-[6px] hover:text-hapvi-primary"
-            >
-              {home.services.learnMore}
-            </Link>
-          </p>
-        </div>
-        <div className="relative hidden bg-hapvi-primary md:block">
-          <Link
-            href="/contact"
-            className="absolute inset-y-8 right-3 flex w-11 items-center justify-center rounded-md border border-white/25 bg-white/10 text-xs font-bold uppercase tracking-[0.2em] text-white shadow-lg backdrop-blur-sm transition hover:bg-white/20 [writing-mode:vertical-rl]"
-          >
-            {services.apply}
-          </Link>
+      <section className="border-y border-stone-200/80 bg-cream">
+        <div className="mx-auto w-full max-w-6xl px-5 py-14 md:px-8 md:py-16 lg:py-20">
+          <div className="grid gap-12 md:grid-cols-[minmax(0,1fr)_minmax(200px,38%)] md:items-stretch md:gap-10 lg:gap-14">
+            <div className="min-w-0">
+              <div>
+                {introParagraphs.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className={`text-lg leading-snug text-ink-muted ${index === 1 ? "mt-2" : ""} ${index === 2 ? "mt-3" : ""} ${index === 3 ? "mt-2" : ""} ${index === 4 ? "mt-6" : ""} ${index === 5 ? "mt-2" : ""}`}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              <p className="mt-10">
+                <Link
+                  href="/services"
+                  className="text-base font-semibold text-hapvi-dark underline decoration-hapvi-primary/35 underline-offset-[6px] hover:text-hapvi-primary"
+                >
+                  {home.services.learnMore}
+                </Link>
+              </p>
+              <div className="mt-6">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
+                >
+                  {services.apply}
+                </Link>
+              </div>
+            </div>
+            <div className="flex min-h-[200px] items-end justify-center md:min-h-0 md:justify-end md:pb-2 lg:pb-4">
+              <Image
+                src={COMPASS_IMAGE}
+                alt=""
+                width={520}
+                height={520}
+                className="h-auto w-full max-w-[220px] object-contain md:max-w-[260px] lg:max-w-[300px]"
+                sizes="(max-width: 768px) 220px, 300px"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -74,11 +91,10 @@ export default function AboutPage() {
         </div>
         <div className="flex flex-col justify-center bg-hapvi-primary px-8 py-14 text-white md:px-14 lg:px-20 lg:py-20">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-hapvi-light">{t.mission.label}</p>
-          <p className="mt-6 text-xl font-medium leading-relaxed md:text-[1.35rem]">
-            {t.mission.textLine1}
-            <br />
-            {t.mission.textLine2}
-          </p>
+          <div className="mt-6 space-y-4 text-xl font-medium leading-relaxed md:text-[1.35rem]">
+            <p>{introParagraphs[0]}</p>
+            <p>{introParagraphs[1]}</p>
+          </div>
         </div>
       </section>
 
@@ -86,19 +102,19 @@ export default function AboutPage() {
         <div className="grid gap-6 md:grid-cols-2 md:gap-10">
           <article className="rounded-xl border border-stone-100 bg-white p-8 shadow-card md:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-hapvi-primary">{t.mission.label}</p>
-            <p className="mt-5 text-xl font-medium leading-relaxed text-ink md:text-[1.35rem]">
-              {t.mission.textLine1}
-              <br />
-              {t.mission.textLine2}
-            </p>
+            <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink md:text-[1.35rem]">
+              {introParagraphs.slice(0, 3).map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
           </article>
           <article className="rounded-xl border border-stone-100 bg-white p-8 shadow-card md:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-hapvi-primary">{t.vision.label}</p>
-            <p className="mt-5 text-xl font-medium leading-relaxed text-ink md:text-[1.35rem]">
-              {t.vision.textLine1}
-              <br />
-              {t.vision.textLine2}
-            </p>
+            <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink md:text-[1.35rem]">
+              {introParagraphs.slice(3).map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
           </article>
         </div>
 
@@ -123,7 +139,7 @@ export default function AboutPage() {
               <Heart className="h-6 w-6" strokeWidth={2} />
             </span>
             <h3 className="mt-6 text-lg font-semibold tracking-tight text-ink">{t.work.community.title}</h3>
-            <p className="mt-3 leading-relaxed text-ink-muted">{t.work.community.description}</p>
+            <p className="mt-3 whitespace-pre-line leading-relaxed text-ink-muted">{t.work.community.description}</p>
           </article>
         </div>
       </section>
@@ -133,11 +149,6 @@ export default function AboutPage() {
         <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ink-muted">{t.footerLine2}</p>
       </section>
 
-      <div className="flex justify-center py-6 md:hidden">
-        <Link href="/contact" className="rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white shadow-soft">
-          {services.apply}
-        </Link>
-      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import {Heart} from "lucide-react";
+import {usePathname} from "next/navigation";
 import {useEffect, useState} from "react";
 
 const ZEFFY_DONATION_URL =
@@ -110,6 +111,7 @@ function sampleIsLightSurfaceBehindContent(): boolean {
 
 /** 모든 페이지 왼쪽에 고정 — HERoines식 세로 탭 */
 export function FloatingDonateTab({label, ariaLabel}: FloatingDonateTabProps) {
+  const pathname = usePathname();
   const [lightSurface, setLightSurface] = useState(false);
 
   useEffect(() => {
@@ -134,6 +136,10 @@ export function FloatingDonateTab({label, ariaLabel}: FloatingDonateTabProps) {
       window.removeEventListener("resize", schedule);
     };
   }, []);
+
+  if (pathname === "/about") {
+    return null;
+  }
 
   const tone = lightSurface ? "light" : "dark";
 

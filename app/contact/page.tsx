@@ -8,8 +8,9 @@ import {useState} from "react";
 
 const t = ko.Contact;
 
-const inputClass =
-  "w-full rounded-md border border-white/35 bg-transparent px-4 py-3 text-white outline-none ring-white/15 placeholder:text-white/45 focus:border-hapvi-light focus:ring-2";
+/** 이름·연락처·상황 — 흰 입력 칸 */
+const inputFilledClass =
+  "w-full rounded-md border border-stone-300 bg-white px-4 py-3 text-ink outline-none placeholder:text-ink-subtle focus:border-hapvi-primary focus:ring-2 focus:ring-hapvi-primary/25";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -63,7 +64,12 @@ export default function ContactPage() {
               const name = String(fd.get("name") ?? "").trim();
               const contact = String(fd.get("contact") ?? "").trim();
               const message = String(fd.get("message") ?? "").trim();
-              const helpTypes = fd.getAll("helpType").filter((v): v is string => typeof v === "string");
+              const helpChoice = fd.get("helpType");
+              const helpTypes =
+                typeof helpChoice === "string" &&
+                (helpChoice === "housing" || helpChoice === "benefits" || helpChoice === "unknown")
+                  ? [helpChoice]
+                  : [];
 
               if (helpTypes.length === 0) {
                 setFormError("help");
@@ -91,79 +97,75 @@ export default function ContactPage() {
               }
             }}
           >
-            <div>
-              <label htmlFor="name" className="mb-2 block text-sm font-semibold text-white">
-                {t.form.name.label}
-              </label>
+            <fieldset className="rounded-md border border-white/35 bg-white/[0.06] p-4 pt-3">
+              <legend className="px-1 text-sm font-semibold text-white">{t.form.name.label}</legend>
               <input
                 id="name"
                 name="name"
                 type="text"
                 placeholder={t.form.name.placeholder}
                 required
-                className={inputClass}
+                autoComplete="name"
+                className={`${inputFilledClass} mt-3`}
               />
-            </div>
+            </fieldset>
 
-            <div>
-              <label htmlFor="contact" className="mb-2 block text-sm font-semibold text-white">
-                {t.form.contact.label}
-              </label>
+            <fieldset className="rounded-md border border-white/35 bg-white/[0.06] p-4 pt-3">
+              <legend className="px-1 text-sm font-semibold text-white">{t.form.contact.label}</legend>
               <input
                 id="contact"
                 name="contact"
                 type="text"
                 placeholder={t.form.contact.placeholder}
                 required
-                className={inputClass}
+                className={`${inputFilledClass} mt-3`}
               />
-            </div>
+            </fieldset>
 
-            <fieldset className="rounded-md border border-white/20 bg-white/5 p-4">
-              <legend className="mb-3 px-1 text-sm font-semibold text-white">{t.form.helpType.legend}</legend>
-              <div className="space-y-3 text-sm text-white/90">
-                <label className="flex cursor-pointer items-center gap-3 rounded px-1 py-1 transition hover:bg-white/10">
+            <fieldset className="rounded-md border border-white/35 bg-white/[0.06] p-4 pt-3">
+              <legend className="px-1 text-sm font-semibold text-white">{t.form.helpType.legend}</legend>
+              <div className="mt-3 space-y-2.5 text-sm text-white/90">
+                <label className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 transition hover:bg-white/10">
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="helpType"
                     value="housing"
-                    className="size-4 rounded border-white/40 bg-transparent text-hapvi-light focus:ring-hapvi-light/40"
+                    required
+                    className="size-4 shrink-0 border-white/45 bg-transparent accent-hapvi-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hapvi-light/50"
                   />
                   <span>{t.form.helpType.housing}</span>
                 </label>
-                <label className="flex cursor-pointer items-center gap-3 rounded px-1 py-1 transition hover:bg-white/10">
+                <label className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 transition hover:bg-white/10">
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="helpType"
                     value="benefits"
-                    className="size-4 rounded border-white/40 bg-transparent text-hapvi-light focus:ring-hapvi-light/40"
+                    className="size-4 shrink-0 border-white/45 bg-transparent accent-hapvi-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hapvi-light/50"
                   />
                   <span>{t.form.helpType.benefits}</span>
                 </label>
-                <label className="flex cursor-pointer items-center gap-3 rounded px-1 py-1 transition hover:bg-white/10">
+                <label className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 transition hover:bg-white/10">
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="helpType"
                     value="unknown"
-                    className="size-4 rounded border-white/40 bg-transparent text-hapvi-light focus:ring-hapvi-light/40"
+                    className="size-4 shrink-0 border-white/45 bg-transparent accent-hapvi-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hapvi-light/50"
                   />
                   <span>{t.form.helpType.unknown}</span>
                 </label>
               </div>
             </fieldset>
 
-            <div>
-              <label htmlFor="message" className="mb-2 block text-sm font-semibold text-white">
-                {t.form.message.label}
-              </label>
+            <fieldset className="rounded-md border border-white/35 bg-white/[0.06] p-4 pt-3">
+              <legend className="px-1 text-sm font-semibold text-white">{t.form.message.label}</legend>
               <textarea
                 id="message"
                 name="message"
                 rows={4}
                 placeholder={t.form.message.placeholder}
-                className={`${inputClass} resize-y`}
+                className={`${inputFilledClass} mt-3 resize-y`}
               />
-            </div>
+            </fieldset>
 
             <button
               type="submit"
