@@ -6,7 +6,12 @@
       "services": "서비스",
       "about": "소개",
       "contact": "문의"
-    }
+    },
+    "menuOpen": "메뉴 열기",
+    "langSwitcherLabel": "언어 선택",
+    "langKo": "한국어",
+    "langEn": "English",
+    "langEs": "Español"
   },
   "FloatingDonate": {
     "label": "기부",
@@ -178,5 +183,16 @@
       "free": "모든 상담은 무료이며 비밀이 보장됩니다.",
       "safe": "체류 신분이나 서류 상태에 관계없이 도와드립니다."
     }
+  },
+  "StockPhotoAlts": {
+    "homeHero": "따뜻한 주거 공간을 연상시키는 실내 풍경",
+    "homeMissionSupport": "상담과 지원을 나누는 장면",
+    "homeTestimonialGroup": "함께 모여 대화하는 사람들",
+    "servicesCity": "도시와 건물이 보이는 전경",
+    "housingKeys": "집 열쇠와 주거 상징",
+    "benefitsDesk": "문서와 신청 관련 업무 공간",
+    "aboutMeeting": "비영리 단체 회의와 협업 장면",
+    "aboutCommunity": "지역 공동체와 봉사 활동",
+    "contactOffice": "연락과 상담을 위한 업무 공간"
   }
 }

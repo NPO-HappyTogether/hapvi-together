@@ -1,6 +1,7 @@
 "use client";
 
-import ko from "@/messages/ko.json";
+import {useLocale, type Locale} from "@/components/LocaleProvider";
+import {SITE_IMAGES} from "@/lib/site-images";
 import {Menu, X} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,9 +10,15 @@ import {useEffect, useState} from "react";
 
 const navItems = ["/", "/services", "/about", "/contact"] as const;
 
-const header = ko.Header;
+const localeOptions: {id: Locale; labelKey: "langKo" | "langEn" | "langEs"}[] = [
+  {id: "ko", labelKey: "langKo"},
+  {id: "en", labelKey: "langEn"},
+  {id: "es", labelKey: "langEs"},
+];
 
 export function Header() {
+  const {locale, setLocale, messages} = useLocale();
+  const header = messages.Header;
   const [isOpen, setIsOpen] = useState(false);
   const [solid, setSolid] = useState(false);
   const pathname = usePathname();
@@ -63,7 +70,7 @@ export function Header() {
     transparentMode && !solid ? "drop-shadow-[0_2px_14px_rgba(0,0,0,0.45)]" : "";
 
   const logoOnDarkBackdrop = transparentMode && !solid;
-  const logoSrc = logoOnDarkBackdrop ? "/img/Logo%20White.png" : "/img/hapvi-logo.png";
+  const logoSrc = logoOnDarkBackdrop ? SITE_IMAGES.logos.white : SITE_IMAGES.logos.primary;
 
   const mobileToggleClass =
     transparentMode && !solid ? "text-white hover:bg-white/10" : "text-ink-muted hover:bg-white hover:text-hapvi-dark";
@@ -73,6 +80,14 @@ export function Header() {
 
   const mobileNavLinkClass =
     transparentMode && !solid ? "text-white/90 hover:bg-white/10 hover:text-white" : "text-ink-muted hover:bg-white hover:text-hapvi-dark";
+
+  const langBtnClass =
+    transparentMode && !solid
+      ? "border-white/35 text-white/90 hover:border-white/55 hover:bg-white/10 hover:text-white"
+      : "border-stone-200 text-ink-muted hover:border-hapvi-primary/35 hover:text-hapvi-dark";
+
+  /** 현재 언어가 아닌 나머지 두 언어만 표시 */
+  const alternateLocaleButtons = localeOptions.filter((opt) => opt.id !== locale);
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${glass}`}>
@@ -102,19 +117,39 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-10 md:flex">
-          {navItems.map((href) => (
-            <Link key={href} href={href} className={`text-[0.9375rem] font-medium transition ${navLinkClass}`}>
-              {labels[href]}
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden items-center gap-8 md:flex">
+          <nav className="flex items-center gap-10">
+            {navItems.map((href) => (
+              <Link key={href} href={href} className={`text-[0.9375rem] font-medium transition ${navLinkClass}`}>
+                {labels[href]}
+              </Link>
+            ))}
+          </nav>
+          <div
+            className={`flex items-center gap-1 border-l pl-8 opacity-95 ${
+              transparentMode && !solid ? "border-white/25" : "border-stone-200/90"
+            }`}
+            role="group"
+            aria-label={header.langSwitcherLabel}
+          >
+            {alternateLocaleButtons.map(({id, labelKey}) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => setLocale(id)}
+                className={`inline-flex h-8 w-[7.5rem] shrink-0 items-center justify-center rounded-md border text-center text-[0.72rem] font-semibold leading-none transition ${langBtnClass}`}
+              >
+                {header[labelKey]}
+              </button>
+            ))}
+          </div>
+        </div>
 
         <button
           type="button"
           className={`rounded-lg p-2 md:hidden ${mobileToggleClass}`}
           onClick={() => setIsOpen((prev) => !prev)}
-          aria-label="메뉴 열기"
+          aria-label={header.menuOpen}
         >
           {isOpen ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
         </button>
@@ -134,6 +169,25 @@ export function Header() {
               </Link>
             ))}
           </nav>
+          <div
+            className={`mt-5 flex flex-wrap gap-2 border-t pt-5 ${transparentMode && !solid ? "border-white/15" : "border-stone-200/80"}`}
+            role="group"
+            aria-label={header.langSwitcherLabel}
+          >
+            {alternateLocaleButtons.map(({id, labelKey}) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => {
+                  setLocale(id);
+                  setIsOpen(false);
+                }}
+                className={`inline-flex h-10 w-[7.5rem] shrink-0 items-center justify-center rounded-md border text-center text-xs font-semibold leading-none transition ${langBtnClass}`}
+              >
+                {header[labelKey]}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </header>

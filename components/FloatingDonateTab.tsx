@@ -1,16 +1,12 @@
 "use client";
 
+import {useLocale} from "@/components/LocaleProvider";
 import {Heart} from "lucide-react";
 import {usePathname} from "next/navigation";
 import {useEffect, useState} from "react";
 
 const ZEFFY_DONATION_URL =
   "https://www.zeffy.com/en-US/donation-form/hapvi-for-better-happy-villages";
-
-type FloatingDonateTabProps = {
-  label: string;
-  ariaLabel: string;
-};
 
 /** rgba/rgb 문자열 → 채널 (실패 시 null) */
 function parseRgb(cssColor: string): [number, number, number, number] | null {
@@ -110,7 +106,9 @@ function sampleIsLightSurfaceBehindContent(): boolean {
 }
 
 /** 모든 페이지 왼쪽에 고정 — HERoines식 세로 탭 */
-export function FloatingDonateTab({label, ariaLabel}: FloatingDonateTabProps) {
+export function FloatingDonateTab() {
+  const {messages} = useLocale();
+  const {label, ariaLabel} = messages.FloatingDonate;
   const pathname = usePathname();
   const [lightSurface, setLightSurface] = useState(false);
 

@@ -1,0 +1,198 @@
+{
+  "Header": {
+    "tagline": "For a Better Village",
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "menuOpen": "Open menu",
+    "langSwitcherLabel": "Choose language",
+    "langKo": "한국어",
+    "langEn": "English",
+    "langEs": "Español"
+  },
+  "FloatingDonate": {
+    "label": "Donate",
+    "ariaLabel": "Donate to HapVi Together on Zeffy (opens in a new tab)"
+  },
+  "Footer": {
+    "description": "HapVi Together is a tax-exempt nonprofit under Section 501(c)(3) of the U.S. Internal Revenue Code and a corporation registered in California. | All services are free.",
+    "email": "Email",
+    "hours": "Hours: Mon–Fri 9am–5pm Pacific Time"
+  },
+  "Home": {
+    "hero": {
+      "titleLine1": "U.S. housing help,",
+      "titleLine2": "in Korean with you.",
+      "description": "We guide Korean-American households in LA through housing connections, public benefit applications, and local resources—free of charge.",
+      "ctaPrimary": "Request a free consultation",
+      "ctaSecondary": "Explore services"
+    },
+    "problem": {
+      "titleLine1": "Benefits you may qualify for—",
+      "titleLine2": "are you missing them because no one explained how?",
+      "description": "The U.S. offers housing support and benefit programs for lower-income households. Yet paperwork in English, confusing steps, and not knowing where to start cause many families to leave aid unused.",
+      "highlight": "HapVi Together walks every step with you—from start to finish—in Korean."
+    },
+    "services": {
+      "title": "How we help",
+      "learnMore": "Learn more →",
+      "housing": {
+        "title": "Housing connections",
+        "description": "Affordable rentals, Section 8, and public housing programs"
+      },
+      "benefits": {
+        "title": "Benefit applications",
+        "description": "Eligibility checks and hands-on help filing for benefits"
+      },
+      "community": {
+        "title": "Local resources",
+        "description": "Community organizations and emergency assistance links"
+      }
+    },
+    "quote": "A community where every Korean-American household has stable housing and receives the benefits they deserve.",
+    "finalCta": {
+      "title": "Need help now?",
+      "description": "It’s okay if you don’t know where to begin. Reach out—we’ll find a path together.",
+      "free": "Every service is free.",
+      "button": "Request a free consultation"
+    }
+  },
+  "Services": {
+    "hero": {
+      "title": "What HapVi Together\nhelps you with",
+      "titleInline": "What HapVi Together helps you with",
+      "descriptionLine1": "We guide you through complex U.S. housing and benefits processes—in Korean, start to finish.",
+      "descriptionLine2": "There is no cost."
+    },
+    "service1": {
+      "badge": "Service 01",
+      "title": "Housing matching & guidance",
+      "description": "Looking for affordable rental housing?\nNeed to join the Section 8 waitlist?\nFacing unstable housing?\n\nWe help identify options that fit your family and walk you through applications.",
+      "forWhoTitle": "This may be for you if…",
+      "points": [
+        "You’re searching for affordable rental housing in LA",
+        "You want to apply for Section 8 or HUD programs",
+        "Your housing is unstable or you’re at risk of eviction",
+        "You need information about public housing"
+      ]
+    },
+    "service2": {
+      "badge": "Service 02",
+      "title": "Government benefit applications",
+      "description": "Many people qualify but never apply.\nFrom figuring out what you’re eligible for\nto paperwork and submissions—we support you in Korean.",
+      "programsTitle": "Programs we often help with",
+      "programs": [
+        "Section 8 (Housing Choice Voucher)",
+        "Emergency housing assistance (e.g., General Relief)"
+      ]
+    },
+    "apply": "Request a consultation",
+    "illustration": "Illustration",
+    "comingSoon": {
+      "badge": "Coming soon · 2026",
+      "title": "Online benefits platform",
+      "description": "We’re building a Korean-language platform where you can explore housing options and apply for benefits in one place.\nBe the first to hear when we launch.",
+      "placeholder": "Email address",
+      "button": "Notify me at launch",
+      "submitting": "Sending…",
+      "submitSuccess": "Thank you—we’ll share launch updates with you first.",
+      "errorInvalid": "Please enter a valid email address.",
+      "errorDelivery": "We can’t take sign-ups right now. Try again soon or email info@hapvi.org.",
+      "errorNetwork": "Connection issue. Check your network and try again."
+    }
+  },
+  "About": {
+    "hero": {
+      "title": "We began inside\nthis community.",
+      "description": "The United States offers many housing and social supports for lower-income families.\nYet language barriers, complicated processes, and not knowing whom to ask leave many Korean-American households without benefits they’re entitled to.\n\nHapVi Together was founded within the LA Korean community to close that gap.\n\nLike our name—Happy Village Together—\nbuilding a better village together is where we start."
+    },
+    "intro": {
+      "paragraphs": [
+        "HapVi blends “Happy” and “Village,” reflecting our vision of a village where everyone can thrive.",
+        "The name is more than words—it’s a promise toward a better tomorrow.",
+        "Change begins with each of us.",
+        "Through education, housing, and healthier environments, HapVi Together helps individuals and families live fuller lives.",
+        "Together, we can build a stronger village and a sustainable future.",
+        "Now—let’s build a happier village together."
+      ]
+    },
+    "mission": {
+      "label": "Mission"
+    },
+    "vision": {
+      "label": "Vision"
+    },
+    "work": {
+      "title": "How we work",
+      "accompany": {
+        "title": "Walking alongside",
+        "description": "We don’t do it for you—we stay beside you through the process."
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "Everyone deserves help without barriers of language, cost, or status."
+      },
+      "community": {
+        "title": "Community",
+        "description": "We exist within our community, for our community.\nLet’s build a happier village together."
+      }
+    },
+    "footerLine1": "HapVi Together is a tax-exempt nonprofit under Section 501(c)(3) of the U.S. Internal Revenue Code and a corporation registered in California.",
+    "footerLine2": "All services are provided free of charge."
+  },
+  "Contact": {
+    "hero": {
+      "title": "We’re glad you reached out.",
+      "description": "It’s fine if you don’t know where to start.\nShare a little about your situation—we’ll help find next steps together."
+    },
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Full name"
+      },
+      "contact": {
+        "label": "Phone or email",
+        "placeholder": "000-000-0000 or email@example.com"
+      },
+      "helpType": {
+        "legend": "What kind of help do you need?",
+        "housing": "Housing connection",
+        "benefits": "Government benefits",
+        "unknown": "Not sure yet"
+      },
+      "message": {
+        "label": "Briefly describe your situation (optional)",
+        "placeholder": "Tell us anything that helps us understand."
+      },
+      "submit": "Submit consultation request",
+      "submitting": "Sending…",
+      "success": "Thank you! We’ll get back to you shortly.",
+      "helpRequired": "Please choose one type of help.",
+      "errorDelivery": "We couldn’t send your message. Try again or email info@hapvi.org."
+    },
+    "info": {
+      "title": "Contact",
+      "email": "Email",
+      "hoursLabel": "Hours",
+      "hoursValue": "Mon–Fri 9am–5pm PT"
+    },
+    "bottom": {
+      "free": "Consultations are free and confidential.",
+      "safe": "We’re here to help regardless of immigration status or paperwork."
+    }
+  },
+  "StockPhotoAlts": {
+    "homeHero": "Warm interior suggesting comfortable housing",
+    "homeMissionSupport": "People sharing support and conversation",
+    "homeTestimonialGroup": "Group of people talking together",
+    "servicesCity": "City skyline with buildings",
+    "housingKeys": "House keys representing stable housing",
+    "benefitsDesk": "Desk with paperwork for applications",
+    "aboutMeeting": "Nonprofit team meeting and collaboration",
+    "aboutCommunity": "Community volunteering and neighborhood activity",
+    "contactOffice": "Office space for consultation and contact"
+  }
+}

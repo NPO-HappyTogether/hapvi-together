@@ -3,7 +3,14 @@ import {DM_Sans, Noto_Sans_KR} from "next/font/google";
 import {FloatingDonateTab} from "@/components/FloatingDonateTab";
 import {Footer} from "@/components/Footer";
 import {Header} from "@/components/Header";
-import ko from "@/messages/ko.json";
+import {LocaleProvider} from "@/components/LocaleProvider";
+import {
+  ROOT_TITLE,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_ORIGIN,
+  SITE_OG_IMAGE,
+} from "@/lib/seo";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -21,8 +28,28 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "HapVi Together",
-  description: "For a Better Village",
+  metadataBase: new URL(SITE_ORIGIN),
+  title: ROOT_TITLE,
+  description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
+  alternates: {
+    canonical: SITE_ORIGIN,
+  },
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    url: SITE_ORIGIN,
+    siteName: "HapVi Together",
+    title: ROOT_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [{url: SITE_OG_IMAGE}],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: ROOT_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [SITE_OG_IMAGE],
+  },
 };
 
 export default function RootLayout({
@@ -30,15 +57,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const donate = ko.FloatingDonate;
-
   return (
-    <html lang="ko" className={`${dmSans.variable} ${notoSansKr.variable}`}>
+    <html lang="ko" className={`${dmSans.variable} ${notoSansKr.variable}`} suppressHydrationWarning>
       <body className="flex min-h-screen flex-col font-sans">
-        <Header />
-        <FloatingDonateTab label={donate.label} ariaLabel={donate.ariaLabel} />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <LocaleProvider>
+          <Header />
+          <FloatingDonateTab />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </LocaleProvider>
       </body>
     </html>
   );

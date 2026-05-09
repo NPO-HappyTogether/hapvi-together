@@ -1,12 +1,12 @@
 "use client";
 
-import ko from "@/messages/ko.json";
+import {useLocale} from "@/components/LocaleProvider";
 import {usePathname} from "next/navigation";
 import {useCallback, useEffect, useState, type FormEvent} from "react";
 
-const cs = ko.Services.comingSoon;
-
 export function FooterWaitlistForm() {
+  const {messages} = useLocale();
+  const cs = messages.Services.comingSoon;
   const pathname = usePathname();
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");

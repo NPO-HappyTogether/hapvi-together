@@ -1,12 +1,13 @@
 /**
- * 푸터용 마크: 원본 아이콘(버건디 배경 + 흰 실루엣)에서
+ * 푸터용 마크(선택): 원본 아이콘(버건디 배경 + 흰 실루엣)에서
  * 흰색 ↔ #5D1818 역전해 어두운 배경 위에서 선명하게 보이게 함.
+ * 현재 사이트에서는 미사용 — 필요 시 실행 후 `lib/site-images.ts`에 경로를 추가하면 됩니다.
  * 실행: node scripts/invert-hapvi-footer-logo.mjs
  */
 import sharp from "sharp";
 
-const INPUT = "public/img/hapvi-logo.png";
-const OUTPUT = "public/img/hapvi-logo-footer-mark.png";
+const INPUT = "public/images/hapvi-logo.png";
+const OUTPUT = "public/images/hapvi-logo-footer-mark.png";
 /** HapVi 버건디 */
 const BURG = { r: 93, g: 24, b: 24 };
 

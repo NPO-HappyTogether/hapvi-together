@@ -1,13 +1,17 @@
+"use client";
+
 import {FooterWaitlistForm} from "@/components/FooterWaitlistForm";
-import ko from "@/messages/ko.json";
+import {useLocale} from "@/components/LocaleProvider";
+import {SITE_IMAGES} from "@/lib/site-images";
 import Image from "next/image";
 import Link from "next/link";
 
-const footer = ko.Footer;
-const header = ko.Header;
-const services = ko.Services;
-
 export function Footer() {
+  const {messages} = useLocale();
+  const footer = messages.Footer;
+  const header = messages.Header;
+  const services = messages.Services;
+
   return (
     <footer className="bg-hapvi-dark text-white">
       <div className="mx-auto w-full max-w-6xl px-5 py-16 md:px-8 md:py-20">
@@ -23,7 +27,7 @@ export function Footer() {
           <div className="max-w-md">
             <Link href="/" className="group inline-flex items-center gap-3 md:gap-4">
               <Image
-                src="/img/Logo%20White.png"
+                src={SITE_IMAGES.logos.white}
                 alt=""
                 width={503}
                 height={503}
