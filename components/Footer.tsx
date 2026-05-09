@@ -31,6 +31,8 @@ export function Footer() {
                 alt=""
                 width={503}
                 height={503}
+                sizes="(max-width: 768px) 44px, 48px"
+                loading="lazy"
                 aria-hidden
                 className="h-11 w-11 shrink-0 object-contain md:h-12 md:w-12"
               />

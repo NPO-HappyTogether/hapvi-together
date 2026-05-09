@@ -30,6 +30,7 @@ export default function AboutPageClient() {
             alt={alts.aboutMeeting}
             className="absolute inset-0 min-h-[260px] md:min-h-full"
             sizes="(max-width: 768px) 100vw, 50vw"
+            priority
             overlayClassName="bg-gradient-to-br from-stone-900/40 via-hapvi-primary/45 to-hapvi-dark/55"
           />
         </div>
@@ -72,6 +73,7 @@ export default function AboutPageClient() {
                 alt=""
                 width={520}
                 height={520}
+                loading="lazy"
                 className="h-auto w-full max-w-[220px] object-contain md:max-w-[260px] lg:max-w-[300px]"
                 sizes="(max-width: 768px) 220px, 300px"
               />

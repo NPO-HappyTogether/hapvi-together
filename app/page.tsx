@@ -1,6 +1,8 @@
 import type {Metadata} from "next";
-import HomePageClient from "./home-client";
+import dynamic from "next/dynamic";
 import {buildPageMetadata} from "@/lib/seo";
+
+const HomePageClient = dynamic(() => import("./home-client"), {ssr: true});
 
 export const metadata: Metadata = buildPageMetadata({
   title: "미국 주거 지원, 한국어로 함께합니다 | HapVi Together",

@@ -27,6 +27,7 @@ export default function ServicesPageClient() {
             alt={alts.servicesCity}
             className="absolute inset-0 min-h-[220px] md:min-h-full"
             sizes="(max-width: 768px) 100vw, 50vw"
+            priority
             overlayClassName="bg-gradient-to-br from-stone-900/45 via-hapvi-primary/40 to-hapvi-dark/55"
           />
         </div>

@@ -63,4 +63,4 @@ await sharp(out, {
   .png()
   .toFile(OUTPUT);
 
-console.log(`Wrote ${OUTPUT} (${info.width}x${info.height})`);
+process.stdout.write(`Wrote ${OUTPUT} (${info.width}x${info.height})\n`);

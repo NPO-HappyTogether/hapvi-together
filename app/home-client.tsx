@@ -99,6 +99,7 @@ export default function HomePageClient() {
             alt={alts.homeMissionSupport}
             className="absolute inset-0 min-h-[280px] md:min-h-full"
             sizes="(max-width: 768px) 100vw, 50vw"
+            loading="lazy"
             overlayClassName="bg-gradient-to-br from-hapvi-primary/45 to-hapvi-dark/60"
           />
           <div
@@ -158,6 +159,7 @@ export default function HomePageClient() {
             alt={alts.homeTestimonialGroup}
             className="absolute inset-0 min-h-[320px] md:min-h-[420px]"
             sizes="(max-width: 768px) 100vw, 50vw"
+            loading="lazy"
             overlayClassName="bg-gradient-to-br from-hapvi-dark/65 via-hapvi-primary/55 to-[#6b2a2a]/70"
           />
         </div>

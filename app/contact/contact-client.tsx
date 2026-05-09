@@ -27,6 +27,7 @@ export default function ContactPageClient() {
             alt={alts.contactOffice}
             className="absolute inset-0 h-full w-full min-h-[42vh] md:min-h-screen"
             sizes="(max-width: 768px) 100vw, 50vw"
+            priority
             overlayClassName="bg-gradient-to-br from-hapvi-dark/35 via-hapvi-primary/25 to-transparent"
           />
         </div>

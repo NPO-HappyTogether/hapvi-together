@@ -99,7 +99,9 @@ export function Header() {
             alt=""
             width={logoOnDarkBackdrop ? 503 : 288}
             height={logoOnDarkBackdrop ? 503 : 288}
+            sizes={logoOnDarkBackdrop ? "(max-width: 768px) 36px, 44px" : "(max-width: 768px) 148px, 188px"}
             priority
+            fetchPriority="high"
             aria-hidden
             className={
               logoOnDarkBackdrop
