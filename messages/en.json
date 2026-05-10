@@ -20,7 +20,8 @@
   "Footer": {
     "description": "HapVi Together is a tax-exempt nonprofit under Section 501(c)(3) of the U.S. Internal Revenue Code and a corporation registered in California. | All services are free.",
     "email": "Email",
-    "hours": "Hours: Mon–Fri 9am–5pm Pacific Time"
+    "hours": "Hours: Mon–Fri 9am–5pm Pacific Time",
+    "privacyPolicy": "Privacy Policy"
   },
   "Home": {
     "hero": {
@@ -194,5 +195,62 @@
     "aboutMeeting": "Nonprofit team meeting and collaboration",
     "aboutCommunity": "Community volunteering and neighborhood activity",
     "contactOffice": "Office space for consultation and contact"
+  },
+  "Privacy": {
+    "metaTitle": "Privacy Policy - HapVi Together",
+    "title": "Privacy Policy",
+    "intro": "HapVi Together (“we,” “our organization”) values your privacy and complies with applicable laws. This policy explains how we handle information collected through our website and consultation requests.",
+    "s1Title": "1. Information we collect",
+    "s1Items": [
+      "Name and contact information (phone number or email)",
+      "Consultation details (optional)"
+    ],
+    "s2Title": "2. Why we collect it",
+    "s2Items": [
+      "To provide housing support and public benefits counseling",
+      "To share service information and follow up with you"
+    ],
+    "s3Title": "3. Retention",
+    "s3Items": [
+      "We retain records for three years after a consultation is completed",
+      "We delete information promptly upon request when applicable"
+    ],
+    "s4Title": "4. Sharing with third parties",
+    "s4Items": [
+      "We do not share your information with third parties as a rule",
+      "Exceptions may apply where required by law"
+    ],
+    "s5Title": "5. Google Analytics and cookies",
+    "s5Lead": "We use Google Analytics 4 (GA4) to understand how visitors use our site.",
+    "s5DataLabel": "Data collected may include:",
+    "s5DataItems": ["Pages visited", "Time on site", "Device type", "Approximate location"],
+    "s5LinksIntro": "Learn more using the links below.",
+    "s5LinkGooglePrivacyLabel": "Google Privacy Policy",
+    "s5LinkGaOptOutLabel": "Opt out of GA4 collection (browser add-on)",
+    "s5CookieNote": "You can also disable cookies in your browser settings.",
+    "s6Title": "6. Children’s privacy (COPPA)",
+    "s6Items": [
+      "Our services are not directed to children under 13",
+      "We do not knowingly collect personal information from children under 13",
+      "If we learn we have collected such information, we will delete it promptly"
+    ],
+    "s7Title": "7. Requests to delete information",
+    "s7Items": [
+      "Email: info@hapvi.org",
+      "We aim to respond within 30 days of your request",
+      "We may need to verify your identity"
+    ],
+    "s8Title": "8. Contact",
+    "s8Items": [
+      "Email: info@hapvi.org",
+      "Address: 540 S. Normandie Ave #203, Los Angeles, CA 90020"
+    ],
+    "s9Title": "9. Changes to this policy",
+    "s9Paragraphs": [
+      "We may notify you of material changes via our website or email.",
+      "Continued use of our services after changes may mean you accept the updated policy."
+    ],
+    "lastUpdatedLabel": "Last updated:",
+    "lastUpdated": "May 9, 2026"
   }
 }

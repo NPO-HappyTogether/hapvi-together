@@ -55,9 +55,12 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-white/45">
-          © 2026 HapVi Together. All rights reserved.
-        </p>
+        <div className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-white/55">
+          <Link href="/privacy" className="font-medium text-white/75 underline-offset-4 hover:text-white hover:underline">
+            {footer.privacyPolicy}
+          </Link>
+          <p className="mt-4 text-white/45">© 2026 HapVi Together. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   );

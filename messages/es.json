@@ -20,7 +20,8 @@
   "Footer": {
     "description": "HapVi Together es una organización sin fines de lucro exenta de impuestos según la Sección 501(c)(3) del Código Fiscal de EE. UU. y una corporación registrada en California. | Todos los servicios son gratuitos.",
     "email": "Correo",
-    "hours": "Horario: lun–vie 9:00–17:00 (hora del Pacífico)"
+    "hours": "Horario: lun–vie 9:00–17:00 (hora del Pacífico)",
+    "privacyPolicy": "Política de privacidad"
   },
   "Home": {
     "hero": {
@@ -194,5 +195,67 @@
     "aboutMeeting": "Reunión y colaboración de equipo sin fines de lucro",
     "aboutCommunity": "Voluntariado y actividad comunitaria",
     "contactOffice": "Espacio de oficina para consultas y contacto"
+  },
+  "Privacy": {
+    "metaTitle": "Política de privacidad - HapVi Together",
+    "title": "Política de privacidad",
+    "intro": "HapVi Together (“nosotros”) valora su privacidad y cumple las leyes aplicables. Esta política describe cómo tratamos la información recopilada a través de nuestro sitio web y las solicitudes de consulta.",
+    "s1Title": "1. Información que recopilamos",
+    "s1Items": [
+      "Nombre y datos de contacto (teléfono o correo electrónico)",
+      "Contenido de la consulta (opcional)"
+    ],
+    "s2Title": "2. Finalidades",
+    "s2Items": [
+      "Brindar apoyo en vivienda y orientación sobre beneficios públicos",
+      "Enviar información del servicio y dar seguimiento"
+    ],
+    "s3Title": "3. Conservación",
+    "s3Items": [
+      "Conservamos los registros durante tres años después de completada la consulta",
+      "Eliminamos la información sin demora cuando lo solicite, cuando corresponda"
+    ],
+    "s4Title": "4. Cesión a terceros",
+    "s4Items": [
+      "Por regla general no compartimos su información con terceros",
+      "Pueden existir excepciones cuando la ley lo exija"
+    ],
+    "s5Title": "5. Google Analytics y cookies",
+    "s5Lead": "Usamos Google Analytics 4 (GA4) para entender cómo las personas visitan nuestro sitio.",
+    "s5DataLabel": "Los datos pueden incluir:",
+    "s5DataItems": [
+      "Páginas visitadas",
+      "Tiempo en el sitio",
+      "Tipo de dispositivo",
+      "Ubicación aproximada"
+    ],
+    "s5LinksIntro": "Para más información, consulte los enlaces siguientes.",
+    "s5LinkGooglePrivacyLabel": "Política de privacidad de Google",
+    "s5LinkGaOptOutLabel": "Opción de exclusión de la recopilación de GA4 (complemento del navegador)",
+    "s5CookieNote": "También puede desactivar las cookies en la configuración del navegador.",
+    "s6Title": "6. Privacidad infantil (COPPA)",
+    "s6Items": [
+      "Nuestros servicios no están dirigidos a menores de 13 años",
+      "No recopilamos a sabiendas datos personales de menores de 13 años",
+      "Si detectamos dicha información, la eliminaremos de inmediato"
+    ],
+    "s7Title": "7. Solicitudes de eliminación",
+    "s7Items": [
+      "Correo: info@hapvi.org",
+      "Procuramos responder dentro de los 30 días posteriores a su solicitud",
+      "Podemos necesitar verificar su identidad"
+    ],
+    "s8Title": "8. Contacto",
+    "s8Items": [
+      "Correo: info@hapvi.org",
+      "Dirección: 540 S. Normandie Ave #203, Los Angeles, CA 90020"
+    ],
+    "s9Title": "9. Cambios a esta política",
+    "s9Paragraphs": [
+      "Podemos notificar cambios importantes en el sitio web o por correo.",
+      "El uso continuado del servicio tras los cambios puede implicar la aceptación de la política actualizada."
+    ],
+    "lastUpdatedLabel": "Última actualización:",
+    "lastUpdated": "9 de mayo de 2026"
   }
 }
