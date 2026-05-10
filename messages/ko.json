@@ -19,6 +19,7 @@
   },
   "Footer": {
     "description": "HapVi Together는 미국 국세법 Section 501(c)(3)에 의거한 면세 비영리 단체이며, 캘리포니아 주에 등록된 법인입니다. | 모든 서비스는 무료입니다.",
+    "ein": "EIN: 33-3980325",
     "email": "이메일",
     "hours": "운영시간: 월–금 오전 9시 ~ 오후 5시 (태평양 표준시)",
     "privacyPolicy": "개인정보 처리방침"

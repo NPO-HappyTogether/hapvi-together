@@ -46,6 +46,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/75">{footer.description}</p>
+            <p className="mt-2 text-sm leading-relaxed text-white/75">{footer.ein}</p>
           </div>
           <div className="space-y-3 text-sm text-white/80">
             <p className="font-medium text-white">

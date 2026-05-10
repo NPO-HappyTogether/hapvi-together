@@ -19,6 +19,7 @@
   },
   "Footer": {
     "description": "HapVi Together is a tax-exempt nonprofit under Section 501(c)(3) of the U.S. Internal Revenue Code and a corporation registered in California. | All services are free.",
+    "ein": "EIN: 33-3980325",
     "email": "Email",
     "hours": "Hours: Mon–Fri 9am–5pm Pacific Time",
     "privacyPolicy": "Privacy Policy"
