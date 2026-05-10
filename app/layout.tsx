@@ -1,5 +1,6 @@
 import type {Metadata} from "next";
 import {DM_Sans, Noto_Sans_KR} from "next/font/google";
+import Script from "next/script";
 import {FloatingDonateTab} from "@/components/FloatingDonateTab";
 import {Footer} from "@/components/Footer";
 import {Header} from "@/components/Header";
@@ -12,6 +13,9 @@ import {
   SITE_OG_IMAGE,
 } from "@/lib/seo";
 import "./globals.css";
+
+const GA_MEASUREMENT_ID = "G-LV7PFSGM3E";
+const isProduction = process.env.NODE_ENV === "production";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -63,6 +67,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${dmSans.variable} ${notoSansKr.variable}`} suppressHydrationWarning>
+      <head>
+        {isProduction ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="beforeInteractive"
+            />
+            <Script id="ga-gtag-init" strategy="beforeInteractive">
+              {`
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_MEASUREMENT_ID}');
+              `.trim()}
+            </Script>
+          </>
+        ) : null}
+      </head>
       <body className="flex min-h-screen flex-col font-sans">
         <LocaleProvider>
           <Header />
