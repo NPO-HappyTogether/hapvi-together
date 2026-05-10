@@ -5,6 +5,8 @@ import {sendWaitlistAdminNotification} from "@/lib/waitlist-notify";
 
 export const runtime = "nodejs";
 
+const ON_VERCEL = process.env.VERCEL === "1";
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function parseEmail(body: unknown): string | null {
@@ -49,6 +51,8 @@ export async function POST(req: Request) {
       console.error("[waitlist] webhook", e);
       return NextResponse.json({error: "delivery_failed"}, {status: 502});
     }
+  } else if (ON_VERCEL) {
+    console.info("[waitlist signup]", email, "(Vercel: no webhook → file log skipped; rely on admin mail)");
   } else {
     const dir = join(process.cwd(), "data");
     const file = join(dir, "waitlist.log");

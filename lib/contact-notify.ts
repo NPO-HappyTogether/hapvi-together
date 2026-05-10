@@ -7,7 +7,7 @@ function escapeHtml(s: string): string {
 const HELP_LABELS_KO: Record<string, string> = {
   housing: "주거 연결",
   benefits: "정부 혜택 신청",
-  unknown: "잘 모르겠음",
+  unknown: "저렴한 주택 정보",
 };
 
 export async function sendContactConsultationEmail(payload: {

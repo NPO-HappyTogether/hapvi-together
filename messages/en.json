@@ -154,14 +154,14 @@
         "placeholder": "Full name"
       },
       "contact": {
-        "label": "Phone or email",
-        "placeholder": "000-000-0000 or email@example.com"
+        "label": "Email",
+        "placeholder": "email@example.com"
       },
       "helpType": {
         "legend": "What kind of help do you need?",
         "housing": "Housing connection",
         "benefits": "Government benefits",
-        "unknown": "Not sure yet"
+        "unknown": "Affordable housing information"
       },
       "message": {
         "label": "Briefly describe your situation (optional)",

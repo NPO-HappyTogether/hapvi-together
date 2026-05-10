@@ -1,5 +1,19 @@
 import type {NextConfig} from "next";
 
+const isDev = process.env.NODE_ENV === "development";
+
+const connectSrc = [
+  "'self'",
+  "https://api.resend.com",
+  "https://fonts.googleapis.com",
+  "https://fonts.gstatic.com",
+  "https://zeffy.com",
+  "https://www.zeffy.com",
+  ...(isDev ? ["wss:"] : []),
+].join(" ");
+
+const scriptSrc = ["'self'", "'unsafe-inline'", ...(isDev ? ["'unsafe-eval'"] : [])].join(" ");
+
 const securityHeaders = [
   {key: "X-DNS-Prefetch-Control", value: "on"},
   {
@@ -17,11 +31,11 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
+      `script-src ${scriptSrc}`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' blob: data: https:",
       "font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com",
-      "connect-src 'self' https://api.resend.com https://fonts.googleapis.com https://fonts.gstatic.com https://zeffy.com https://www.zeffy.com wss:",
+      `connect-src ${connectSrc}`,
       "frame-ancestors 'self'",
       "base-uri 'self'",
       "form-action 'self' https://api.resend.com",

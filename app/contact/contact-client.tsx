@@ -117,9 +117,10 @@ export default function ContactPageClient() {
               <input
                 id="contact"
                 name="contact"
-                type="text"
+                type="email"
                 placeholder={t.form.contact.placeholder}
                 required
+                autoComplete="email"
                 className={`${inputFilledClass} mt-3`}
               />
             </fieldset>

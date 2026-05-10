@@ -154,14 +154,14 @@
         "placeholder": "Nombre completo"
       },
       "contact": {
-        "label": "Teléfono o correo",
-        "placeholder": "000-000-0000 o correo@ejemplo.com"
+        "label": "Correo electrónico",
+        "placeholder": "correo@ejemplo.com"
       },
       "helpType": {
         "legend": "¿Qué tipo de ayuda necesitas?",
         "housing": "Conexión de vivienda",
         "benefits": "Beneficios públicos",
-        "unknown": "Aún no lo sé"
+        "unknown": "Información sobre vivienda asequible"
       },
       "message": {
         "label": "Describe brevemente tu situación (opcional)",

@@ -3,6 +3,38 @@ import {sendContactConsultationEmail} from "@/lib/contact-notify";
 
 export const runtime = "nodejs";
 
+const GENERIC_ERROR_MESSAGE = "요청을 처리할 수 없습니다";
+const RATE_LIMIT_MESSAGE = "잠시 후 다시 시도해주세요";
+
+const HOUR_MS = 60 * 60 * 1000;
+const MAX_REQUESTS_PER_HOUR = 5;
+const ipRequestTimestamps = new Map<string, number[]>();
+
+function getClientIp(req: Request): string {
+  const forwarded = req.headers.get("x-forwarded-for");
+  if (forwarded) {
+    const first = forwarded.split(",")[0]?.trim();
+    if (first) return first;
+  }
+  const realIp = req.headers.get("x-real-ip")?.trim();
+  if (realIp) return realIp;
+  return "unknown";
+}
+
+/** 최근 1시간 이내 요청이 MAX 미만이면 true이고, 이번 요청 시각을 기록한다. */
+function recordRequestIfAllowed(ip: string): boolean {
+  const now = Date.now();
+  const prev = ipRequestTimestamps.get(ip) ?? [];
+  const recent = prev.filter((t) => now - t < HOUR_MS);
+  if (recent.length >= MAX_REQUESTS_PER_HOUR) {
+    ipRequestTimestamps.set(ip, recent);
+    return false;
+  }
+  recent.push(now);
+  ipRequestTimestamps.set(ip, recent);
+  return true;
+}
+
 const ALLOWED_HELP = new Set(["housing", "benefits", "unknown"]);
 
 function parseBody(raw: unknown): {name: string; contact: string; helpTypes: string[]; message: string} | null {
@@ -26,23 +58,28 @@ function parseBody(raw: unknown): {name: string; contact: string; helpTypes: str
 }
 
 export async function POST(req: Request) {
+  const ip = getClientIp(req);
+  if (!recordRequestIfAllowed(ip)) {
+    return NextResponse.json({error: RATE_LIMIT_MESSAGE}, {status: 429});
+  }
+
   let json: unknown;
   try {
     json = await req.json();
   } catch {
-    return NextResponse.json({error: "invalid_json"}, {status: 400});
+    return NextResponse.json({error: GENERIC_ERROR_MESSAGE}, {status: 400});
   }
 
   const parsed = parseBody(json);
   if (!parsed) {
-    return NextResponse.json({error: "invalid_body"}, {status: 400});
+    return NextResponse.json({error: GENERIC_ERROR_MESSAGE}, {status: 400});
   }
 
   try {
     await sendContactConsultationEmail(parsed);
   } catch (e) {
     console.error("[contact] mail failed", e);
-    return NextResponse.json({error: "delivery_failed"}, {status: 502});
+    return NextResponse.json({error: GENERIC_ERROR_MESSAGE}, {status: 502});
   }
 
   return NextResponse.json({ok: true});
