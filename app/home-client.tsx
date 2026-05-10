@@ -62,13 +62,13 @@ export default function HomePageClient() {
               href="/contact"
               className="inline-flex w-full items-center justify-center rounded-md bg-white px-8 py-3.5 text-center text-base font-semibold text-hapvi-dark shadow-lg shadow-black/10 transition hover:bg-hapvi-light sm:w-auto"
             >
-              {h.hero.ctaPrimary}
+              <span id="home-primary-contact-cta">{h.hero.ctaPrimary}</span>
             </Link>
             <Link
               href="/services"
               className="inline-flex w-full items-center justify-center rounded-md border-2 border-white bg-hapvi-dark/90 px-8 py-3.5 text-center text-base font-semibold text-white shadow-lg shadow-black/25 backdrop-blur-sm transition hover:bg-hapvi-primary hover:border-white sm:w-auto"
             >
-              {h.hero.ctaSecondary}
+              <span id="home-primary-services-cta">{h.hero.ctaSecondary}</span>
             </Link>
           </div>
           <a
@@ -114,7 +114,7 @@ export default function HomePageClient() {
             {h.problem.titleLine2}
           </h2>
           <p className="mt-8 text-lg leading-relaxed text-ink-muted">{h.problem.description}</p>
-          <p className="mt-6 text-lg font-semibold leading-relaxed text-hapvi-primary">{h.problem.highlight}</p>
+          <h3 className="mt-6 text-lg font-semibold leading-relaxed text-hapvi-primary">{h.problem.highlight}</h3>
           <p className="mt-8">
             <Link
               href="/about"
@@ -127,14 +127,16 @@ export default function HomePageClient() {
             <Link
               href="/contact"
               className="inline-flex rounded-md border-2 border-hapvi-dark bg-transparent px-6 py-3 text-sm font-semibold text-hapvi-dark transition hover:bg-hapvi-dark hover:text-white"
+              aria-labelledby="home-primary-contact-cta"
             >
-              {h.hero.ctaPrimary}
+              <span aria-hidden="true">{h.hero.ctaPrimary}</span>
             </Link>
             <Link
               href="/services"
               className="inline-flex rounded-md bg-hapvi-dark px-6 py-3 text-sm font-semibold text-white transition hover:bg-hapvi-primary"
+              aria-labelledby="home-primary-services-cta"
             >
-              {h.hero.ctaSecondary}
+              <span aria-hidden="true">{h.hero.ctaSecondary}</span>
             </Link>
           </div>
         </div>
@@ -145,7 +147,9 @@ export default function HomePageClient() {
           <blockquote className="font-serif text-2xl font-normal leading-snug tracking-tight text-ink md:text-[1.85rem] md:leading-snug">
             &ldquo;{h.quote}&rdquo;
           </blockquote>
-          <p className="mt-10 font-serif text-6xl leading-none text-[rgb(136,68,68)]">&rdquo;</p>
+          <p className="mt-10 font-serif text-6xl leading-none text-[rgb(136,68,68)]" aria-hidden="true">
+            &rdquo;
+          </p>
           <div className="mt-8 flex gap-2">
             <span className="h-2 w-2 rounded-full bg-hapvi-dark" />
             <span className="h-2 w-2 rounded-full bg-hapvi-dark/35" />
@@ -176,7 +180,7 @@ export default function HomePageClient() {
               <h3 className="mt-8 text-xl font-semibold tracking-tight">{h.services.housing.title}</h3>
               <p className="mt-4 leading-relaxed text-white/85">{h.services.housing.description}</p>
               <Link href="/services" className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-hapvi-light hover:text-white">
-                {h.services.learnMore}
+                <span id="home-services-learn-more">{h.services.learnMore}</span>
               </Link>
             </article>
             <article className="flex flex-col items-start">
@@ -185,8 +189,12 @@ export default function HomePageClient() {
               </span>
               <h3 className="mt-8 text-xl font-semibold tracking-tight">{h.services.benefits.title}</h3>
               <p className="mt-4 leading-relaxed text-white/85">{h.services.benefits.description}</p>
-              <Link href="/services" className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-hapvi-light hover:text-white">
-                {h.services.learnMore}
+              <Link
+                href="/services"
+                className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-hapvi-light hover:text-white"
+                aria-labelledby="home-services-learn-more"
+              >
+                <span aria-hidden="true">{h.services.learnMore}</span>
               </Link>
             </article>
             <article className="flex flex-col items-start">
@@ -195,8 +203,12 @@ export default function HomePageClient() {
               </span>
               <h3 className="mt-8 text-xl font-semibold tracking-tight">{h.services.community.title}</h3>
               <p className="mt-4 leading-relaxed text-white/85">{h.services.community.description}</p>
-              <Link href="/services" className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-hapvi-light hover:text-white">
-                {h.services.learnMore}
+              <Link
+                href="/services"
+                className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-hapvi-light hover:text-white"
+                aria-labelledby="home-services-learn-more"
+              >
+                <span aria-hidden="true">{h.services.learnMore}</span>
               </Link>
             </article>
           </div>
@@ -207,12 +219,13 @@ export default function HomePageClient() {
         <div className="mx-auto max-w-2xl rounded-xl border border-stone-100 bg-white px-8 py-14 text-center shadow-card md:px-12">
           <h2 className="text-2xl font-semibold tracking-tight text-ink">{h.finalCta.title}</h2>
           <p className="mt-5 text-lg leading-relaxed text-ink-muted">{h.finalCta.description}</p>
-          <p className="mt-4 text-sm font-semibold text-hapvi-primary">{h.finalCta.free}</p>
+          <h3 className="mt-4 text-sm font-semibold text-hapvi-primary">{h.finalCta.free}</h3>
           <Link
             href="/contact"
             className="mt-10 inline-flex rounded-lg bg-hapvi-primary px-8 py-3.5 text-base font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
+            aria-labelledby="home-primary-contact-cta"
           >
-            {h.finalCta.button}
+            <span aria-hidden="true">{h.finalCta.button}</span>
           </Link>
         </div>
       </section>

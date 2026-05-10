@@ -8,7 +8,8 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {useEffect, useState} from "react";
 
-const navItems = ["/", "/services", "/about", "/contact"] as const;
+/** 홈은 로고 링크로만 제공해 동일 URL(`/`) 중복 링크를 피합니다. */
+const navItems = ["/services", "/about", "/contact"] as const;
 
 const localeOptions: {id: Locale; labelKey: "langKo" | "langEn" | "langEs"}[] = [
   {id: "ko", labelKey: "langKo"},
@@ -39,7 +40,6 @@ export function Header() {
   }, [pathname]);
 
   const labels: Record<(typeof navItems)[number], string> = {
-    "/": header.nav.home,
     "/services": header.nav.services,
     "/about": header.nav.about,
     "/contact": header.nav.contact,
@@ -92,7 +92,11 @@ export function Header() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${glass}`}>
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4 md:px-8">
-        <Link href="/" className="group flex items-center gap-3 md:gap-4">
+        <Link
+          href="/"
+          className="group flex items-center gap-3 md:gap-4"
+          aria-label={`HapVi Together — ${header.nav.home}`}
+        >
           <Image
             key={logoSrc}
             src={logoSrc}
@@ -110,9 +114,12 @@ export function Header() {
             }
           />
           <span className="flex min-w-0 flex-col gap-0.5 leading-tight">
-            <span className={logoMainClass}>HapVi Together</span>
+            <span className={`${logoMainClass} block`} aria-hidden="true">
+              HapVi Together
+            </span>
             <span
-              className={`text-[0.65rem] font-medium uppercase tracking-[0.16em] md:text-xs md:tracking-[0.18em] ${logoSubClass}`}
+              className={`block text-[0.65rem] font-medium uppercase tracking-[0.16em] md:text-xs md:tracking-[0.18em] ${logoSubClass}`}
+              aria-hidden="true"
             >
               {header.tagline}
             </span>
