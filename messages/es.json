@@ -43,15 +43,18 @@
       "learnMore": "Más información →",
       "housing": {
         "title": "Conexión de vivienda",
-        "description": "Alquileres asequibles, Sección 8 y vivienda pública"
+        "description": "Alquileres asequibles, Sección 8 y vivienda pública",
+        "learnMoreAriaLabel": "Más información sobre el servicio de conexión de vivienda"
       },
       "benefits": {
         "title": "Solicitud de beneficios",
-        "description": "Revisión de elegibilidad y apoyo para presentar solicitudes"
+        "description": "Revisión de elegibilidad y apoyo para presentar solicitudes",
+        "learnMoreAriaLabel": "Más información sobre el servicio de solicitud de beneficios públicos"
       },
       "community": {
         "title": "Recursos locales",
-        "description": "Organizaciones comunitarias y ayuda de emergencia"
+        "description": "Organizaciones comunitarias y ayuda de emergencia",
+        "learnMoreAriaLabel": "Más información sobre el servicio de recursos locales"
       }
     },
     "quote": "Una comunidad donde cada hogar coreano tiene vivienda estable y recibe los beneficios que merece.",

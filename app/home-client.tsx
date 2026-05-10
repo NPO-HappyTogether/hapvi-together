@@ -183,8 +183,12 @@ export default function HomePageClient() {
               </span>
               <h3 className="mt-8 text-xl font-semibold tracking-tight">{h.services.housing.title}</h3>
               <p className="mt-4 leading-relaxed text-white/85">{h.services.housing.description}</p>
-              <Link href="/services" className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-hapvi-light hover:text-white">
-                <span id="home-services-learn-more">{h.services.learnMore}</span>
+              <Link
+                href="/services"
+                className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-hapvi-light hover:text-white"
+                aria-label={h.services.housing.learnMoreAriaLabel}
+              >
+                {h.services.learnMore}
               </Link>
             </article>
             <article className="flex flex-col items-start">
@@ -196,9 +200,9 @@ export default function HomePageClient() {
               <Link
                 href="/services"
                 className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-hapvi-light hover:text-white"
-                aria-labelledby="home-services-learn-more"
+                aria-label={h.services.benefits.learnMoreAriaLabel}
               >
-                <span aria-hidden="true">{h.services.learnMore}</span>
+                {h.services.learnMore}
               </Link>
             </article>
             <article className="flex flex-col items-start">
@@ -210,9 +214,9 @@ export default function HomePageClient() {
               <Link
                 href="/services"
                 className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-hapvi-light hover:text-white"
-                aria-labelledby="home-services-learn-more"
+                aria-label={h.services.community.learnMoreAriaLabel}
               >
-                <span aria-hidden="true">{h.services.learnMore}</span>
+                {h.services.learnMore}
               </Link>
             </article>
           </div>

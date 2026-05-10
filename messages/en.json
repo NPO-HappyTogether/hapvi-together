@@ -43,15 +43,18 @@
       "learnMore": "Learn more →",
       "housing": {
         "title": "Housing connections",
-        "description": "Affordable rentals, Section 8, and public housing programs"
+        "description": "Affordable rentals, Section 8, and public housing programs",
+        "learnMoreAriaLabel": "Learn more about housing connection services"
       },
       "benefits": {
         "title": "Benefit applications",
-        "description": "Eligibility checks and hands-on help filing for benefits"
+        "description": "Eligibility checks and hands-on help filing for benefits",
+        "learnMoreAriaLabel": "Learn more about government benefits application services"
       },
       "community": {
         "title": "Local resources",
-        "description": "Community organizations and emergency assistance links"
+        "description": "Community organizations and emergency assistance links",
+        "learnMoreAriaLabel": "Learn more about local resource connection services"
       }
     },
     "quote": "A community where every Korean-American household has stable housing and receives the benefits they deserve.",

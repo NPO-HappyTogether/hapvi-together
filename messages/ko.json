@@ -43,15 +43,18 @@
       "learnMore": "자세히 보기 →",
       "housing": {
         "title": "주거 연결",
-        "description": "임대 주택·섹션8·공공 주거 프로그램 안내"
+        "description": "임대 주택·섹션8·공공 주거 프로그램 안내",
+        "learnMoreAriaLabel": "주거 연결 서비스 자세히 보기"
       },
       "benefits": {
         "title": "정부 혜택 신청",
-        "description": "정부 혜택 자격 확인 및 신청 동행"
+        "description": "정부 혜택 자격 확인 및 신청 동행",
+        "learnMoreAriaLabel": "정부 혜택 신청 서비스 자세히 보기"
       },
       "community": {
         "title": "지역 자원 연결",
-        "description": "커뮤니티 기관 및 긴급 지원 연결"
+        "description": "커뮤니티 기관 및 긴급 지원 연결",
+        "learnMoreAriaLabel": "지역 자원 연결 서비스 자세히 보기"
       }
     },
     "quote": "모든 한인 가정이 이 땅에서 안정된 집을 갖고, 마땅히 받아야 할 혜택을 누릴 수 있는 커뮤니티.",
