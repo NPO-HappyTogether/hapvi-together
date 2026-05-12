@@ -54,6 +54,7 @@ export async function POST(req: Request) {
 
   try {
     await appendWaitlistToGoogleSheets({
+      type: "waitlist",
       id: sheetId,
       submitted_at: submittedAtLa,
       email,

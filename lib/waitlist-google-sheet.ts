@@ -1,6 +1,7 @@
 import type {ContactMessageLanguage} from "@/lib/contact-locale";
 
 export type WaitlistSheetRow = {
+  type: "waitlist";
   id: string;
   submitted_at: string;
   email: string;
@@ -33,6 +34,7 @@ export async function appendWaitlistToGoogleSheets(row: WaitlistSheetRow): Promi
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
+      type: row.type,
       id: row.id,
       submitted_at: row.submitted_at,
       email: row.email,
