@@ -82,25 +82,6 @@ export default function AboutPageClient() {
         </div>
       </section>
 
-      <section className="grid md:grid-cols-2">
-        <div className="relative min-h-[280px] md:min-h-[380px]">
-          <StockPhoto
-            src={stock.aboutCommunity}
-            alt={alts.aboutCommunity}
-            className="absolute inset-0 min-h-[280px] md:min-h-[380px]"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            overlayClassName="bg-gradient-to-t from-cream/90 via-hapvi-light/35 to-transparent"
-          />
-        </div>
-        <div className="flex flex-col justify-center bg-hapvi-primary px-8 py-14 text-white md:px-14 lg:px-20 lg:py-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-hapvi-light">{t.mission.label}</p>
-          <div className="mt-6 space-y-4 text-xl font-medium leading-relaxed md:text-[1.35rem]">
-            <p>{introParagraphs[0]}</p>
-            <p>{introParagraphs[1]}</p>
-          </div>
-        </div>
-      </section>
-
       <section className="mx-auto w-full max-w-6xl px-5 py-20 md:px-8 md:py-24">
         <div className="grid gap-6 md:grid-cols-2 md:gap-10">
           <article className="rounded-xl border border-stone-100 bg-white p-8 shadow-card md:p-10">
