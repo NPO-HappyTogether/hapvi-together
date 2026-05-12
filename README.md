@@ -22,6 +22,8 @@ https://hapvi.org
 
 ## 로컬 개발
 
+`.env.example`을 `.env.local`로 복사한 뒤 값을 채웁니다. 프로덕션(Vercel)에도 동일한 변수명으로 [Environment Variables](https://vercel.com/docs/projects/environment-variables)에 등록합니다. 상담 폼의 Google Sheets 연동에는 **`GOOGLE_SHEETS_WEBHOOK_URL`** 이 필요합니다.
+
 ```bash
 npm install
 npm run dev

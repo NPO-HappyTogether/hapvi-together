@@ -96,7 +96,7 @@ export async function POST(req: Request) {
       message: parsed.message,
       language,
     }),
-    sendContactWelcomeEmail({toEmail: email, language}),
+    sendContactWelcomeEmail({toEmail: email, language, name: parsed.name}),
   ]);
 
   if (sheetResult.status === "rejected") {
