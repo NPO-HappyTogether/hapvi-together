@@ -1,7 +1,12 @@
 import {appendFile, mkdir} from "fs/promises";
 import {join} from "path";
 import {NextResponse} from "next/server";
+import {localeToContactMessageLanguage} from "@/lib/contact-locale";
 import {sendWaitlistAdminNotification} from "@/lib/waitlist-notify";
+import {
+  appendWaitlistToGoogleSheets,
+  formatSubmittedAtLosAngeles,
+} from "@/lib/waitlist-google-sheet";
 
 export const runtime = "nodejs";
 
@@ -42,6 +47,21 @@ export async function POST(req: Request) {
   }
 
   const locale = parseWaitlistLocale(json);
+  const language = localeToContactMessageLanguage(locale);
+  const now = new Date();
+  const sheetId = `WL-${now.getTime()}`;
+  const submittedAtLa = formatSubmittedAtLosAngeles(now);
+
+  try {
+    await appendWaitlistToGoogleSheets({
+      id: sheetId,
+      submitted_at: submittedAtLa,
+      email,
+      language,
+    });
+  } catch (e) {
+    console.error("[waitlist] google sheet failed", e);
+  }
 
   const webhook = process.env.WAITLIST_WEBHOOK_URL?.trim();
   if (webhook) {
