@@ -1,5 +1,8 @@
 import {NextResponse} from "next/server";
+import {appendContactToGoogleSheets, splitContactIntoEmailPhone} from "@/lib/contact-google-sheet";
+import {detectMessageLanguage} from "@/lib/contact-language";
 import {sendContactConsultationEmail} from "@/lib/contact-notify";
+import {sendContactWelcomeEmail} from "@/lib/contact-welcome-mail";
 
 export const runtime = "nodejs";
 
@@ -80,6 +83,27 @@ export async function POST(req: Request) {
   } catch (e) {
     console.error("[contact] mail failed", e);
     return NextResponse.json({error: GENERIC_ERROR_MESSAGE}, {status: 502});
+  }
+
+  const language = detectMessageLanguage(parsed.message);
+  const {email, phone} = splitContactIntoEmailPhone(parsed.contact);
+
+  const [sheetResult, welcomeResult] = await Promise.allSettled([
+    appendContactToGoogleSheets({
+      name: parsed.name,
+      email,
+      phone,
+      message: parsed.message,
+      language,
+    }),
+    sendContactWelcomeEmail({toEmail: email, language}),
+  ]);
+
+  if (sheetResult.status === "rejected") {
+    console.error("[contact] google sheet failed", sheetResult.reason);
+  }
+  if (welcomeResult.status === "rejected") {
+    console.error("[contact] welcome mail failed", welcomeResult.reason);
   }
 
   return NextResponse.json({ok: true});
