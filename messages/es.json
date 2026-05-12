@@ -125,7 +125,12 @@
       ]
     },
     "mission": {
-      "label": "Misión"
+      "label": "Misión",
+      "body": [
+        "No necesita tener todo resuelto. Con saber que las cosas están difíciles ahora mismo, es suficiente.",
+        "No se preocupe por el idioma, el estatus migratorio ni los costos.",
+        "Solo contáctenos primero. El resto lo resolvemos juntos."
+      ]
     },
     "vision": {
       "label": "Visión"

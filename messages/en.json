@@ -125,7 +125,12 @@
       ]
     },
     "mission": {
-      "label": "Mission"
+      "label": "Mission",
+      "body": [
+        "You don't need to have it all figured out. Just knowing things are hard right now — that's enough.",
+        "No worries about language, immigration status, or cost.",
+        "Just reach out first. We'll work through the rest together."
+      ]
     },
     "vision": {
       "label": "Vision"

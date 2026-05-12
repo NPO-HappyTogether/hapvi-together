@@ -15,11 +15,6 @@ export default function AboutPageClient() {
   const alts = messages.StockPhotoAlts;
   const stock = SITE_IMAGES.stock;
   const introParagraphs = t.intro.paragraphs;
-  const missionCardParagraphs = [
-    "거창하지 않아도 됩니다. 지금 어렵다는 것, 그것만으로 충분합니다.",
-    "언어도, 신분도, 비용도 걱정하지 않으셔도 됩니다.",
-    "그냥 먼저 연락해 주세요. 나머지는 같이 해결합니다.",
-  ];
   return (
     <div className="bg-cream">
       <section className="grid min-h-[min(88vh,920px)] md:grid-cols-2">
@@ -92,7 +87,7 @@ export default function AboutPageClient() {
           <article className="rounded-xl border border-stone-100 bg-white p-8 shadow-card md:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-hapvi-primary">{t.mission.label}</p>
             <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink md:text-[1.35rem]">
-              {missionCardParagraphs.map((paragraph, index) => (
+              {t.mission.body.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
