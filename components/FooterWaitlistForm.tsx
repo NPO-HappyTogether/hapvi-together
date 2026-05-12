@@ -5,7 +5,7 @@ import {usePathname} from "next/navigation";
 import {useCallback, useEffect, useState, type FormEvent} from "react";
 
 export function FooterWaitlistForm() {
-  const {messages} = useLocale();
+  const {messages, locale} = useLocale();
   const cs = messages.Services.comingSoon;
   const pathname = usePathname();
   const [email, setEmail] = useState("");
@@ -30,7 +30,7 @@ export function FooterWaitlistForm() {
         const res = await fetch("/api/waitlist", {
           method: "POST",
           headers: {"Content-Type": "application/json"},
-          body: JSON.stringify({email}),
+          body: JSON.stringify({email, locale}),
         });
 
         const data = (await res.json().catch(() => ({}))) as {error?: string};
@@ -54,7 +54,7 @@ export function FooterWaitlistForm() {
         setStatus("error");
       }
     },
-    [email],
+    [email, locale],
   );
 
   const message =

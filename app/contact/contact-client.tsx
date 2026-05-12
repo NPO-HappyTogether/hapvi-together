@@ -10,7 +10,7 @@ const inputFilledClass =
   "w-full rounded-md border border-stone-300 bg-white px-4 py-3 text-ink outline-none placeholder:text-ink-subtle focus:border-hapvi-primary focus:ring-2 focus:ring-hapvi-primary/25";
 
 export default function ContactPageClient() {
-  const {messages} = useLocale();
+  const {messages, locale} = useLocale();
   const t = messages.Contact;
   const alts = messages.StockPhotoAlts;
   const stock = SITE_IMAGES.stock;
@@ -84,7 +84,7 @@ export default function ContactPageClient() {
                 const res = await fetch("/api/contact", {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
-                  body: JSON.stringify({name, contact, message, helpTypes}),
+                  body: JSON.stringify({name, contact, message, helpTypes, locale}),
                 });
                 if (!res.ok) {
                   setFormError("delivery");

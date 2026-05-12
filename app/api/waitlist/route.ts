@@ -18,6 +18,16 @@ function parseEmail(body: unknown): string | null {
   return trimmed;
 }
 
+/** 클라이언트 locale (ko/en/es). 그 외·누락 → null */
+function parseWaitlistLocale(body: unknown): string | null {
+  if (!body || typeof body !== "object") return null;
+  const raw = (body as {locale?: unknown}).locale;
+  if (typeof raw !== "string") return null;
+  const t = raw.trim().toLowerCase();
+  if (t === "ko" || t === "en" || t === "es") return t;
+  return null;
+}
+
 export async function POST(req: Request) {
   let json: unknown;
   try {
@@ -31,6 +41,8 @@ export async function POST(req: Request) {
     return NextResponse.json({error: "invalid_email"}, {status: 400});
   }
 
+  const locale = parseWaitlistLocale(json);
+
   const webhook = process.env.WAITLIST_WEBHOOK_URL?.trim();
   if (webhook) {
     try {
@@ -39,6 +51,7 @@ export async function POST(req: Request) {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
           email,
+          locale,
           source: "hapvi-footer-waitlist",
           submittedAt: new Date().toISOString(),
         }),
@@ -52,11 +65,11 @@ export async function POST(req: Request) {
       return NextResponse.json({error: "delivery_failed"}, {status: 502});
     }
   } else if (ON_VERCEL) {
-    console.info("[waitlist signup]", email, "(Vercel: no webhook → file log skipped; rely on admin mail)");
+    console.info("[waitlist signup]", email, locale ?? "", "(Vercel: no webhook → file log skipped; rely on admin mail)");
   } else {
     const dir = join(process.cwd(), "data");
     const file = join(dir, "waitlist.log");
-    const line = `${new Date().toISOString()}\t${email}\n`;
+    const line = `${new Date().toISOString()}\t${email}\t${locale ?? ""}\n`;
     try {
       await mkdir(dir, {recursive: true});
       await appendFile(file, line, "utf8");

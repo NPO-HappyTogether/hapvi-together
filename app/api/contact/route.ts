@@ -1,6 +1,6 @@
 import {NextResponse} from "next/server";
 import {appendContactToGoogleSheets, splitContactIntoEmailPhone} from "@/lib/contact-google-sheet";
-import {detectMessageLanguage} from "@/lib/contact-language";
+import {localeToContactMessageLanguage, type ContactMessageLanguage} from "@/lib/contact-locale";
 import {sendContactConsultationEmail} from "@/lib/contact-notify";
 import {sendContactWelcomeEmail} from "@/lib/contact-welcome-mail";
 
@@ -40,7 +40,13 @@ function recordRequestIfAllowed(ip: string): boolean {
 
 const ALLOWED_HELP = new Set(["housing", "benefits", "unknown"]);
 
-function parseBody(raw: unknown): {name: string; contact: string; helpTypes: string[]; message: string} | null {
+function parseBody(raw: unknown): {
+  name: string;
+  contact: string;
+  helpTypes: string[];
+  message: string;
+  language: ContactMessageLanguage;
+} | null {
   if (!raw || typeof raw !== "object") return null;
   const o = raw as Record<string, unknown>;
 
@@ -57,7 +63,9 @@ function parseBody(raw: unknown): {name: string; contact: string; helpTypes: str
   if (helpTypes.length === 0) return null;
   if (message.length > 5000) return null;
 
-  return {name, contact, helpTypes, message};
+  const language = localeToContactMessageLanguage(o.locale);
+
+  return {name, contact, helpTypes, message, language};
 }
 
 export async function POST(req: Request) {
@@ -85,7 +93,7 @@ export async function POST(req: Request) {
     return NextResponse.json({error: GENERIC_ERROR_MESSAGE}, {status: 502});
   }
 
-  const language = detectMessageLanguage(parsed.message);
+  const {language} = parsed;
   const {email, phone} = splitContactIntoEmailPhone(parsed.contact);
 
   const [sheetResult, welcomeResult] = await Promise.allSettled([

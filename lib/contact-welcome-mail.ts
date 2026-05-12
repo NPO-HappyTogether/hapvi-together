@@ -1,6 +1,6 @@
 import {Resend} from "resend";
 
-import type {ContactMessageLanguage} from "@/lib/contact-language";
+import type {ContactMessageLanguage} from "@/lib/contact-locale";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
