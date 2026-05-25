@@ -1,4 +1,5 @@
 import type {Metadata} from "next";
+import {SpeedInsights} from "@vercel/speed-insights/next";
 import {DM_Sans, Noto_Sans_KR} from "next/font/google";
 import Script from "next/script";
 import {FloatingDonateTab} from "@/components/FloatingDonateTab";
@@ -92,6 +93,7 @@ gtag('config', '${GA_MEASUREMENT_ID}');
           <main className="flex-1">{children}</main>
           <Footer />
         </LocaleProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -11,6 +11,7 @@
     "generate:footer-logo": "node scripts/invert-hapvi-footer-logo.mjs"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "lucide-react": "^1.14.0",
     "next": "16.2.5",
     "nodemailer": "^8.0.7",
