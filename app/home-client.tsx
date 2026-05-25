@@ -7,7 +7,7 @@ import {ChevronDown, FileText, HandHeart, Home as HomeIcon} from "lucide-react";
 import Link from "next/link";
 
 export default function HomePageClient() {
-  const {messages} = useLocale();
+  const {messages, locale} = useLocale();
   const h = messages.Home;
   const alts = messages.StockPhotoAlts;
   const stock = SITE_IMAGES.stock;
@@ -228,13 +228,21 @@ export default function HomePageClient() {
           <h2 className="text-2xl font-semibold tracking-tight text-ink">{h.finalCta.title}</h2>
           <p className="mt-5 text-lg leading-relaxed text-ink-muted">{h.finalCta.description}</p>
           <h3 className="mt-4 text-sm font-semibold text-hapvi-primary">{h.finalCta.free}</h3>
-          <Link
-            href="/contact"
-            className="mt-10 inline-flex rounded-lg bg-hapvi-primary px-8 py-3.5 text-base font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
-            aria-labelledby="home-primary-contact-cta"
-          >
-            <span aria-hidden="true">{h.finalCta.button}</span>
-          </Link>
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href={`/${locale}/eligibility`}
+              className="inline-flex w-full items-center justify-center rounded-lg border-2 border-hapvi-primary bg-white px-8 py-3.5 text-base font-semibold text-hapvi-primary shadow-soft transition hover:bg-hapvi-light sm:w-auto"
+            >
+              {h.finalCta.eligibilityButton}
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex w-full items-center justify-center rounded-lg bg-hapvi-primary px-8 py-3.5 text-base font-semibold text-white shadow-soft transition hover:bg-hapvi-dark sm:w-auto"
+              aria-labelledby="home-primary-contact-cta"
+            >
+              <span aria-hidden="true">{h.finalCta.button}</span>
+            </Link>
+          </div>
         </div>
       </section>
     </div>

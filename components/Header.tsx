@@ -9,7 +9,7 @@ import {usePathname} from "next/navigation";
 import {useEffect, useState} from "react";
 
 /** 홈은 로고 링크로만 제공해 동일 URL(`/`) 중복 링크를 피합니다. */
-const navItems = ["/services", "/about", "/contact"] as const;
+const navItems = ["/services", "/eligibility", "/about", "/contact"] as const;
 
 const localeOptions: {id: Locale; labelKey: "langKo" | "langEn" | "langEs"}[] = [
   {id: "ko", labelKey: "langKo"},
@@ -41,9 +41,13 @@ export function Header() {
 
   const labels: Record<(typeof navItems)[number], string> = {
     "/services": header.nav.services,
+    "/eligibility": header.nav.eligibility,
     "/about": header.nav.about,
     "/contact": header.nav.contact,
   };
+
+  const navHref = (path: (typeof navItems)[number]) =>
+    path === "/eligibility" ? `/${locale}/eligibility` : path;
 
   const glass =
     transparentMode && !solid
@@ -129,7 +133,7 @@ export function Header() {
         <div className="hidden items-center gap-8 md:flex">
           <nav className="flex items-center gap-10">
             {navItems.map((href) => (
-              <Link key={href} href={href} className={`text-[0.9375rem] font-medium transition ${navLinkClass}`}>
+              <Link key={href} href={navHref(href)} className={`text-[0.9375rem] font-medium transition ${navLinkClass}`}>
                 {labels[href]}
               </Link>
             ))}
@@ -170,7 +174,7 @@ export function Header() {
             {navItems.map((href) => (
               <Link
                 key={href}
-                href={href}
+                href={navHref(href)}
                 className={`rounded-lg px-3 py-2.5 text-sm font-medium transition ${mobileNavLinkClass}`}
                 onClick={() => setIsOpen(false)}
               >
