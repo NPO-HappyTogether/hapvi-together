@@ -147,19 +147,6 @@ export default function HomePageClient() {
           <blockquote className="font-serif text-2xl font-normal leading-snug tracking-tight text-ink md:text-[1.85rem] md:leading-snug">
             &ldquo;{h.quote}&rdquo;
           </blockquote>
-          <span
-            className="mt-10 font-serif text-6xl leading-none text-[rgb(136,68,68)] block"
-            aria-hidden="true"
-            role="presentation"
-          >
-            &rdquo;
-          </span>
-          <div className="mt-8 flex gap-2">
-            <span className="h-2 w-2 rounded-full bg-hapvi-dark" />
-            <span className="h-2 w-2 rounded-full bg-hapvi-dark/35" />
-            <span className="h-2 w-2 rounded-full bg-hapvi-dark/35" />
-            <span className="h-2 w-2 rounded-full bg-hapvi-dark/35" />
-          </div>
         </div>
         <div className="relative min-h-[320px] md:min-h-[420px]">
           <StockPhoto
