@@ -30,7 +30,8 @@
       "titleLine2": "en coreano, contigo.",
       "description": "Acompañamos gratis a familias coreanas en Los Ángeles con conexión a vivienda, trámites de beneficios públicos y recursos locales.",
       "ctaPrimary": "Solicitar consulta gratuita",
-      "ctaSecondary": "Ver servicios"
+      "ctaSecondary": "Ver servicios",
+      "eligibilityCta": "Verificar Mi Elegibilidad →"
     },
     "problem": {
       "titleLine1": "Hay beneficios para los que califican—",
@@ -92,7 +93,8 @@
       "programs": [
         "Sección 8 (voucher de elección de vivienda)",
         "Ayuda de vivienda de emergencia (p. ej., General Relief)"
-      ]
+      ],
+      "eligibilityCta": "Verificar Mi Elegibilidad →"
     },
     "apply": "Solicitar consulta",
     "illustration": "Ilustración",

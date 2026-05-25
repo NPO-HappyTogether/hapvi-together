@@ -30,7 +30,8 @@
       "titleLine2": "in Korean with you.",
       "description": "We guide Korean-American households in LA through housing connections, public benefit applications, and local resources—free of charge.",
       "ctaPrimary": "Request a free consultation",
-      "ctaSecondary": "Explore services"
+      "ctaSecondary": "Explore services",
+      "eligibilityCta": "Check My Eligibility →"
     },
     "problem": {
       "titleLine1": "Benefits you may qualify for—",
@@ -92,7 +93,8 @@
       "programs": [
         "Section 8 (Housing Choice Voucher)",
         "Emergency housing assistance (e.g., General Relief)"
-      ]
+      ],
+      "eligibilityCta": "Check My Eligibility →"
     },
     "apply": "Request a consultation",
     "illustration": "Illustration",

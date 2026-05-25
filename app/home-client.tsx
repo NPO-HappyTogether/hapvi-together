@@ -7,7 +7,7 @@ import {ChevronDown, FileText, HandHeart, Home as HomeIcon} from "lucide-react";
 import Link from "next/link";
 
 export default function HomePageClient() {
-  const {messages} = useLocale();
+  const {messages, locale} = useLocale();
   const h = messages.Home;
   const alts = messages.StockPhotoAlts;
   const stock = SITE_IMAGES.stock;
@@ -69,6 +69,12 @@ export default function HomePageClient() {
               className="inline-flex w-full items-center justify-center rounded-md border-2 border-white bg-hapvi-dark/90 px-8 py-3.5 text-center text-base font-semibold text-white shadow-lg shadow-black/25 backdrop-blur-sm transition hover:bg-hapvi-primary hover:border-white sm:w-auto"
             >
               <span id="home-primary-services-cta">{h.hero.ctaSecondary}</span>
+            </Link>
+            <Link
+              href={`/${locale}/eligibility`}
+              className="inline-flex w-full items-center justify-center rounded-md bg-hapvi-primary px-8 py-3.5 text-center text-base font-semibold text-white shadow-lg shadow-black/10 transition hover:bg-hapvi-dark sm:w-auto"
+            >
+              {h.hero.eligibilityCta}
             </Link>
           </div>
           <a

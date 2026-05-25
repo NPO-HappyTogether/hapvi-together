@@ -7,7 +7,7 @@ import {CheckCircle2, Circle} from "lucide-react";
 import Link from "next/link";
 
 export default function ServicesPageClient() {
-  const {messages} = useLocale();
+  const {messages, locale} = useLocale();
   const t = messages.Services;
   const alts = messages.StockPhotoAlts;
   const stock = SITE_IMAGES.stock;
@@ -126,12 +126,20 @@ export default function ServicesPageClient() {
               ))}
             </ul>
 
-            <Link
-              href="/contact"
-              className="mt-10 inline-flex w-fit rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
-            >
-              {t.apply}
-            </Link>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                href="/contact"
+                className="inline-flex w-fit rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
+              >
+                {t.apply}
+              </Link>
+              <Link
+                href={`/${locale}/eligibility`}
+                className="inline-flex w-fit rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
+              >
+                {t.service2.eligibilityCta}
+              </Link>
+            </div>
           </div>
         </article>
       </section>
