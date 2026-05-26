@@ -70,12 +70,6 @@ export default function HomePageClient() {
             >
               <span id="home-primary-services-cta">{h.hero.ctaSecondary}</span>
             </Link>
-            <Link
-              href={`/${locale}/eligibility`}
-              className="inline-flex w-full items-center justify-center rounded-md bg-hapvi-primary px-8 py-3.5 text-center text-base font-semibold text-white shadow-lg shadow-black/10 transition hover:bg-hapvi-dark sm:w-auto"
-            >
-              {h.hero.eligibilityCta}
-            </Link>
           </div>
           <a
             href="#mission"
@@ -143,6 +137,12 @@ export default function HomePageClient() {
               aria-labelledby="home-primary-services-cta"
             >
               <span aria-hidden="true">{h.hero.ctaSecondary}</span>
+            </Link>
+            <Link
+              href={`/${locale}/eligibility`}
+              className="inline-flex rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-hapvi-dark"
+            >
+              {h.hero.eligibilityCta}
             </Link>
           </div>
         </div>
