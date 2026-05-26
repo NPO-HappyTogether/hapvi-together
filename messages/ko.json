@@ -31,7 +31,7 @@
       "description": "LA에 사시는 한인 가정을 위해 주거 연결, 정부 혜택 신청, 지역 자원을 무료로 안내해드립니다.",
       "ctaPrimary": "무료 상담 신청하기",
       "ctaSecondary": "서비스 알아보기",
-      "eligibilityCta": "혜택 자격 확인하기 →"
+      "eligibilityCta": "혜택 안내 바로가기 →"
     },
     "problem": {
       "titleLine1": "받을 수 있는 혜택인데,",
@@ -94,7 +94,8 @@
         "섹션8 (Section 8 / Housing Choice Voucher)",
         "긴급 주거 지원 (General Relief 등)"
       ],
-      "eligibilityCta": "혜택 자격 확인하기 →"
+      "eligibilityCta": "혜택 자격 확인하기 →",
+      "guideCta": "혜택 안내 바로가기 →"
     },
     "apply": "상담 신청하기",
     "illustration": "이미지/아이콘 일러스트",
@@ -208,106 +209,46 @@
     "contactOffice": "연락과 상담을 위한 업무 공간"
   },
   "Eligibility": {
-    "title": "혜택 자격 확인",
-    "metaTitle": "혜택 자격 확인 - HapVi Together",
-    "metaDescription": "가족 수·소득·거주·체류 자격으로 Section 8, CalFresh, Medi-Cal, LIHEAP, 긴급 임대 지원 가능 여부를 확인하세요.",
-    "hero": {
-      "badge": "무료 도구",
-      "description": "4가지 질문에 답하시면 받을 수 있는 혜택을 안내해 드립니다. 공식 심사가 아닌 참고용입니다."
-    },
-    "steps": {
-      "label": "단계 {current} / {total}",
-      "household": {
-        "title": "가족 구성원 수",
-        "description": "본인을 포함한 가구 전체 인원을 선택해 주세요.",
-        "members": ["1명", "2명", "3명", "4명"],
-        "fivePlus": "5명 이상"
+    "title": "정부 혜택 안내",
+    "metaTitle": "정부 혜택 안내 - HapVi Together",
+    "metaDescription": "Section 8, CalFresh, Medi-Cal, LIHEAP, 긴급 임대 지원 등 LA 한인 가정을 위한 정부 혜택 공식 신청 사이트 안내.",
+    "intro": "아래 각 혜택을 클릭하면 공식 신청 사이트로 연결됩니다. 자격 여부는 공식 사이트에서 직접 확인하세요.",
+    "officialSiteCta": "공식 사이트에서 확인하기 →",
+    "benefitCards": [
+      {
+        "icon": "🏠",
+        "title": "주거 바우처 (Section 8 / HCV)",
+        "description": "저소득 가정이 민간 임대주택에 거주할 수 있도록 임대료를 지원하는 연방 프로그램입니다.",
+        "url": "https://www.hacla.org/en/apply-section-8"
       },
-      "income": {
-        "title": "월 가구 소득",
-        "description": "가구 전체의 월 소득(세전) 구간을 선택해 주세요.",
-        "band0": "월 $0 ~ $1,000",
-        "band1": "월 $1,001 ~ $2,000",
-        "band2": "월 $2,001 ~ $3,000",
-        "band3": "월 $3,001 ~ $4,000",
-        "band4": "월 $4,001 이상"
+      {
+        "icon": "🛒",
+        "title": "CalFresh (식품 지원 / SNAP)",
+        "description": "식료품 구입에 사용할 수 있는 EBT 카드를 지원하는 캘리포니아 식품 지원 프로그램입니다.",
+        "url": "https://www.getcalfresh.org"
       },
-      "housing": {
-        "title": "현재 거주 형태",
-        "description": "지금 거주 상황에 가장 가까운 항목을 선택해 주세요.",
-        "rent": "임대 중",
-        "own": "자가",
-        "homeless": "노숙·임시거처",
-        "other": "기타"
+      {
+        "icon": "🏥",
+        "title": "Medi-Cal (의료 지원)",
+        "description": "저소득 캘리포니아 주민에게 무료 또는 저렴한 의료 서비스를 제공하는 주 의료보험 프로그램입니다.",
+        "url": "https://www.coveredca.com/medi-cal/"
       },
-      "immigration": {
-        "title": "미국 체류 자격",
-        "description": "가장 가까운 상태를 선택해 주세요.",
-        "citizenLpr": "시민권자 또는 영주권자",
-        "legal": "합법적 체류 중",
-        "unknown": "모름"
+      {
+        "icon": "💡",
+        "title": "LIHEAP (유틸리티 지원)",
+        "description": "전기, 가스 등 에너지 비용을 지원하는 연방 프로그램입니다. 신청 기간이 정해져 있으니 공식 사이트에서 현재 운영 여부를 확인하세요.",
+        "url": "https://www.csd.ca.gov/liheap"
       },
-      "results": {
-        "title": "자격 확인 결과",
-        "description": "입력하신 정보를 바탕으로 한 참고 결과입니다. 최종 자격은 각 기관 심사가 필요합니다."
+      {
+        "icon": "🆘",
+        "title": "긴급 임대 지원 (Emergency Rental Assistance)",
+        "description": "임대료 체납이나 퇴거 위기에 처한 가정을 위한 긴급 지원 프로그램입니다. 현재 운영 여부는 공식 사이트에서 확인하세요.",
+        "url": "https://dcba.lacounty.gov/renthelp/"
       }
-    },
-    "actions": {
-      "next": "다음",
-      "back": "이전",
-      "seeResults": "결과 보기",
-      "startOver": "처음부터 다시",
-      "contactCta": "더 자세한 상담 받기"
-    },
-    "results": {
-      "eligibleHeading": "신청 가능한 혜택",
-      "ineligibleHeading": "현재 기준 미충족",
-      "noneEligible": "선택하신 기준으로 자동 추천된 혜택이 없습니다. 무료 상담으로 개별 상황을 확인해 보세요."
-    },
-    "rejectReasons": {
-      "income_too_high": "월 소득이 이 프로그램의 일반적인 기준을 초과합니다.",
-      "not_renting": "임대 중인 가구에 해당하는 프로그램입니다.",
-      "immigration_required": "합법 체류 또는 시민권·영주권이 필요할 수 있습니다.",
-      "immigration_uncertain": "체류 자격 확인이 필요합니다."
-    },
-    "benefits": {
-      "section8": {
-        "name": "Section 8 / HCV (주거 바우처)",
-        "summary": "저소득 가구 임대료 보조. LA County HACLA를 통해 신청합니다.",
-        "applyLabel": "Section 8 신청 안내",
-        "applyUrl": "https://www.hacla.org/en/apply-section-8"
-      },
-      "calfresh": {
-        "name": "CalFresh (식품 지원)",
-        "summary": "식료품 구매를 위한 SNAP(EBT) 혜택입니다.",
-        "applyLabel": "CalFresh 신청",
-        "applyUrl": "https://www.getcalfresh.org"
-      },
-      "medi-cal": {
-        "name": "Medi-Cal (의료 지원)",
-        "summary": "캘리포니아 저소득·무료 의료보험 프로그램입니다.",
-        "applyLabel": "Medi-Cal 신청",
-        "applyUrl": "https://www.coveredca.com/medi-cal/"
-      },
-      "liheap": {
-        "name": "LIHEAP (유틸리티 지원)",
-        "summary": "전기·가스 등 에너지 요금 보조 프로그램입니다.",
-        "applyLabel": "LIHEAP 안내",
-        "applyUrl": "https://www.csd.ca.gov/liheap"
-      },
-      "emergency-rental": {
-        "name": "Emergency Rental Assistance",
-        "summary": "임대료 체납·퇴거 위기 시 긴급 임대 지원입니다.",
-        "applyLabel": "LA County Rent Help",
-        "applyUrl": "https://dcba.lacounty.gov/renthelp/"
-      }
-    },
-    "disclaimer": "가구 4명 기준 월 소득 한도를 가구원 수에 비례 조정한 안내용이며, 법적·공식 자격 판정이 아닙니다.",
-    "validation": {
-      "householdRequired": "가족 구성원 수를 선택해 주세요.",
-      "incomeRequired": "월 소득 구간을 선택해 주세요.",
-      "housingRequired": "거주 형태를 선택해 주세요.",
-      "immigrationRequired": "체류 자격을 선택해 주세요."
+    ],
+    "consult": {
+      "text": "어떤 혜택을 받을 수 있는지 잘 모르시겠나요? HapVi Together가 함께 알아봐 드립니다.",
+      "cta": "무료 상담 신청하기"
     }
   },
   "Privacy": {

@@ -94,7 +94,8 @@
         "Section 8 (Housing Choice Voucher)",
         "Emergency housing assistance (e.g., General Relief)"
       ],
-      "eligibilityCta": "Check My Eligibility →"
+      "eligibilityCta": "Check My Eligibility →",
+      "guideCta": "View Benefits Guide →"
     },
     "apply": "Request a consultation",
     "illustration": "Illustration",
@@ -208,106 +209,46 @@
     "contactOffice": "Office space for consultation and contact"
   },
   "Eligibility": {
-    "title": "Check Your Eligibility",
-    "metaTitle": "Benefits Eligibility Check - HapVi Together",
-    "metaDescription": "Screen for Section 8, CalFresh, Medi-Cal, LIHEAP, and emergency rental assistance.",
-    "hero": {
-      "badge": "Free tool",
-      "description": "Answer 4 questions to see which benefits you may qualify for. For guidance only—not an official determination."
-    },
-    "steps": {
-      "label": "Step {current} of {total}",
-      "household": {
-        "title": "Household size",
-        "description": "Select everyone living in your home, including yourself.",
-        "members": ["1 person", "2 people", "3 people", "4 people"],
-        "fivePlus": "5 or more"
+    "title": "Government Benefits Guide",
+    "metaTitle": "Government Benefits Guide - HapVi Together",
+    "metaDescription": "Official application links for Section 8, CalFresh, Medi-Cal, LIHEAP, and emergency rental assistance for LA Korean-American families.",
+    "intro": "Click each benefit below to visit the official application site. Please check your eligibility directly on each official site.",
+    "officialSiteCta": "Check on Official Site →",
+    "benefitCards": [
+      {
+        "icon": "🏠",
+        "title": "Housing Voucher (Section 8 / HCV)",
+        "description": "A federal program that helps low-income families afford safe, decent housing in the private market.",
+        "url": "https://www.hacla.org/en/apply-section-8"
       },
-      "income": {
-        "title": "Monthly household income",
-        "description": "Select your household’s total monthly income before taxes.",
-        "band0": "$0 – $1,000 / month",
-        "band1": "$1,001 – $2,000 / month",
-        "band2": "$2,001 – $3,000 / month",
-        "band3": "$3,001 – $4,000 / month",
-        "band4": "More than $4,000 / month"
+      {
+        "icon": "🛒",
+        "title": "CalFresh (SNAP Food Assistance)",
+        "description": "California's food assistance program that provides an EBT card for purchasing groceries.",
+        "url": "https://www.getcalfresh.org"
       },
-      "housing": {
-        "title": "Current housing",
-        "description": "Choose the option that best describes where you live now.",
-        "rent": "Renting",
-        "own": "Own my home",
-        "homeless": "Unhoused / temporary shelter",
-        "other": "Other"
+      {
+        "icon": "🏥",
+        "title": "Medi-Cal (Health Coverage)",
+        "description": "California's health insurance program providing free or low-cost medical coverage for low-income residents.",
+        "url": "https://www.coveredca.com/medi-cal/"
       },
-      "immigration": {
-        "title": "U.S. immigration status",
-        "description": "Pick the closest match.",
-        "citizenLpr": "U.S. citizen or green card holder",
-        "legal": "Lawfully present",
-        "unknown": "Not sure"
+      {
+        "icon": "💡",
+        "title": "LIHEAP (Utility Assistance)",
+        "description": "A federal program that helps with electricity and gas bills. Check the official site for current availability.",
+        "url": "https://www.csd.ca.gov/liheap"
       },
-      "results": {
-        "title": "Your results",
-        "description": "Based on your answers. Each agency makes the final eligibility decision."
+      {
+        "icon": "🆘",
+        "title": "Emergency Rental Assistance",
+        "description": "Emergency assistance for households facing eviction or unpaid rent. Check the official site for current availability.",
+        "url": "https://dcba.lacounty.gov/renthelp/"
       }
-    },
-    "actions": {
-      "next": "Next",
-      "back": "Back",
-      "seeResults": "See results",
-      "startOver": "Start over",
-      "contactCta": "Get a detailed consultation"
-    },
-    "results": {
-      "eligibleHeading": "Programs you may qualify for",
-      "ineligibleHeading": "Does not meet typical criteria",
-      "noneEligible": "No programs matched your answers. Contact us for a free consultation."
-    },
-    "rejectReasons": {
-      "income_too_high": "Monthly income appears above this program’s typical limit.",
-      "not_renting": "This program is for households that are currently renting.",
-      "immigration_required": "May require U.S. citizenship, green card, or lawful status.",
-      "immigration_uncertain": "Immigration status needs to be confirmed."
-    },
-    "benefits": {
-      "section8": {
-        "name": "Section 8 / HCV (Housing Voucher)",
-        "summary": "Rent assistance for low-income households through LA County HACLA.",
-        "applyLabel": "Apply for Section 8",
-        "applyUrl": "https://www.hacla.org/en/apply-section-8"
-      },
-      "calfresh": {
-        "name": "CalFresh (SNAP food benefits)",
-        "summary": "EBT benefits to help buy groceries.",
-        "applyLabel": "Apply at GetCalFresh",
-        "applyUrl": "https://www.getcalfresh.org"
-      },
-      "medi-cal": {
-        "name": "Medi-Cal (Health coverage)",
-        "summary": "Free or low-cost health coverage in California.",
-        "applyLabel": "Apply for Medi-Cal",
-        "applyUrl": "https://www.coveredca.com/medi-cal/"
-      },
-      "liheap": {
-        "name": "LIHEAP (Utility assistance)",
-        "summary": "Help paying electric, gas, and energy bills.",
-        "applyLabel": "LIHEAP information",
-        "applyUrl": "https://www.csd.ca.gov/liheap"
-      },
-      "emergency-rental": {
-        "name": "Emergency Rental Assistance",
-        "summary": "Emergency help with rent when facing eviction or arrears.",
-        "applyLabel": "LA County Rent Help",
-        "applyUrl": "https://dcba.lacounty.gov/renthelp/"
-      }
-    },
-    "disclaimer": "Income limits are scaled from a 4-person household baseline for guidance only—not a legal or official decision.",
-    "validation": {
-      "householdRequired": "Please select household size.",
-      "incomeRequired": "Please select an income range.",
-      "housingRequired": "Please select your housing situation.",
-      "immigrationRequired": "Please select your immigration status."
+    ],
+    "consult": {
+      "text": "Not sure which benefits apply to you? HapVi Together is here to help.",
+      "cta": "Request Free Consultation"
     }
   },
   "Privacy": {

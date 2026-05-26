@@ -137,7 +137,7 @@ export default function ServicesPageClient() {
                 href={`/${locale}/eligibility`}
                 className="inline-flex w-fit rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
               >
-                {t.service2.eligibilityCta}
+                {t.service2.guideCta}
               </Link>
             </div>
           </div>
