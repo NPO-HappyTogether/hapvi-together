@@ -214,11 +214,11 @@ export default function HomePageClient() {
               <h3 className="mt-8 text-xl font-semibold tracking-tight">{h.services.community.title}</h3>
               <p className="mt-4 leading-relaxed text-white/85">{h.services.community.description}</p>
               <Link
-                href="/services"
+                href={`/${locale}/resources`}
                 className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-hapvi-light hover:text-white"
                 aria-label={h.services.community.learnMoreAriaLabel}
               >
-                {h.services.learnMore}
+                {h.services.community.resourcesCta}
               </Link>
             </article>
           </div>

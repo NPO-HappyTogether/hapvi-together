@@ -1,0 +1,43 @@
+{
+  "resources": [
+    {
+      "id": "211-la",
+      "category": "emergency",
+      "title_ko": "LA 211 (지역 자원 안내)",
+      "title_en": "LA 211 (Community Resource Line)",
+      "title_es": "LA 211 (Línea de recursos comunitarios)",
+      "description_ko": "주거, 식품, 의료, 긴급 지원 등 LA 카운티 지역 자원을 전화·온라인으로 안내받을 수 있습니다.",
+      "description_en": "Connects LA County residents to housing, food, health, and emergency resources by phone or online.",
+      "description_es": "Conecta a residentes del condado de LA con recursos de vivienda, alimentos, salud y emergencias.",
+      "url": "https://www.211la.org",
+      "sort_order": 10,
+      "last_verified": "2026-05"
+    },
+    {
+      "id": "korean-fam-svc-la",
+      "category": "community",
+      "title_ko": "Korean Family Services of Los Angeles",
+      "title_en": "Korean Family Services of Los Angeles",
+      "title_es": "Korean Family Services of Los Angeles",
+      "description_ko": "한인 가정을 위한 상담·가족 지원·위기 개입 등 커뮤니티 서비스를 제공합니다. 공식 사이트에서 프로그램을 확인하세요.",
+      "description_en": "Offers counseling, family support, and crisis services for Korean-American families. Check programs on the official site.",
+      "description_es": "Ofrece consejería, apoyo familiar y servicios de crisis. Consulte los programas en el sitio oficial.",
+      "url": "https://www.kfsla.org",
+      "sort_order": 20,
+      "last_verified": "2026-05"
+    },
+    {
+      "id": "la-housing-dept",
+      "category": "housing",
+      "title_ko": "LA County Housing Resource Center",
+      "title_en": "LA County Housing Resource Center",
+      "title_es": "LA County Housing Resource Center",
+      "description_ko": "LA 카운티 주거·임대·무주택 지원 관련 공식 정보 허브입니다.",
+      "description_en": "Official hub for LA County housing, rental, and homelessness resources.",
+      "description_es": "Centro oficial de información sobre vivienda y apoyo habitacional en el condado de LA.",
+      "url": "https://housing.lacounty.gov",
+      "sort_order": 30,
+      "last_verified": "2026-05"
+    }
+  ]
+}

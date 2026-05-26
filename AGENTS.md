@@ -94,7 +94,7 @@ messages/
 
 ## 다음 개발 과제 (Phase 9+)
 
-- **Phase 9 (진행 중):** `/[locale]/resources` — Google Sheets CMS 기반 지역·정부 자원 디렉토리 (`docs/PHASE9.md`)
+- **Phase 9:** `/[locale]/resources` — Google Sheets CMS 지역·정부 자원 디렉토리 (코드 완료, `RESOURCES_CMS_URL`·Sheet 탭 배포 대기 — `docs/PHASE9.md`)
 - **Phase 10 이후:** 예약·케이스 트래킹·문서 포털 (장기)
 - **선택:** Upstash Redis 무료 티어로 분산 rate limit (현재 인메모리 + honeypot)
 

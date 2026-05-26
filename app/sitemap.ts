@@ -9,6 +9,7 @@ const STATIC_PATHS = [
   {path: "/about", priority: 0.8, changeFrequency: "monthly" as const},
   {path: "/privacy", priority: 0.5, changeFrequency: "yearly" as const},
   {path: "/eligibility", priority: 0.85, changeFrequency: "weekly" as const},
+  {path: "/resources", priority: 0.85, changeFrequency: "weekly" as const},
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -32,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.5,
+    });
+    entries.push({
+      url: `${SITE_ORIGIN}/${locale}/resources`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
     });
   }
 

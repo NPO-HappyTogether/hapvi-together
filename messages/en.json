@@ -5,6 +5,7 @@
       "home": "Home",
       "services": "Services",
       "eligibility": "Benefits Guide",
+      "resources": "Resources",
       "about": "About",
       "contact": "Contact"
     },
@@ -95,7 +96,8 @@
       "community": {
         "title": "Local resources",
         "description": "Community organizations and emergency assistance links",
-        "learnMoreAriaLabel": "Learn more about local resource connection services"
+        "learnMoreAriaLabel": "Learn more about local resource connection services",
+        "resourcesCta": "View Resources Guide →"
       }
     },
     "quote": "A community where every Korean-American household has stable housing and receives the benefits they deserve.",
@@ -252,6 +254,30 @@
     "aboutMeeting": "Nonprofit team meeting and collaboration",
     "aboutCommunity": "Community volunteering and neighborhood activity",
     "contactOffice": "Office space for consultation and contact"
+  },
+  "Resources": {
+    "title": "Community & Government Resources",
+    "metaTitle": "Community Resources Guide - HapVi Together",
+    "metaDescription": "Official links to housing, food, health, legal, and emergency resources for Korean-American families in LA.",
+    "intro": "Click each resource below to visit the official site. Eligibility and application steps are determined by each agency.",
+    "lastVerifiedNote": "This list is managed in Google Sheets and links are reviewed periodically.",
+    "empty": "No resources are listed right now. Please check back later or request a free consultation.",
+    "officialSiteCta": "Check on Official Site →",
+    "cardVerified": "Verified",
+    "categories": {
+      "housing": "Housing",
+      "food": "Food & Nutrition",
+      "health": "Health",
+      "legal": "Legal & Immigration",
+      "emergency": "Emergency",
+      "community": "Community",
+      "other": "Other"
+    },
+    "consult": {
+      "text": "Not sure which resources you need? HapVi Together is here to help.",
+      "cta": "Request Free Consultation",
+      "eligibilityCta": "View Benefits Guide →"
+    }
   },
   "Eligibility": {
     "title": "Government Benefits Guide",

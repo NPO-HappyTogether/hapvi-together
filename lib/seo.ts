@@ -41,6 +41,19 @@ export function eligibilityAlternates(locale: Locale): Metadata["alternates"] {
   };
 }
 
+export function resourcesAlternates(locale: Locale): Metadata["alternates"] {
+  const canonical = pageUrl(`/${locale}/resources`);
+  return {
+    canonical,
+    languages: {
+      ko: pageUrl("/ko/resources"),
+      en: pageUrl("/en/resources"),
+      es: pageUrl("/es/resources"),
+      "x-default": pageUrl("/ko/resources"),
+    },
+  };
+}
+
 export function buildPageMetadata(opts: {
   title: string;
   path: string;

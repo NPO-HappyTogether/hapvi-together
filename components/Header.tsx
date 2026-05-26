@@ -9,7 +9,7 @@ import {usePathname} from "next/navigation";
 import {useEffect, useState} from "react";
 
 /** 홈은 로고 링크로만 제공해 동일 URL(`/`) 중복 링크를 피합니다. */
-const navItems = ["/services", "/eligibility", "/about", "/contact"] as const;
+const navItems = ["/services", "/eligibility", "/resources", "/about", "/contact"] as const;
 
 const localeOptions: {id: Locale; labelKey: "langKo" | "langEn" | "langEs"}[] = [
   {id: "ko", labelKey: "langKo"},
@@ -42,12 +42,16 @@ export function Header() {
   const labels: Record<(typeof navItems)[number], string> = {
     "/services": header.nav.services,
     "/eligibility": header.nav.eligibility,
+    "/resources": header.nav.resources,
     "/about": header.nav.about,
     "/contact": header.nav.contact,
   };
 
-  const navHref = (path: (typeof navItems)[number]) =>
-    path === "/eligibility" ? `/${locale}/eligibility` : path;
+  const navHref = (path: (typeof navItems)[number]) => {
+    if (path === "/eligibility") return `/${locale}/eligibility`;
+    if (path === "/resources") return `/${locale}/resources`;
+    return path;
+  };
 
   const glass =
     transparentMode && !solid
