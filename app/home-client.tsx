@@ -1,6 +1,7 @@
 "use client";
 
 import {useLocale} from "@/components/LocaleProvider";
+import {privacyPath} from "@/lib/locale-path";
 import {StockPhoto} from "@/components/StockPhoto";
 import {SITE_IMAGES} from "@/lib/site-images";
 import {ChevronDown, FileText, HandHeart, Home as HomeIcon} from "lucide-react";
@@ -66,7 +67,7 @@ export default function HomePageClient() {
           </div>
           <a
             href="#mission"
-            aria-label={h.finalCta.title}
+            aria-label={h.hero.scrollDown}
             className="mt-14 inline-flex flex-col items-center gap-2 text-white/80 transition hover:text-white"
           >
             <ChevronDown className="h-6 w-6 animate-bounce" strokeWidth={2} aria-hidden />
@@ -120,7 +121,7 @@ export default function HomePageClient() {
           </ul>
           <p className="mt-4 text-sm text-ink-muted">
             {h.trust.privacyNote}{" "}
-            <Link href="/privacy" className="font-semibold text-hapvi-dark underline decoration-hapvi-primary/40 underline-offset-2 hover:text-hapvi-primary">
+            <Link href={privacyPath(locale)} className="font-semibold text-hapvi-dark underline decoration-hapvi-primary/40 underline-offset-2 hover:text-hapvi-primary">
               {h.trust.privacyLink}
             </Link>
           </p>

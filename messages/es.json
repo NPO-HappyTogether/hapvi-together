@@ -1,4 +1,7 @@
 {
+  "A11y": {
+    "skipToContent": "Saltar al contenido principal"
+  },
   "Header": {
     "tagline": "For a Better Village",
     "nav": {
@@ -10,6 +13,7 @@
       "contact": "Contacto"
     },
     "menuOpen": "Abrir menú",
+    "menuClose": "Cerrar menú",
     "langSwitcherLabel": "Elegir idioma",
     "langKo": "한국어",
     "langEn": "English",
@@ -24,7 +28,12 @@
     "ein": "EIN: 33-3980325",
     "email": "Correo",
     "hours": "Horario: lun–vie 9:00–17:00 (hora del Pacífico)",
-    "privacyPolicy": "Política de privacidad"
+    "privacyPolicy": "Política de privacidad",
+    "copyright": "© 2026 HapVi Together. Todos los derechos reservados.",
+    "nav": {
+      "eligibility": "Guía de Beneficios",
+      "resources": "Recursos"
+    }
   },
   "Home": {
     "hero": {
@@ -33,7 +42,8 @@
       "description": "Acompañamos gratis a familias coreanas en Los Ángeles con conexión a vivienda, trámites de beneficios públicos y recursos locales.",
       "ctaPrimary": "Solicitar consulta gratuita",
       "ctaSecondary": "Ver servicios",
-      "eligibilityCta": "Verificar Mi Elegibilidad →"
+      "eligibilityCta": "Verificar Mi Elegibilidad →",
+      "scrollDown": "Ir a la sección de introducción"
     },
     "problem": {
       "titleLine1": "Hay beneficios para los que califican—",
@@ -227,6 +237,7 @@
       "submitting": "Enviando…",
       "success": "¡Gracias! Responderemos por correo en 1–2 días hábiles.",
       "successNext": "Se envió un correo de confirmación. Si es urgente, escriba a info@hapvi.org.",
+      "successNoEmail": "Le contactaremos en 1–2 días hábiles. Si deja un correo, también enviaremos un mensaje de confirmación.",
       "privacyBeforeSubmit": "Al enviar, acepta nuestra",
       "privacyLink": "Política de privacidad",
       "privacyAfterSubmit": ".",
@@ -318,6 +329,7 @@
   },
   "Privacy": {
     "metaTitle": "Política de privacidad - HapVi Together",
+    "metaDescription": "Cómo HapVi Together recopila, usa y conserva datos personales en este sitio y en las solicitudes de consulta.",
     "title": "Política de privacidad",
     "intro": "HapVi Together (“nosotros”) valora su privacidad y cumple las leyes aplicables. Esta política describe cómo tratamos la información recopilada a través de nuestro sitio web y las solicitudes de consulta.",
     "s1Title": "1. Información que recopilamos",

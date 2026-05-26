@@ -1,11 +1,12 @@
 "use client";
 
 import {useLocale, type Locale} from "@/components/LocaleProvider";
+import {isNavActive, switchLocalePath} from "@/lib/locale-path";
 import {SITE_IMAGES} from "@/lib/site-images";
 import {Menu, X} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import {usePathname} from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 import {useEffect, useState} from "react";
 
 /** 홈은 로고 링크로만 제공해 동일 URL(`/`) 중복 링크를 피합니다. */
@@ -20,12 +21,21 @@ const localeOptions: {id: Locale; labelKey: "langKo" | "langEn" | "langEs"}[] = 
 export function Header() {
   const {locale, setLocale, messages} = useLocale();
   const header = messages.Header;
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [solid, setSolid] = useState(false);
   const pathname = usePathname();
 
   const heroRoutes = ["/", "/services", "/about", "/contact"];
   const transparentMode = heroRoutes.includes(pathname);
+
+  const changeLocale = (next: Locale) => {
+    const target = switchLocalePath(pathname, next);
+    if (target) {
+      router.push(target);
+    }
+    setLocale(next);
+  };
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 48);
@@ -94,8 +104,13 @@ export function Header() {
       ? "border-white/35 text-white/90 hover:border-white/55 hover:bg-white/10 hover:text-white"
       : "border-stone-200 text-ink-muted hover:border-hapvi-primary/35 hover:text-hapvi-dark";
 
-  /** 현재 언어가 아닌 나머지 두 언어만 표시 */
   const alternateLocaleButtons = localeOptions.filter((opt) => opt.id !== locale);
+
+  const navActiveClass = (active: boolean) => {
+    if (!active) return "";
+    if (transparentMode && !solid) return "font-semibold text-white";
+    return "font-semibold text-hapvi-primary";
+  };
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${glass}`}>
@@ -135,12 +150,20 @@ export function Header() {
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
-          <nav className="flex items-center gap-10">
-            {navItems.map((href) => (
-              <Link key={href} href={navHref(href)} className={`text-[0.9375rem] font-medium transition ${navLinkClass}`}>
-                {labels[href]}
-              </Link>
-            ))}
+          <nav className="flex items-center gap-10" aria-label={header.nav.home}>
+            {navItems.map((href) => {
+              const active = isNavActive(pathname, href, locale);
+              return (
+                <Link
+                  key={href}
+                  href={navHref(href)}
+                  className={`text-[0.9375rem] font-medium transition ${navLinkClass} ${navActiveClass(active)}`}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {labels[href]}
+                </Link>
+              );
+            })}
           </nav>
           <div
             className={`flex items-center gap-1 border-l pl-8 opacity-95 ${
@@ -153,7 +176,7 @@ export function Header() {
               <button
                 key={id}
                 type="button"
-                onClick={() => setLocale(id)}
+                onClick={() => changeLocale(id)}
                 className={`inline-flex h-8 w-[7.5rem] shrink-0 items-center justify-center rounded-md border text-center text-[0.72rem] font-semibold leading-none transition ${langBtnClass}`}
               >
                 {header[labelKey]}
@@ -166,25 +189,31 @@ export function Header() {
           type="button"
           className={`rounded-lg p-2 md:hidden ${mobileToggleClass}`}
           onClick={() => setIsOpen((prev) => !prev)}
-          aria-label={header.menuOpen}
+          aria-label={isOpen ? header.menuClose : header.menuOpen}
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav-panel"
         >
           {isOpen ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
         </button>
       </div>
 
       {isOpen && (
-        <div className={`border-t px-5 py-5 md:hidden ${mobilePanelClass}`}>
-          <nav className="flex flex-col gap-1">
-            {navItems.map((href) => (
-              <Link
-                key={href}
-                href={navHref(href)}
-                className={`rounded-lg px-3 py-2.5 text-sm font-medium transition ${mobileNavLinkClass}`}
-                onClick={() => setIsOpen(false)}
-              >
-                {labels[href]}
-              </Link>
-            ))}
+        <div id="mobile-nav-panel" className={`border-t px-5 py-5 md:hidden ${mobilePanelClass}`}>
+          <nav className="flex flex-col gap-1" aria-label={header.nav.home}>
+            {navItems.map((href) => {
+              const active = isNavActive(pathname, href, locale);
+              return (
+                <Link
+                  key={href}
+                  href={navHref(href)}
+                  className={`rounded-lg px-3 py-2.5 text-sm font-medium transition ${mobileNavLinkClass} ${active ? "bg-white/15 font-semibold text-white" : ""}`}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {labels[href]}
+                </Link>
+              );
+            })}
           </nav>
           <div
             className={`mt-5 flex flex-wrap gap-2 border-t pt-5 ${transparentMode && !solid ? "border-white/15" : "border-stone-200/80"}`}
@@ -196,7 +225,7 @@ export function Header() {
                 key={id}
                 type="button"
                 onClick={() => {
-                  setLocale(id);
+                  changeLocale(id);
                   setIsOpen(false);
                 }}
                 className={`inline-flex h-10 w-[7.5rem] shrink-0 items-center justify-center rounded-md border text-center text-xs font-semibold leading-none transition ${langBtnClass}`}

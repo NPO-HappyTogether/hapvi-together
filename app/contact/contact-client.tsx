@@ -1,6 +1,7 @@
 "use client";
 
 import {useLocale} from "@/components/LocaleProvider";
+import {privacyPath} from "@/lib/locale-path";
 import {StockPhoto} from "@/components/StockPhoto";
 import {trackEvent} from "@/lib/analytics";
 import {SITE_IMAGES} from "@/lib/site-images";
@@ -29,6 +30,7 @@ export default function ContactPageClient() {
 
   const [helpType, setHelpType] = useState<HelpValue | "">("");
   const [submitted, setSubmitted] = useState(false);
+  const [submittedWithEmail, setSubmittedWithEmail] = useState(true);
   const [loading, setLoading] = useState(false);
   const [formError, setFormError] = useState<null | "help" | "delivery">(null);
 
@@ -106,6 +108,7 @@ export default function ContactPageClient() {
                   return;
                 }
                 trackEvent("contact_submit", {help_type: helpTypes[0] ?? ""});
+                setSubmittedWithEmail(contact.includes("@"));
                 setSubmitted(true);
                 form.reset();
                 if (topicParam === "benefits") {
@@ -187,7 +190,7 @@ export default function ContactPageClient() {
 
             <p className="text-xs leading-relaxed text-white/75">
               {t.form.privacyBeforeSubmit}{" "}
-              <Link href="/privacy" className="font-semibold text-hapvi-light underline underline-offset-2 hover:text-white">
+              <Link href={privacyPath(locale)} className="font-semibold text-hapvi-light underline underline-offset-2 hover:text-white">
                 {t.form.privacyLink}
               </Link>
               {t.form.privacyAfterSubmit}
@@ -216,7 +219,7 @@ export default function ContactPageClient() {
           {submitted && (
             <div className="mt-8 space-y-2 rounded-md border border-white/25 bg-white/10 px-4 py-4 text-sm text-white">
               <p className="font-semibold">{t.form.success}</p>
-              <p className="text-white/85">{t.form.successNext}</p>
+              <p className="text-white/85">{submittedWithEmail ? t.form.successNext : t.form.successNoEmail}</p>
             </div>
           )}
 

@@ -5,7 +5,7 @@ import type {ResourceCategory, ResourceItem} from "@/lib/resources";
 import {RESOURCE_CATEGORIES} from "@/lib/resources";
 import {ExternalLink} from "lucide-react";
 import Link from "next/link";
-import {useMemo, useState} from "react";
+import {useId, useMemo, useState} from "react";
 
 type Filter = "all" | ResourceCategory;
 
@@ -49,6 +49,7 @@ export default function ResourcesPageClient({
   copy: ResourcesCopy;
 }) {
   const [filter, setFilter] = useState<Filter>("all");
+  const panelId = useId();
 
   const filtered = useMemo(
     () => (filter === "all" ? items : items.filter((item) => item.category === filter)),
@@ -79,13 +80,27 @@ export default function ResourcesPageClient({
           >
             {tabs.map((tab) => {
               const selected = filter === tab.id;
+              const tabId = `${panelId}-tab-${tab.id}`;
               return (
                 <button
                   key={tab.id}
+                  id={tabId}
                   type="button"
                   role="tab"
                   aria-selected={selected}
+                  aria-controls={`${panelId}-panel`}
+                  tabIndex={selected ? 0 : -1}
                   onClick={() => setFilter(tab.id)}
+                  onKeyDown={(e) => {
+                    const i = tabs.findIndex((t) => t.id === tab.id);
+                    if (e.key === "ArrowRight") {
+                      e.preventDefault();
+                      setFilter(tabs[(i + 1) % tabs.length]!.id);
+                    } else if (e.key === "ArrowLeft") {
+                      e.preventDefault();
+                      setFilter(tabs[(i - 1 + tabs.length) % tabs.length]!.id);
+                    }
+                  }}
                   className={`rounded-md px-3 py-2 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-hapvi-primary focus-visible:ring-offset-2 ${
                     selected
                       ? "bg-hapvi-primary text-white"
@@ -98,41 +113,43 @@ export default function ResourcesPageClient({
             })}
           </div>
 
-          {filtered.length === 0 ? (
-            <p className="mt-8 rounded-xl border border-stone-200 bg-white p-10 text-center text-ink-muted">{copy.empty}</p>
-          ) : (
-            <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((item) => (
-                <li
-                  key={item.id}
-                  className="flex flex-col rounded-xl border border-stone-200 bg-white p-6 shadow-soft transition hover:border-hapvi-primary/40"
-                >
-                  <span
-                    className={`inline-flex w-fit rounded-full px-2.5 py-1 text-xs font-semibold ${BADGE_CLASS[item.category]}`}
+          <div id={`${panelId}-panel`} role="tabpanel" aria-live="polite" className="mt-8">
+            {filtered.length === 0 ? (
+              <p className="rounded-xl border border-stone-200 bg-white p-10 text-center text-ink-muted">{copy.empty}</p>
+            ) : (
+              <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {filtered.map((item) => (
+                  <li
+                    key={item.id}
+                    className="flex flex-col rounded-xl border border-stone-200 bg-white p-6 shadow-soft transition hover:border-hapvi-primary/40"
                   >
-                    {copy.categories[item.category]}
-                  </span>
-                  <h2 className="mt-4 text-lg font-semibold leading-snug text-ink">{localizedName(item, locale)}</h2>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-muted">{localizedDesc(item, locale)}</p>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 rounded-md bg-[#5D1818] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-hapvi-dark"
-                  >
-                    {copy.visitOfficial}
-                    <ExternalLink className="h-4 w-4" strokeWidth={2} aria-hidden />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
+                    <span
+                      className={`inline-flex w-fit rounded-full px-2.5 py-1 text-xs font-semibold ${BADGE_CLASS[item.category]}`}
+                    >
+                      {copy.categories[item.category]}
+                    </span>
+                    <h2 className="mt-4 text-lg font-semibold leading-snug text-ink">{localizedName(item, locale)}</h2>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-muted">{localizedDesc(item, locale)}</p>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-flex items-center gap-2 rounded-md bg-hapvi-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-hapvi-dark"
+                    >
+                      {copy.visitOfficial}
+                      <ExternalLink className="h-4 w-4" strokeWidth={2} aria-hidden />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
           <div className="mt-12 rounded-2xl border border-hapvi-primary/15 bg-hapvi-light px-6 py-8 text-center md:px-10">
             <p className="text-base leading-relaxed text-ink md:text-lg">{copy.unknownResource}</p>
             <Link
               href="/contact"
-              className="mt-5 inline-flex rounded-md bg-[#5D1818] px-8 py-3.5 text-base font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
+              className="mt-5 inline-flex rounded-md bg-hapvi-primary px-8 py-3.5 text-base font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
             >
               {copy.contactCta}
             </Link>

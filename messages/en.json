@@ -1,4 +1,7 @@
 {
+  "A11y": {
+    "skipToContent": "Skip to main content"
+  },
   "Header": {
     "tagline": "For a Better Village",
     "nav": {
@@ -10,6 +13,7 @@
       "contact": "Contact"
     },
     "menuOpen": "Open menu",
+    "menuClose": "Close menu",
     "langSwitcherLabel": "Choose language",
     "langKo": "한국어",
     "langEn": "English",
@@ -24,7 +28,12 @@
     "ein": "EIN: 33-3980325",
     "email": "Email",
     "hours": "Hours: Mon–Fri 9am–5pm Pacific Time",
-    "privacyPolicy": "Privacy Policy"
+    "privacyPolicy": "Privacy Policy",
+    "copyright": "© 2026 HapVi Together. All rights reserved.",
+    "nav": {
+      "eligibility": "Benefits Guide",
+      "resources": "Resources"
+    }
   },
   "Home": {
     "hero": {
@@ -33,7 +42,8 @@
       "description": "We guide Korean-American households in LA through housing connections, public benefit applications, and local resources—free of charge.",
       "ctaPrimary": "Request a free consultation",
       "ctaSecondary": "Explore services",
-      "eligibilityCta": "Check My Eligibility →"
+      "eligibilityCta": "Check My Eligibility →",
+      "scrollDown": "Scroll to introduction section"
     },
     "problem": {
       "titleLine1": "Benefits you may qualify for—",
@@ -227,6 +237,7 @@
       "submitting": "Sending…",
       "success": "Thank you! We will reply by email within 1–2 business days.",
       "successNext": "A confirmation email has been sent. For urgent needs, contact info@hapvi.org directly.",
+      "successNoEmail": "We will contact you within 1–2 business days. Leave an email next time to receive a confirmation message.",
       "privacyBeforeSubmit": "By submitting, you agree to our",
       "privacyLink": "Privacy Policy",
       "privacyAfterSubmit": ".",
@@ -318,6 +329,7 @@
   },
   "Privacy": {
     "metaTitle": "Privacy Policy - HapVi Together",
+    "metaDescription": "How HapVi Together collects, uses, and retains personal information on this website and through consultation requests.",
     "title": "Privacy Policy",
     "intro": "HapVi Together (“we,” “our organization”) values your privacy and complies with applicable laws. This policy explains how we handle information collected through our website and consultation requests.",
     "s1Title": "1. Information we collect",

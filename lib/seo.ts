@@ -54,6 +54,19 @@ export function resourcesAlternates(locale: Locale): Metadata["alternates"] {
   };
 }
 
+export function privacyAlternates(locale: Locale): Metadata["alternates"] {
+  const canonical = pageUrl(`/${locale}/privacy`);
+  return {
+    canonical,
+    languages: {
+      ko: pageUrl("/ko/privacy"),
+      en: pageUrl("/en/privacy"),
+      es: pageUrl("/es/privacy"),
+      "x-default": pageUrl("/ko/privacy"),
+    },
+  };
+}
+
 export function buildPageMetadata(opts: {
   title: string;
   path: string;

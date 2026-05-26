@@ -2,12 +2,13 @@
 
 import {FooterWaitlistForm} from "@/components/FooterWaitlistForm";
 import {useLocale} from "@/components/LocaleProvider";
+import {localeRoutedPath, privacyPath} from "@/lib/locale-path";
 import {SITE_IMAGES} from "@/lib/site-images";
 import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
-  const {messages} = useLocale();
+  const {locale, messages} = useLocale();
   const footer = messages.Footer;
   const header = messages.Header;
   const services = messages.Services;
@@ -53,14 +54,31 @@ export function Footer() {
               {footer.email}: info@hapvi.org
             </p>
             <p className="leading-relaxed">{footer.hours}</p>
+            <nav className="flex flex-col gap-2 pt-2" aria-label={header.nav.home}>
+              <Link
+                href={localeRoutedPath("eligibility", locale)}
+                className="font-medium text-white/75 underline-offset-4 hover:text-white hover:underline"
+              >
+                {footer.nav.eligibility}
+              </Link>
+              <Link
+                href={localeRoutedPath("resources", locale)}
+                className="font-medium text-white/75 underline-offset-4 hover:text-white hover:underline"
+              >
+                {footer.nav.resources}
+              </Link>
+            </nav>
           </div>
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-white/55">
-          <Link href="/privacy" className="font-medium text-white/75 underline-offset-4 hover:text-white hover:underline">
+          <Link
+            href={privacyPath(locale)}
+            className="font-medium text-white/75 underline-offset-4 hover:text-white hover:underline"
+          >
             {footer.privacyPolicy}
           </Link>
-          <p className="mt-4 text-white/45">© 2026 HapVi Together. All rights reserved.</p>
+          <p className="mt-4 text-white/45">{footer.copyright}</p>
         </div>
       </div>
     </footer>

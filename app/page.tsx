@@ -1,5 +1,7 @@
 import type {Metadata} from "next";
 import dynamic from "next/dynamic";
+import {FaqJsonLd} from "@/components/FaqJsonLd";
+import {getMessages} from "@/lib/i18n";
 import {buildPageMetadata} from "@/lib/seo";
 
 const HomePageClient = dynamic(() => import("./home-client"), {ssr: true});
@@ -10,5 +12,11 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function HomePage() {
-  return <HomePageClient />;
+  const faq = getMessages("ko").Home.faq.items;
+  return (
+    <>
+      <FaqJsonLd items={faq} />
+      <HomePageClient />
+    </>
+  );
 }

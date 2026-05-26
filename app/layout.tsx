@@ -5,6 +5,7 @@ import Script from "next/script";
 import {FloatingDonateTab} from "@/components/FloatingDonateTab";
 import {Footer} from "@/components/Footer";
 import {Header} from "@/components/Header";
+import {SkipLink} from "@/components/SkipLink";
 import {OrganizationJsonLd} from "@/components/OrganizationJsonLd";
 import {LocaleProvider} from "@/components/LocaleProvider";
 import {
@@ -90,9 +91,12 @@ gtag('config', '${GA_MEASUREMENT_ID}');
       </head>
       <body className="flex min-h-screen flex-col font-sans">
         <LocaleProvider>
+          <SkipLink />
           <Header />
           <FloatingDonateTab />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
           <Footer />
         </LocaleProvider>
         <SpeedInsights />
