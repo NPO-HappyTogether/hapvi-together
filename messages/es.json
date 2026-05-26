@@ -4,9 +4,9 @@
     "nav": {
       "home": "Inicio",
       "services": "Servicios",
+      "eligibility": "Guía de Beneficios",
       "about": "Nosotros",
-      "contact": "Contacto",
-      "eligibility": "Elegibilidad"
+      "contact": "Contacto"
     },
     "menuOpen": "Abrir menú",
     "langSwitcherLabel": "Elegir idioma",
@@ -31,7 +31,8 @@
       "titleLine2": "en coreano, contigo.",
       "description": "Acompañamos gratis a familias coreanas en Los Ángeles con conexión a vivienda, trámites de beneficios públicos y recursos locales.",
       "ctaPrimary": "Solicitar consulta gratuita",
-      "ctaSecondary": "Ver servicios"
+      "ctaSecondary": "Ver servicios",
+      "eligibilityCta": "Verificar Mi Elegibilidad →"
     },
     "problem": {
       "titleLine1": "Hay beneficios para los que califican—",
@@ -64,7 +65,7 @@
       "description": "Está bien si no sabes por dónde empezar. Escríbenos y buscamos el camino juntos.",
       "free": "Todos los servicios son gratuitos.",
       "button": "Solicitar consulta gratuita",
-      "eligibilityButton": "Verifica tu elegibilidad"
+      "eligibilityButton": "Ver Guía de Beneficios →"
     }
   },
   "Services": {
@@ -94,7 +95,9 @@
       "programs": [
         "Sección 8 (voucher de elección de vivienda)",
         "Ayuda de vivienda de emergencia (p. ej., General Relief)"
-      ]
+      ],
+      "eligibilityCta": "Verificar Mi Elegibilidad →",
+      "guideCta": "Ver Guía de Beneficios →"
     },
     "apply": "Solicitar consulta",
     "illustration": "Ilustración",
@@ -208,106 +211,46 @@
     "contactOffice": "Espacio de oficina para consultas y contacto"
   },
   "Eligibility": {
-    "title": "Verifica Tu Elegibilidad",
-    "metaTitle": "Verificación de elegibilidad - HapVi Together",
-    "metaDescription": "Evalúe Section 8, CalFresh, Medi-Cal, LIHEAP y ayuda de alquiler de emergencia según tamaño del hogar, ingresos, vivienda y estatus migratorio.",
-    "hero": {
-      "badge": "Herramienta gratuita",
-      "description": "Responda 4 preguntas para ver beneficios que podría calificar. Solo como guía, no decisión oficial."
-    },
-    "steps": {
-      "label": "Paso {current} de {total}",
-      "household": {
-        "title": "Miembros del hogar",
-        "description": "Seleccione cuántas personas viven en su hogar, incluyéndose usted.",
-        "members": ["1 persona", "2 personas", "3 personas", "4 personas"],
-        "fivePlus": "5 o más"
+    "title": "Guía de Beneficios Públicos",
+    "metaTitle": "Guía de Beneficios Públicos - HapVi Together",
+    "metaDescription": "Enlaces oficiales para Section 8, CalFresh, Medi-Cal, LIHEAP y asistencia de alquiler de emergencia para familias coreanas en LA.",
+    "intro": "Haga clic en cada beneficio para visitar el sitio oficial. Verifique su elegibilidad directamente en el sitio oficial.",
+    "officialSiteCta": "Ver en Sitio Oficial →",
+    "benefitCards": [
+      {
+        "icon": "🏠",
+        "title": "Bono de Vivienda (Section 8 / HCV)",
+        "description": "Un programa federal que ayuda a familias de bajos ingresos a pagar el alquiler en el mercado privado.",
+        "url": "https://www.hacla.org/en/apply-section-8"
       },
-      "income": {
-        "title": "Ingreso mensual del hogar",
-        "description": "Seleccione el rango de ingreso mensual total antes de impuestos.",
-        "band0": "$0 – $1,000 / mes",
-        "band1": "$1,001 – $2,000 / mes",
-        "band2": "$2,001 – $3,000 / mes",
-        "band3": "$3,001 – $4,000 / mes",
-        "band4": "Más de $4,000 / mes"
+      {
+        "icon": "🛒",
+        "title": "CalFresh (Asistencia Alimentaria / SNAP)",
+        "description": "El programa de asistencia alimentaria de California que proporciona una tarjeta EBT para comprar comestibles.",
+        "url": "https://www.getcalfresh.org"
       },
-      "housing": {
-        "title": "Tipo de vivienda actual",
-        "description": "Elija la opción que mejor describa su situación.",
-        "rent": "Alquilo",
-        "own": "Propietario/a",
-        "homeless": "Sin hogar / refugio temporal",
-        "other": "Otro"
+      {
+        "icon": "🏥",
+        "title": "Medi-Cal (Cobertura Médica)",
+        "description": "El programa de seguro médico de California que ofrece cobertura médica gratuita o de bajo costo.",
+        "url": "https://www.coveredca.com/medi-cal/"
       },
-      "immigration": {
-        "title": "Estatus migratorio en EE. UU.",
-        "description": "Elija la opción más cercana.",
-        "citizenLpr": "Ciudadano/a o residente permanente",
-        "legal": "Residencia legal",
-        "unknown": "No estoy seguro/a"
+      {
+        "icon": "💡",
+        "title": "LIHEAP (Asistencia de Servicios)",
+        "description": "Un programa federal que ayuda con las facturas de electricidad y gas. Verifique la disponibilidad actual en el sitio oficial.",
+        "url": "https://www.csd.ca.gov/liheap"
       },
-      "results": {
-        "title": "Resultados",
-        "description": "Según sus respuestas. Cada agencia toma la decisión final."
+      {
+        "icon": "🆘",
+        "title": "Asistencia de Alquiler de Emergencia",
+        "description": "Asistencia de emergencia para hogares que enfrentan desalojo o renta atrasada. Verifique en el sitio oficial.",
+        "url": "https://dcba.lacounty.gov/renthelp/"
       }
-    },
-    "actions": {
-      "next": "Siguiente",
-      "back": "Atrás",
-      "seeResults": "Ver resultados",
-      "startOver": "Empezar de nuevo",
-      "contactCta": "Recibir consulta detallada"
-    },
-    "results": {
-      "eligibleHeading": "Beneficios que podría calificar",
-      "ineligibleHeading": "No cumple criterios típicos",
-      "noneEligible": "Ningún beneficio coincidió con sus respuestas. Contáctenos para una consulta gratuita."
-    },
-    "rejectReasons": {
-      "income_too_high": "El ingreso mensual supera el límite típico de este programa.",
-      "not_renting": "Este programa es para hogares que alquilan.",
-      "immigration_required": "Puede requerir ciudadanía, green card o estatus legal.",
-      "immigration_uncertain": "Se debe confirmar el estatus migratorio."
-    },
-    "benefits": {
-      "section8": {
-        "name": "Section 8 / HCV (Bono de vivienda)",
-        "summary": "Ayuda con la renta para hogares de bajos ingresos vía HACLA del condado de LA.",
-        "applyLabel": "Solicitar Section 8",
-        "applyUrl": "https://www.hacla.org/en/apply-section-8"
-      },
-      "calfresh": {
-        "name": "CalFresh (Alimentos SNAP)",
-        "summary": "Beneficios EBT para comprar alimentos.",
-        "applyLabel": "Solicitar en GetCalFresh",
-        "applyUrl": "https://www.getcalfresh.org"
-      },
-      "medi-cal": {
-        "name": "Medi-Cal (Salud)",
-        "summary": "Cobertura médica gratuita o de bajo costo en California.",
-        "applyLabel": "Solicitar Medi-Cal",
-        "applyUrl": "https://www.coveredca.com/medi-cal/"
-      },
-      "liheap": {
-        "name": "LIHEAP (Servicios públicos)",
-        "summary": "Ayuda para pagar electricidad, gas y energía.",
-        "applyLabel": "Información LIHEAP",
-        "applyUrl": "https://www.csd.ca.gov/liheap"
-      },
-      "emergency-rental": {
-        "name": "Asistencia de alquiler de emergencia",
-        "summary": "Ayuda urgente con la renta ante desalojo o atrasos.",
-        "applyLabel": "LA County Rent Help",
-        "applyUrl": "https://dcba.lacounty.gov/renthelp/"
-      }
-    },
-    "disclaimer": "Los límites de ingreso se ajustan desde una base de hogar de 4 personas solo como guía, no como decisión oficial.",
-    "validation": {
-      "householdRequired": "Seleccione el tamaño del hogar.",
-      "incomeRequired": "Seleccione un rango de ingreso.",
-      "housingRequired": "Seleccione su tipo de vivienda.",
-      "immigrationRequired": "Seleccione su estatus migratorio."
+    ],
+    "consult": {
+      "text": "¿No sabe qué beneficios le corresponden? HapVi Together está aquí para ayudarle.",
+      "cta": "Solicitar Consulta Gratuita"
     }
   },
   "Privacy": {

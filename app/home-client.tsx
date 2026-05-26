@@ -138,6 +138,12 @@ export default function HomePageClient() {
             >
               <span aria-hidden="true">{h.hero.ctaSecondary}</span>
             </Link>
+            <Link
+              href={`/${locale}/eligibility`}
+              className="inline-flex rounded-md bg-hapvi-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-hapvi-dark"
+            >
+              {h.hero.eligibilityCta}
+            </Link>
           </div>
         </div>
       </section>
