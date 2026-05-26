@@ -26,14 +26,7 @@ export default function HomePageClient() {
 
   return (
     <div className="bg-cream">
-      <section
-        className="relative flex min-h-screen flex-col justify-between overflow-hidden bg-hapvi-dark"
-        style={{
-          backgroundImage: `url(${stock.hero})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <section className="relative flex min-h-screen flex-col justify-between overflow-hidden bg-hapvi-dark">
         <StockPhoto
           src={stock.hero}
           alt={alts.homeHero}
@@ -82,7 +75,7 @@ export default function HomePageClient() {
 
         <div className="relative z-10 border-t border-white/15 bg-hapvi-light">
           <div className="overflow-hidden py-3">
-            <div className="flex w-max animate-marquee items-center font-medium uppercase tracking-[0.12em] text-hapvi-dark">
+            <div className="flex w-max animate-marquee motion-reduce:animate-none items-center font-medium uppercase tracking-[0.12em] text-hapvi-dark">
               <div className="flex shrink-0 items-center whitespace-nowrap px-4 text-[0.7rem] md:text-xs">{marqueeChunk}</div>
               <div className="flex shrink-0 items-center whitespace-nowrap px-4 text-[0.7rem] md:text-xs" aria-hidden>
                 {marqueeChunk}
@@ -115,6 +108,22 @@ export default function HomePageClient() {
           </h2>
           <p className="mt-8 text-lg leading-relaxed text-ink-muted">{h.problem.description}</p>
           <h3 className="mt-6 text-lg font-semibold leading-relaxed text-hapvi-primary">{h.problem.highlight}</h3>
+          <ul className="mt-8 space-y-2.5 text-sm leading-relaxed text-ink-muted" aria-label={h.trust.title}>
+            {h.trust.items.map((item) => (
+              <li key={item} className="flex gap-2">
+                <span className="text-hapvi-primary" aria-hidden>
+                  ✓
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-sm text-ink-muted">
+            {h.trust.privacyNote}{" "}
+            <Link href="/privacy" className="font-semibold text-hapvi-dark underline decoration-hapvi-primary/40 underline-offset-2 hover:text-hapvi-primary">
+              {h.trust.privacyLink}
+            </Link>
+          </p>
           <p className="mt-8">
             <Link
               href="/about"
@@ -213,6 +222,20 @@ export default function HomePageClient() {
               </Link>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section id="faq" className="border-t border-stone-200/80 bg-cream-muted px-5 py-20 md:px-8 md:py-24">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-center text-2xl font-semibold tracking-tight text-ink md:text-3xl">{h.faq.title}</h2>
+          <dl className="mt-12 space-y-8">
+            {h.faq.items.map((item) => (
+              <div key={item.q} className="rounded-xl border border-stone-100 bg-white px-6 py-5 shadow-soft">
+                <dt className="text-base font-semibold text-ink">{item.q}</dt>
+                <dd className="mt-3 text-sm leading-relaxed text-ink-muted md:text-base">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 

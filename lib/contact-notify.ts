@@ -1,4 +1,5 @@
 import {sendTeamEmail} from "@/lib/admin-mail";
+import {sanitizeEmailSubjectPart} from "@/lib/sanitize";
 
 function escapeHtml(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
@@ -18,7 +19,7 @@ export async function sendContactConsultationEmail(payload: {
 }): Promise<boolean> {
   const helpLine = payload.helpTypes.map((v) => HELP_LABELS_KO[v] ?? v).join(", ");
 
-  const subject = `[HapVi Together] 상담 신청: ${payload.name}`;
+  const subject = `[HapVi Together] 상담 신청: ${sanitizeEmailSubjectPart(payload.name)}`;
 
   const html = `
     <p><strong>이름:</strong> ${escapeHtml(payload.name)}</p>

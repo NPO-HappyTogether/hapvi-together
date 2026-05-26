@@ -32,8 +32,9 @@ app/
   contact/            → 상담 신청 폼
   services/           → 서비스 소개
   privacy/            → 개인정보 정책 (기본 ko)
-  eligibility/        → 혜택 자격 확인 (기본 ko)
+  eligibility/        → 정부 혜택 안내 디렉토리 (기본 ko)
   [locale]/           → i18n 라우팅 (ko/en/es): privacy, eligibility
+  (Phase 9) [locale]/resources → 지역·정부 자원 디렉토리 (Google Sheets CMS)
   api/contact/        → 상담 신청 API (rate limit + locale)
   api/waitlist/       → 뉴스레터 구독 API
 
@@ -46,9 +47,10 @@ lib/
   contact-google-sheet.ts   → Contact → Google Sheets
   contact-notify.ts         → 관리자 알림 메일
   contact-locale.ts         → locale → ContactMessageLanguage
-  eligibility-rules.ts      → 혜택 자격 스크리닝 (정적 TS, DB 없음)
+  rate-limit.ts, sanitize.ts, analytics.ts, i18n.ts
   admin-mail.ts, waitlist-google-sheet.ts, waitlist-notify.ts
   seo.ts, site-images.ts
+  (Phase 9) resources-cms.ts → Google Sheets JSON → 자원 목록
 
 messages/
   ko.json, en.json, es.json
@@ -82,7 +84,8 @@ messages/
 - 접근성 AIM 9.9 / WCAG AA
 - Privacy Policy (`/privacy`, `/[locale]/privacy`)
 - EIN: 33-3980325 푸터 표기
-- **Phase 8:** `/[locale]/eligibility` — Section 8, LIHEAP, CalFresh, Medi-Cal, ERA 정적 스크리닝
+- **Phase 8:** `/[locale]/eligibility` — 공식 링크만 있는 혜택 안내 디렉토리 (방법 A, 자격 숫자 없음)
+- **품질 패스 (2026-05):** 동적 sitemap, JSON-LD, honeypot/rate limit, FAQ·신뢰 블록, GA CSP
 
 ## 브랜드 컬러
 
@@ -91,8 +94,9 @@ messages/
 
 ## 다음 개발 과제 (Phase 9+)
 
-- **Phase 9:** 정부 자원 디렉토리 (Google Sheets CMS 기반)
+- **Phase 9 (진행 중):** `/[locale]/resources` — Google Sheets CMS 기반 지역·정부 자원 디렉토리 (`docs/PHASE9.md`)
 - **Phase 10 이후:** 예약·케이스 트래킹·문서 포털 (장기)
+- **선택:** Upstash Redis 무료 티어로 분산 rate limit (현재 인메모리 + honeypot)
 
 # === BEHAVIOR RULES ===
 

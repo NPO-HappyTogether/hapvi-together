@@ -1,4 +1,6 @@
 import type {Metadata} from "next";
+import type {Locale} from "@/lib/i18n";
+import {OG_LOCALE} from "@/lib/i18n";
 import {SITE_IMAGES} from "@/lib/site-images";
 
 export const SITE_ORIGIN = "https://hapvi.org";
@@ -26,22 +28,42 @@ export function pageUrl(path: string): string {
   return `${SITE_ORIGIN}${p}`;
 }
 
-export function buildPageMetadata(opts: {title: string; path: string; description?: string}): Metadata {
+export function eligibilityAlternates(locale: Locale): Metadata["alternates"] {
+  const canonical = pageUrl(`/${locale}/eligibility`);
+  return {
+    canonical,
+    languages: {
+      ko: pageUrl("/ko/eligibility"),
+      en: pageUrl("/en/eligibility"),
+      es: pageUrl("/es/eligibility"),
+      "x-default": pageUrl("/ko/eligibility"),
+    },
+  };
+}
+
+export function buildPageMetadata(opts: {
+  title: string;
+  path: string;
+  description?: string;
+  locale?: Locale;
+  alternates?: Metadata["alternates"];
+}): Metadata {
   const description = opts.description ?? SITE_DESCRIPTION;
   const url = pageUrl(opts.path);
+  const ogLocale = opts.locale ? OG_LOCALE[opts.locale] : "ko_KR";
 
   return {
     title: {absolute: opts.title},
     description,
-    alternates: {canonical: url},
+    alternates: opts.alternates ?? {canonical: url},
     openGraph: {
       type: "website",
-      locale: "ko_KR",
+      locale: ogLocale,
       url,
       title: opts.title,
       description,
       siteName: "HapVi Together",
-      images: [{url: SITE_OG_IMAGE}],
+      images: [{url: SITE_OG_IMAGE, alt: "HapVi Together"}],
     },
     twitter: {
       card: "summary_large_image",
@@ -51,3 +73,29 @@ export function buildPageMetadata(opts: {title: string; path: string; descriptio
     },
   };
 }
+
+export const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  name: "HapVi Together",
+  alternateName: "Happy Village Together",
+  url: SITE_ORIGIN,
+  logo: `${SITE_ORIGIN}/images/hapvi-logo.png`,
+  description: SITE_DESCRIPTION,
+  email: "info@hapvi.org",
+  areaServed: {
+    "@type": "City",
+    name: "Los Angeles",
+    containedInPlace: {"@type": "State", name: "California"},
+  },
+  knowsAbout: [
+    "Section 8 housing vouchers",
+    "CalFresh",
+    "Medi-Cal",
+    "LIHEAP",
+    "Emergency rental assistance",
+    "Korean-American community services",
+  ],
+  nonprofitStatus: "Nonprofit501c3",
+  taxID: "33-3980325",
+} as const;

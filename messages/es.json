@@ -40,6 +40,45 @@
       "description": "EE. UU. ofrece programas de vivienda y beneficios para hogares de bajos ingresos. Pero el papeleo en inglés, los pasos confusos y no saber por dónde empezar hacen que muchas familias no los usen.",
       "highlight": "HapVi Together te acompaña de principio a fin—en coreano."
     },
+    "trust": {
+      "title": "Confianza",
+      "items": [
+        "Organización sin fines de lucro exenta 501(c)(3) ante el IRS",
+        "Todas las consultas y orientaciones son gratuitas",
+        "Respondemos por correo en 1–2 días hábiles (info@hapvi.org)"
+      ],
+      "privacyNote": "La información que envía se usa solo para fines de consulta.",
+      "privacyLink": "Política de privacidad"
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "items": [
+        {
+          "q": "¿Todo es realmente gratis?",
+          "a": "Sí. La orientación de vivienda y beneficios de HapVi Together es gratuita. Las donaciones son voluntarias."
+        },
+        {
+          "q": "¿Pueden ayudarme si me cuesta el inglés?",
+          "a": "Sí. Explicamos los pasos en coreano. Los sitios oficiales suelen estar en inglés; le indicamos qué hacer y qué documentos preparar."
+        },
+        {
+          "q": "¿Y si mi estatus migratorio no está claro?",
+          "a": "Puede solicitar consulta. Cada agencia decide oficialmente; nosotros no determinamos elegibilidad, sino que enlazamos sitios oficiales y explicamos el proceso."
+        },
+        {
+          "q": "¿Quién decide si califico?",
+          "a": "Las agencias gubernamentales. Nosotros enlazamos portales oficiales y ofrecemos orientación en coreano."
+        },
+        {
+          "q": "¿Por dónde empiezo?",
+          "a": "Solicite una consulta gratuita o visite la Guía de Beneficios y abra el sitio oficial del programa que le interese."
+        },
+        {
+          "q": "¿Atienden fuera de Los Ángeles?",
+          "a": "Nos enfocamos en familias coreanas en LA; muchos programas son del condado de LA o de California. Indíquenos dónde vive y buscaremos recursos aplicables."
+        }
+      ]
+    },
     "services": {
       "title": "En qué ayudamos",
       "learnMore": "Más información →",
@@ -50,7 +89,7 @@
       },
       "benefits": {
         "title": "Solicitud de beneficios",
-        "description": "Revisión de elegibilidad y apoyo para presentar solicitudes",
+        "description": "Orientación sobre beneficios y apoyo en solicitudes oficiales",
         "learnMoreAriaLabel": "Más información sobre el servicio de solicitud de beneficios públicos"
       },
       "community": {
@@ -169,8 +208,8 @@
         "placeholder": "Nombre completo"
       },
       "contact": {
-        "label": "Correo electrónico",
-        "placeholder": "correo@ejemplo.com"
+        "label": "Correo o teléfono",
+        "placeholder": "correo@ejemplo.com o (213) 555-0100"
       },
       "helpType": {
         "legend": "¿Qué tipo de ayuda necesitas?",
@@ -184,7 +223,11 @@
       },
       "submit": "Enviar solicitud de consulta",
       "submitting": "Enviando…",
-      "success": "¡Gracias! Te responderemos pronto.",
+      "success": "¡Gracias! Responderemos por correo en 1–2 días hábiles.",
+      "successNext": "Se envió un correo de confirmación. Si es urgente, escriba a info@hapvi.org.",
+      "privacyBeforeSubmit": "Al enviar, acepta nuestra",
+      "privacyLink": "Política de privacidad",
+      "privacyAfterSubmit": ".",
       "helpRequired": "Elige un tipo de ayuda.",
       "errorDelivery": "No pudimos enviar el mensaje. Intenta de nuevo o escribe a info@hapvi.org."
     },
@@ -215,6 +258,7 @@
     "metaTitle": "Guía de Beneficios Públicos - HapVi Together",
     "metaDescription": "Enlaces oficiales para Section 8, CalFresh, Medi-Cal, LIHEAP y asistencia de alquiler de emergencia para familias coreanas en LA.",
     "intro": "Haga clic en cada beneficio para visitar el sitio oficial. Verifique su elegibilidad directamente en el sitio oficial.",
+    "lastVerified": "Enlaces oficiales revisados: mayo de 2026",
     "officialSiteCta": "Ver en Sitio Oficial →",
     "benefitCards": [
       {

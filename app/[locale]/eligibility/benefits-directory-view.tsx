@@ -1,17 +1,10 @@
-"use client";
-
-import {useLocale, type Locale} from "@/components/LocaleProvider";
+import type {Locale} from "@/lib/i18n";
+import {getMessages} from "@/lib/i18n";
 import {ExternalLink} from "lucide-react";
 import Link from "next/link";
-import {useEffect} from "react";
 
-export default function BenefitsDirectory({locale: urlLocale}: {locale: Locale}) {
-  const {messages, setLocale} = useLocale();
-  const t = messages.Eligibility;
-
-  useEffect(() => {
-    setLocale(urlLocale);
-  }, [urlLocale, setLocale]);
+export default function BenefitsDirectoryView({locale}: {locale: Locale}) {
+  const t = getMessages(locale).Eligibility;
 
   return (
     <div className="min-h-screen bg-cream">
@@ -19,6 +12,7 @@ export default function BenefitsDirectory({locale: urlLocale}: {locale: Locale})
         <div className="mx-auto max-w-3xl">
           <h1 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">{t.title}</h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">{t.intro}</p>
+          <p className="mt-3 text-sm text-white/70">{t.lastVerified}</p>
         </div>
       </section>
 
@@ -42,7 +36,7 @@ export default function BenefitsDirectory({locale: urlLocale}: {locale: Locale})
                   className="mt-6 inline-flex items-center gap-2 rounded-md bg-hapvi-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-hapvi-dark"
                 >
                   {t.officialSiteCta}
-                  <ExternalLink className="h-4 w-4" strokeWidth={2} />
+                  <ExternalLink className="h-4 w-4" strokeWidth={2} aria-hidden />
                 </a>
               </li>
             ))}
@@ -51,7 +45,7 @@ export default function BenefitsDirectory({locale: urlLocale}: {locale: Locale})
           <div className="mt-14 rounded-2xl border border-hapvi-primary/15 bg-hapvi-light px-6 py-10 text-center md:px-10">
             <p className="text-base leading-relaxed text-ink md:text-lg">{t.consult.text}</p>
             <Link
-              href="/contact"
+              href="/contact?topic=benefits"
               className="mt-6 inline-flex rounded-md bg-hapvi-primary px-8 py-3.5 text-base font-semibold text-white shadow-soft transition hover:bg-hapvi-dark"
             >
               {t.consult.cta}

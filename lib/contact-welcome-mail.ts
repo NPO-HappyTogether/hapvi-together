@@ -53,7 +53,7 @@ function welcomeMainHtml(language: ContactMessageLanguage, safeName: string): st
 <p style="${bodyP}">HapVi Together가 처음부터 끝까지<br />한국어로 함께하겠습니다.</p>
 <p style="${bodyP}">모든 서비스는 무료입니다.</p>
 <p style="${bodyP}"><strong style="color:#222222;">🏠 주거 연결</strong><br />임대 주택·섹션8·공공 주거 프로그램 안내</p>
-<p style="${bodyP}"><strong style="color:#222222;">📋 정부 혜택 신청</strong><br />혜택 자격 확인 및 신청 서류 검토</p>
+<p style="${bodyP}"><strong style="color:#222222;">📋 정부 혜택 안내</strong><br />공식 신청 사이트 안내 및 서류·절차 동행</p>
 <p style="${bodyP}"><strong style="color:#222222;">🤝 지역 자원 연결</strong><br />커뮤니티 기관 및 긴급 지원 연결</p>
 <p style="${bodyP}">모든 한인 가정이 이 땅에서<br />안정된 삶을 살 수 있도록,<br />저희가 끝까지 함께하겠습니다.</p>
 <p style="margin:0;font-size:15px;line-height:1.65;color:#444444;">궁금한 점은 언제든지 연락 주세요.</p>
@@ -68,7 +68,7 @@ function welcomeMainHtml(language: ContactMessageLanguage, safeName: string): st
 <p style="${bodyP}">HapVi Together está aquí para guiarte<br />en cada paso del camino, en coreano.</p>
 <p style="${bodyP}">Todos nuestros servicios son gratuitos.</p>
 <p style="${bodyP}"><strong style="color:#222222;">🏠 Conexión de vivienda</strong><br />Orientación sobre viviendas de alquiler,<br />la Sección 8 y programas de vivienda pública</p>
-<p style="${bodyP}"><strong style="color:#222222;">📋 Solicitud de beneficios</strong><br />Verificación de elegibilidad y revisión<br />de documentos de solicitud</p>
+<p style="${bodyP}"><strong style="color:#222222;">📋 Guía de beneficios</strong><br />Enlaces a sitios oficiales y apoyo<br />con trámites y documentos</p>
 <p style="${bodyP}"><strong style="color:#222222;">🤝 Recursos comunitarios</strong><br />Referencias a agencias locales y apoyo<br />de emergencia</p>
 <p style="${bodyP}">Todas las familias coreano-estadounidenses<br />merecen una vida estable y digna aquí.<br />Estamos comprometidos a acompañarte<br />hasta que lo logres.</p>
 <p style="margin:0;font-size:15px;line-height:1.65;color:#444444;">No dudes en contactarnos en cualquier momento.</p>
@@ -82,7 +82,7 @@ function welcomeMainHtml(language: ContactMessageLanguage, safeName: string): st
 <p style="${bodyP}">HapVi Together is here to guide you every<br />step of the way — in Korean.</p>
 <p style="${bodyP}">All of our services are free.</p>
 <p style="${bodyP}"><strong style="color:#222222;">🏠 Housing Connection</strong><br />Rental housing, Section 8, and public housing<br />program guidance</p>
-<p style="${bodyP}"><strong style="color:#222222;">📋 Benefits Application</strong><br />Eligibility check and application document review</p>
+<p style="${bodyP}"><strong style="color:#222222;">📋 Benefits guidance</strong><br />Official application links and help with forms and steps</p>
 <p style="${bodyP}"><strong style="color:#222222;">🤝 Community Resources</strong><br />Local agency referrals and emergency support</p>
 <p style="${bodyP}">Every Korean-American family deserves a stable<br />and dignified life here.<br />We are committed to walking alongside you<br />until you get there.</p>
 <p style="margin:0;font-size:15px;line-height:1.65;color:#444444;">Feel free to reach out anytime.</p>
@@ -112,7 +112,7 @@ function welcomePlainText(language: ContactMessageLanguage, name: string): strin
       "🏠 주거 연결",
       "임대 주택·섹션8·공공 주거 프로그램 안내",
       "",
-      "📋 정부 혜택 신청",
+      "📋 정부 혜택 안내",
       "혜택 자격 확인 및 신청 서류 검토",
       "",
       "🤝 지역 자원 연결",
@@ -169,7 +169,7 @@ function welcomePlainText(language: ContactMessageLanguage, name: string): strin
     "All of our services are free.",
     "",
     "🏠 Housing Connection",
-    "📋 Benefits Application",
+    "📋 Benefits guidance",
     "🤝 Community Resources",
     "",
     `Visit hapvi.org: ${SITE}`,

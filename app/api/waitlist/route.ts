@@ -2,6 +2,8 @@ import {appendFile, mkdir} from "fs/promises";
 import {join} from "path";
 import {NextResponse} from "next/server";
 import {localeToContactMessageLanguage} from "@/lib/contact-locale";
+import {getClientIp, recordRequestIfAllowed} from "@/lib/rate-limit";
+import {isHoneypotFilled} from "@/lib/sanitize";
 import {sendWaitlistAdminNotification} from "@/lib/waitlist-notify";
 import {
   appendWaitlistToGoogleSheets,
@@ -34,11 +36,20 @@ function parseWaitlistLocale(body: unknown): string | null {
 }
 
 export async function POST(req: Request) {
+  const ip = getClientIp(req);
+  if (!recordRequestIfAllowed("waitlist", ip, 10)) {
+    return NextResponse.json({error: "rate_limited"}, {status: 429});
+  }
+
   let json: unknown;
   try {
     json = await req.json();
   } catch {
     return NextResponse.json({error: "invalid_json"}, {status: 400});
+  }
+
+  if (isHoneypotFilled(json)) {
+    return NextResponse.json({ok: true, adminEmailSent: false});
   }
 
   const email = parseEmail(json);

@@ -1,42 +1,19 @@
 import {NextResponse} from "next/server";
-import {appendContactToGoogleSheets, splitContactIntoEmailPhone} from "@/lib/contact-google-sheet";
+import {
+  appendContactToGoogleSheets,
+  isValidContactValue,
+  splitContactIntoEmailPhone,
+} from "@/lib/contact-google-sheet";
 import {localeToContactMessageLanguage, type ContactMessageLanguage} from "@/lib/contact-locale";
 import {sendContactConsultationEmail} from "@/lib/contact-notify";
 import {sendContactWelcomeEmail} from "@/lib/contact-welcome-mail";
+import {getClientIp, recordRequestIfAllowed} from "@/lib/rate-limit";
+import {isHoneypotFilled} from "@/lib/sanitize";
 
 export const runtime = "nodejs";
 
 const GENERIC_ERROR_MESSAGE = "요청을 처리할 수 없습니다";
 const RATE_LIMIT_MESSAGE = "잠시 후 다시 시도해주세요";
-
-const HOUR_MS = 60 * 60 * 1000;
-const MAX_REQUESTS_PER_HOUR = 5;
-const ipRequestTimestamps = new Map<string, number[]>();
-
-function getClientIp(req: Request): string {
-  const forwarded = req.headers.get("x-forwarded-for");
-  if (forwarded) {
-    const first = forwarded.split(",")[0]?.trim();
-    if (first) return first;
-  }
-  const realIp = req.headers.get("x-real-ip")?.trim();
-  if (realIp) return realIp;
-  return "unknown";
-}
-
-/** 최근 1시간 이내 요청이 MAX 미만이면 true이고, 이번 요청 시각을 기록한다. */
-function recordRequestIfAllowed(ip: string): boolean {
-  const now = Date.now();
-  const prev = ipRequestTimestamps.get(ip) ?? [];
-  const recent = prev.filter((t) => now - t < HOUR_MS);
-  if (recent.length >= MAX_REQUESTS_PER_HOUR) {
-    ipRequestTimestamps.set(ip, recent);
-    return false;
-  }
-  recent.push(now);
-  ipRequestTimestamps.set(ip, recent);
-  return true;
-}
 
 const ALLOWED_HELP = new Set(["housing", "benefits", "unknown"]);
 
@@ -59,7 +36,7 @@ function parseBody(raw: unknown): {
     Array.isArray(helpRaw) ? helpRaw.filter((x): x is string => typeof x === "string" && ALLOWED_HELP.has(x)) : [];
 
   if (!name || name.length > 200) return null;
-  if (!contact || contact.length > 320) return null;
+  if (!isValidContactValue(contact)) return null;
   if (helpTypes.length === 0) return null;
   if (message.length > 5000) return null;
 
@@ -70,7 +47,7 @@ function parseBody(raw: unknown): {
 
 export async function POST(req: Request) {
   const ip = getClientIp(req);
-  if (!recordRequestIfAllowed(ip)) {
+  if (!recordRequestIfAllowed("contact", ip, 5)) {
     return NextResponse.json({error: RATE_LIMIT_MESSAGE}, {status: 429});
   }
 
@@ -79,6 +56,10 @@ export async function POST(req: Request) {
     json = await req.json();
   } catch {
     return NextResponse.json({error: GENERIC_ERROR_MESSAGE}, {status: 400});
+  }
+
+  if (isHoneypotFilled(json)) {
+    return NextResponse.json({ok: true});
   }
 
   const parsed = parseBody(json);

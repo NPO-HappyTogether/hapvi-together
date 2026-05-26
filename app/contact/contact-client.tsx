@@ -2,21 +2,41 @@
 
 import {useLocale} from "@/components/LocaleProvider";
 import {StockPhoto} from "@/components/StockPhoto";
+import {trackEvent} from "@/lib/analytics";
 import {SITE_IMAGES} from "@/lib/site-images";
 import {Clock, Mail} from "lucide-react";
-import {useState} from "react";
+import Link from "next/link";
+import {useSearchParams} from "next/navigation";
+import {useEffect, useState} from "react";
 
 const inputFilledClass =
   "w-full rounded-md border border-stone-300 bg-white px-4 py-3 text-ink outline-none placeholder:text-ink-subtle focus:border-hapvi-primary focus:ring-2 focus:ring-hapvi-primary/25";
+
+const HELP_VALUES = ["housing", "benefits", "unknown"] as const;
+type HelpValue = (typeof HELP_VALUES)[number];
+
+function isHelpValue(value: string | null): value is HelpValue {
+  return value !== null && (HELP_VALUES as readonly string[]).includes(value);
+}
 
 export default function ContactPageClient() {
   const {messages, locale} = useLocale();
   const t = messages.Contact;
   const alts = messages.StockPhotoAlts;
   const stock = SITE_IMAGES.stock;
+  const searchParams = useSearchParams();
+  const topicParam = searchParams.get("topic");
+
+  const [helpType, setHelpType] = useState<HelpValue | "">("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formError, setFormError] = useState<null | "help" | "delivery">(null);
+
+  useEffect(() => {
+    if (topicParam === "benefits") {
+      setHelpType("benefits");
+    }
+  }, [topicParam]);
 
   return (
     <div className="min-h-screen bg-hapvi-dark md:bg-transparent">
@@ -66,12 +86,7 @@ export default function ContactPageClient() {
               const name = String(fd.get("name") ?? "").trim();
               const contact = String(fd.get("contact") ?? "").trim();
               const message = String(fd.get("message") ?? "").trim();
-              const helpChoice = fd.get("helpType");
-              const helpTypes =
-                typeof helpChoice === "string" &&
-                (helpChoice === "housing" || helpChoice === "benefits" || helpChoice === "unknown")
-                  ? [helpChoice]
-                  : [];
+              const helpTypes = isHelpValue(helpType) ? [helpType] : [];
 
               if (helpTypes.length === 0) {
                 setFormError("help");
@@ -84,14 +99,20 @@ export default function ContactPageClient() {
                 const res = await fetch("/api/contact", {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
-                  body: JSON.stringify({name, contact, message, helpTypes, locale}),
+                  body: JSON.stringify({name, contact, message, helpTypes, locale, website: fd.get("website")}),
                 });
                 if (!res.ok) {
                   setFormError("delivery");
                   return;
                 }
+                trackEvent("contact_submit", {help_type: helpTypes[0] ?? ""});
                 setSubmitted(true);
                 form.reset();
+                if (topicParam === "benefits") {
+                  setHelpType("benefits");
+                } else {
+                  setHelpType("");
+                }
               } catch {
                 setFormError("delivery");
               } finally {
@@ -99,6 +120,11 @@ export default function ContactPageClient() {
               }
             }}
           >
+            <div className="sr-only" aria-hidden>
+              <label htmlFor="website">Website</label>
+              <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+            </div>
+
             <fieldset className="rounded-md border border-white/35 bg-white/[0.06] p-4 pt-3">
               <legend className="px-1 text-sm font-semibold text-white">{t.form.name.label}</legend>
               <input
@@ -117,10 +143,11 @@ export default function ContactPageClient() {
               <input
                 id="contact"
                 name="contact"
-                type="email"
+                type="text"
+                inputMode="email"
                 placeholder={t.form.contact.placeholder}
                 required
-                autoComplete="email"
+                autoComplete="email tel"
                 className={`${inputFilledClass} mt-3`}
               />
             </fieldset>
@@ -128,34 +155,22 @@ export default function ContactPageClient() {
             <fieldset className="rounded-md border border-white/35 bg-white/[0.06] p-4 pt-3">
               <legend className="px-1 text-sm font-semibold text-white">{t.form.helpType.legend}</legend>
               <div className="mt-3 space-y-2.5 text-sm text-white/90">
-                <label className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 transition hover:bg-white/10">
-                  <input
-                    type="radio"
-                    name="helpType"
-                    value="housing"
-                    required
-                    className="size-4 shrink-0 border-white/45 bg-transparent accent-hapvi-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hapvi-light/50"
-                  />
-                  <span>{t.form.helpType.housing}</span>
-                </label>
-                <label className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 transition hover:bg-white/10">
-                  <input
-                    type="radio"
-                    name="helpType"
-                    value="benefits"
-                    className="size-4 shrink-0 border-white/45 bg-transparent accent-hapvi-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hapvi-light/50"
-                  />
-                  <span>{t.form.helpType.benefits}</span>
-                </label>
-                <label className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 transition hover:bg-white/10">
-                  <input
-                    type="radio"
-                    name="helpType"
-                    value="unknown"
-                    className="size-4 shrink-0 border-white/45 bg-transparent accent-hapvi-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hapvi-light/50"
-                  />
-                  <span>{t.form.helpType.unknown}</span>
-                </label>
+                {HELP_VALUES.map((value) => (
+                  <label
+                    key={value}
+                    className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 transition hover:bg-white/10"
+                  >
+                    <input
+                      type="radio"
+                      name="helpType"
+                      value={value}
+                      checked={helpType === value}
+                      onChange={() => setHelpType(value)}
+                      className="size-4 shrink-0 border-white/45 bg-transparent accent-hapvi-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hapvi-light/50"
+                    />
+                    <span>{t.form.helpType[value]}</span>
+                  </label>
+                ))}
               </div>
             </fieldset>
 
@@ -169,6 +184,14 @@ export default function ContactPageClient() {
                 className={`${inputFilledClass} mt-3 resize-y`}
               />
             </fieldset>
+
+            <p className="text-xs leading-relaxed text-white/75">
+              {t.form.privacyBeforeSubmit}{" "}
+              <Link href="/privacy" className="font-semibold text-hapvi-light underline underline-offset-2 hover:text-white">
+                {t.form.privacyLink}
+              </Link>
+              {t.form.privacyAfterSubmit}
+            </p>
 
             <button
               type="submit"
@@ -191,9 +214,10 @@ export default function ContactPageClient() {
           )}
 
           {submitted && (
-            <p className="mt-8 rounded-md border border-white/25 bg-white/10 px-4 py-4 text-sm font-semibold text-white">
-              {t.form.success}
-            </p>
+            <div className="mt-8 space-y-2 rounded-md border border-white/25 bg-white/10 px-4 py-4 text-sm text-white">
+              <p className="font-semibold">{t.form.success}</p>
+              <p className="text-white/85">{t.form.successNext}</p>
+            </div>
           )}
 
           <div className="mt-14 border-t border-white/15 pt-10">

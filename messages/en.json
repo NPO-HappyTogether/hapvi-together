@@ -40,6 +40,45 @@
       "description": "The U.S. offers housing support and benefit programs for lower-income households. Yet paperwork in English, confusing steps, and not knowing where to start cause many families to leave aid unused.",
       "highlight": "HapVi Together walks every step with you—from start to finish—in Korean."
     },
+    "trust": {
+      "title": "Trust at a glance",
+      "items": [
+        "IRS Section 501(c)(3) tax-exempt nonprofit",
+        "All consultations and guidance are free",
+        "We reply by email within 1–2 business days (info@hapvi.org)"
+      ],
+      "privacyNote": "Information you submit is used only for consultation purposes.",
+      "privacyLink": "Privacy Policy"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "Is everything really free?",
+          "a": "Yes. Housing and benefits guidance from HapVi Together is free. Donations are voluntary and not required to receive help."
+        },
+        {
+          "q": "Can you help if I struggle with English?",
+          "a": "Yes. We explain steps in Korean. Official application sites are often in English—we help you understand what to click and what documents are needed."
+        },
+        {
+          "q": "What if my immigration status is uncertain?",
+          "a": "You can still request a consultation. Each agency makes the final decision; we do not determine eligibility—we connect you to official sites and explain the process."
+        },
+        {
+          "q": "Who decides if I qualify for benefits?",
+          "a": "Government agencies make official determinations. We link to official application portals and offer Korean-language guidance."
+        },
+        {
+          "q": "Where should I start?",
+          "a": "Request a free consultation, or open our Benefits Guide and visit the official site for programs that interest you."
+        },
+        {
+          "q": "Do you serve areas outside Los Angeles?",
+          "a": "We focus on Korean-American families in LA; many programs are LA County or California based. Tell us where you live and we will look for applicable resources together."
+        }
+      ]
+    },
     "services": {
       "title": "How we help",
       "learnMore": "Learn more →",
@@ -50,7 +89,7 @@
       },
       "benefits": {
         "title": "Benefit applications",
-        "description": "Eligibility checks and hands-on help filing for benefits",
+        "description": "Government benefits guidance and official application support",
         "learnMoreAriaLabel": "Learn more about government benefits application services"
       },
       "community": {
@@ -169,8 +208,8 @@
         "placeholder": "Full name"
       },
       "contact": {
-        "label": "Email",
-        "placeholder": "email@example.com"
+        "label": "Email or phone",
+        "placeholder": "email@example.com or (213) 555-0100"
       },
       "helpType": {
         "legend": "What kind of help do you need?",
@@ -184,7 +223,11 @@
       },
       "submit": "Submit consultation request",
       "submitting": "Sending…",
-      "success": "Thank you! We’ll get back to you shortly.",
+      "success": "Thank you! We will reply by email within 1–2 business days.",
+      "successNext": "A confirmation email has been sent. For urgent needs, contact info@hapvi.org directly.",
+      "privacyBeforeSubmit": "By submitting, you agree to our",
+      "privacyLink": "Privacy Policy",
+      "privacyAfterSubmit": ".",
       "helpRequired": "Please choose one type of help.",
       "errorDelivery": "We couldn’t send your message. Try again or email info@hapvi.org."
     },
@@ -215,6 +258,7 @@
     "metaTitle": "Government Benefits Guide - HapVi Together",
     "metaDescription": "Official application links for Section 8, CalFresh, Medi-Cal, LIHEAP, and emergency rental assistance for LA Korean-American families.",
     "intro": "Click each benefit below to visit the official application site. Please check your eligibility directly on each official site.",
+    "lastVerified": "Official links last reviewed: May 2026",
     "officialSiteCta": "Check on Official Site →",
     "benefitCards": [
       {

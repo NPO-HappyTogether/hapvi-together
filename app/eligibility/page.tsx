@@ -1,17 +1,23 @@
-import type {Locale} from "@/components/LocaleProvider";
+import BenefitsDirectoryView from "@/app/[locale]/eligibility/benefits-directory-view";
+import EligibilityLocaleSync from "@/app/[locale]/eligibility/eligibility-locale-sync";
 import {buildPageMetadata} from "@/lib/seo";
-import ko from "@/messages/ko.json";
-import BenefitsDirectory from "@/app/[locale]/eligibility/BenefitsDirectory";
+import {getMessages} from "@/lib/i18n";
+
+const m = getMessages("ko");
 
 export const metadata = buildPageMetadata({
-  title: ko.Eligibility.metaTitle,
-  description: ko.Eligibility.metaDescription,
+  title: m.Eligibility.metaTitle,
+  description: m.Eligibility.metaDescription,
   path: "/ko/eligibility",
+  locale: "ko",
 });
 
 /** `/eligibility` — URL에 locale이 없으면 기본 언어(ko)로 표시합니다. */
-const DEFAULT_ELIGIBILITY_LOCALE: Locale = "ko";
-
 export default function EligibilityPage() {
-  return <BenefitsDirectory locale={DEFAULT_ELIGIBILITY_LOCALE} />;
+  return (
+    <>
+      <EligibilityLocaleSync locale="ko" />
+      <BenefitsDirectoryView locale="ko" />
+    </>
+  );
 }

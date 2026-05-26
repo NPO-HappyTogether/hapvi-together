@@ -1,6 +1,7 @@
 "use client";
 
 import {useLocale} from "@/components/LocaleProvider";
+import {trackEvent} from "@/lib/analytics";
 import {usePathname} from "next/navigation";
 import {useCallback, useEffect, useState, type FormEvent} from "react";
 
@@ -27,17 +28,26 @@ export function FooterWaitlistForm() {
       setStatus("loading");
 
       try {
+        const form = e.currentTarget;
+        const website = new FormData(form).get("website");
         const res = await fetch("/api/waitlist", {
           method: "POST",
           headers: {"Content-Type": "application/json"},
-          body: JSON.stringify({email, locale}),
+          body: JSON.stringify({email, locale, website}),
         });
 
         const data = (await res.json().catch(() => ({}))) as {error?: string};
 
         if (res.ok) {
+          trackEvent("waitlist_signup");
           setStatus("success");
           setEmail("");
+          return;
+        }
+
+        if (data.error === "rate_limited" || res.status === 429) {
+          setErrorKind("delivery_failed");
+          setStatus("error");
           return;
         }
 
@@ -71,6 +81,10 @@ export function FooterWaitlistForm() {
   return (
     <div className="mt-8">
       <form className="flex flex-col gap-3 sm:flex-row sm:justify-center" onSubmit={submit} noValidate>
+        <div className="sr-only" aria-hidden>
+          <label htmlFor="footer-website">Website</label>
+          <input id="footer-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
         <label htmlFor="footer-email" className="sr-only">
           {cs.placeholder}
         </label>

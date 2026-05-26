@@ -23,6 +23,20 @@ body {
   color: #3d0a0a;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-marquee {
+    animation: none !important;
+  }
+
+  .animate-bounce {
+    animation: none !important;
+  }
+}
+
 :root {
   --hapvi-page-bg: #fffbf7;
   --hapvi-text: #2c2825;

@@ -1,30 +1,35 @@
-import type {Locale} from "@/components/LocaleProvider";
-import {buildPageMetadata} from "@/lib/seo";
-import en from "@/messages/en.json";
-import es from "@/messages/es.json";
-import ko from "@/messages/ko.json";
-import {notFound} from "next/navigation";
-import BenefitsDirectory from "./BenefitsDirectory";
-
-const metaByLocale: Record<Locale, {title: string; description: string}> = {
-  ko: {title: ko.Eligibility.metaTitle, description: ko.Eligibility.metaDescription},
-  en: {title: en.Eligibility.metaTitle, description: en.Eligibility.metaDescription},
-  es: {title: es.Eligibility.metaTitle, description: es.Eligibility.metaDescription},
-};
-
-export function generateStaticParams(): {locale: Locale}[] {
-  return [{locale: "ko"}, {locale: "en"}, {locale: "es"}];
-}
-
-export async function generateMetadata({params}: {params: Promise<{locale: string}>}) {
-  const {locale: raw} = await params;
-  if (raw !== "ko" && raw !== "en" && raw !== "es") return {};
-  const m = metaByLocale[raw as Locale];
-  return buildPageMetadata({title: m.title, description: m.description, path: `/${raw}/eligibility`});
-}
-
-export default async function EligibilityPage({params}: {params: Promise<{locale: string}>}) {
-  const {locale: raw} = await params;
-  if (raw !== "ko" && raw !== "en" && raw !== "es") notFound();
-  return <BenefitsDirectory locale={raw as Locale} />;
-}
+import type {Locale} from "@/lib/i18n";
+import {getMessages, isLocale} from "@/lib/i18n";
+import {buildPageMetadata, eligibilityAlternates} from "@/lib/seo";
+import {notFound} from "next/navigation";
+import BenefitsDirectoryView from "./benefits-directory-view";
+import EligibilityLocaleSync from "./eligibility-locale-sync";
+
+export function generateStaticParams(): {locale: Locale}[] {
+  return [{locale: "ko"}, {locale: "en"}, {locale: "es"}];
+}
+
+export async function generateMetadata({params}: {params: Promise<{locale: string}>}) {
+  const {locale: raw} = await params;
+  if (!isLocale(raw)) return {};
+  const m = getMessages(raw).Eligibility;
+  return buildPageMetadata({
+    title: m.metaTitle,
+    description: m.metaDescription,
+    path: `/${raw}/eligibility`,
+    locale: raw,
+    alternates: eligibilityAlternates(raw),
+  });
+}
+
+export default async function EligibilityPage({params}: {params: Promise<{locale: string}>}) {
+  const {locale: raw} = await params;
+  if (!isLocale(raw)) notFound();
+
+  return (
+    <>
+      <EligibilityLocaleSync locale={raw} />
+      <BenefitsDirectoryView locale={raw} />
+    </>
+  );
+}

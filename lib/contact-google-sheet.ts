@@ -2,6 +2,15 @@ import type {ContactMessageLanguage} from "@/lib/contact-locale";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/** 이메일 또는 전화번호(숫자 7~15자리) */
+export function isValidContactValue(contact: string): boolean {
+  const c = contact.trim();
+  if (!c || c.length > 320) return false;
+  if (EMAIL_RE.test(c)) return true;
+  const digits = c.replace(/\D/g, "");
+  return digits.length >= 7 && digits.length <= 15;
+}
+
 export function splitContactIntoEmailPhone(contact: string): {email: string; phone: string} {
   const c = contact.trim();
   if (EMAIL_RE.test(c)) return {email: c, phone: ""};

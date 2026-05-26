@@ -5,6 +5,7 @@ import Script from "next/script";
 import {FloatingDonateTab} from "@/components/FloatingDonateTab";
 import {Footer} from "@/components/Footer";
 import {Header} from "@/components/Header";
+import {OrganizationJsonLd} from "@/components/OrganizationJsonLd";
 import {LocaleProvider} from "@/components/LocaleProvider";
 import {
   ROOT_TITLE,
@@ -69,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${dmSans.variable} ${notoSansKr.variable}`} suppressHydrationWarning>
       <head>
+        <OrganizationJsonLd />
         {isProduction ? (
           <>
             <Script

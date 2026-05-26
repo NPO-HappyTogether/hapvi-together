@@ -1,5 +1,8 @@
 import type {NextConfig} from "next";
+import path from "node:path";
+import {fileURLToPath} from "node:url";
 
+const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 const isDev = process.env.NODE_ENV === "development";
 
 const connectSrc = [
@@ -9,10 +12,18 @@ const connectSrc = [
   "https://fonts.gstatic.com",
   "https://zeffy.com",
   "https://www.zeffy.com",
+  "https://www.googletagmanager.com",
+  "https://www.google-analytics.com",
+  "https://region1.google-analytics.com",
   ...(isDev ? ["wss:"] : []),
 ].join(" ");
 
-const scriptSrc = ["'self'", "'unsafe-inline'", ...(isDev ? ["'unsafe-eval'"] : [])].join(" ");
+const scriptSrc = [
+  "'self'",
+  "'unsafe-inline'",
+  "https://www.googletagmanager.com",
+  ...(isDev ? ["'unsafe-eval'"] : []),
+].join(" ");
 
 const securityHeaders = [
   {key: "X-DNS-Prefetch-Control", value: "on"},
@@ -44,6 +55,9 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: projectRoot,
+  },
   async headers() {
     return [
       {
