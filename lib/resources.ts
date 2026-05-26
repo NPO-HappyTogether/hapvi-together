@@ -53,7 +53,8 @@ function parseRow(raw: unknown): ResourceItem | null {
 }
 
 function resourcesWebhookUrl(): string | null {
-  const base = process.env.RESOURCES_WEBHOOK_URL?.trim();
+  // Same Apps Script as contact CRM when only GOOGLE_SHEETS_WEBHOOK_URL is set (local/Vercel).
+  const base = (process.env.RESOURCES_WEBHOOK_URL || process.env.GOOGLE_SHEETS_WEBHOOK_URL || "").trim();
   if (!base) return null;
   const separator = base.includes("?") ? "&" : "?";
   return `${base}${separator}type=resources`;

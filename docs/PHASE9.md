@@ -38,7 +38,8 @@ Apps Script `GET` with `?type=resources`:
 RESOURCES_WEBHOOK_URL=https://script.google.com/macros/s/.../exec
 ```
 
-사이트는 `RESOURCES_WEBHOOK_URL?type=resources` 로 GET 합니다. 미설정·오류 시 빈 목록.
+미설정 시 `GOOGLE_SHEETS_WEBHOOK_URL`을 같은 엔드포인트로 사용합니다.  
+사이트는 `…?type=resources` 로 GET 합니다. 둘 다 없거나 오류 시 빈 목록.
 
 ## 코드
 
