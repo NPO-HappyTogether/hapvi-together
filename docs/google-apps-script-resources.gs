@@ -1,55 +1,56 @@
 /**
- * HapVi Together — community_resources CMS (read-only GET)
- * 스프레드시트 탭 이름: community_resources
- * 배포: 웹 앱 → exec URL → RESOURCES_CMS_URL
+ * HapVi Together — community resources CMS (Phase 9)
+ * Deploy as web app: Execute as Me, Access: Anyone
+ * GET ?type=resources → { "data": [ ... ] }
+ *
+ * Sheet tab: community_resources (or filter by type column)
+ * Columns: id, category, name_ko, name_en, name_es, desc_ko, desc_en, desc_es, url, active
  */
-const SHEET_NAME = "community_resources";
-
-function doGet() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
-  if (!sheet) {
-    return jsonResponse({resources: [], error: "sheet_not_found"});
+function doGet(e) {
+  const type = (e && e.parameter && e.parameter.type) || "";
+  if (type !== "resources") {
+    return ContentService.createTextOutput(JSON.stringify({data: []})).setMimeType(
+      ContentService.MimeType.JSON,
+    );
   }
 
+  const sheet =
+    SpreadsheetApp.getActiveSpreadsheet().getSheetByName("community_resources") ||
+    SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
   const rows = sheet.getDataRange().getValues();
   if (rows.length < 2) {
-    return jsonResponse({resources: []});
+    return jsonResponse({data: []});
   }
 
-  const headers = rows[0].map(String);
-  const resources = [];
+  const headers = rows[0].map(function (h) {
+    return String(h).trim().toLowerCase();
+  });
+  const data = [];
 
-  for (let i = 1; i < rows.length; i++) {
-    const row = rows[i];
-    const obj = {};
-    headers.forEach((h, j) => {
-      obj[h] = row[j];
-    });
-
-    const active = String(obj.active || "").toUpperCase() === "TRUE";
-    if (!active) continue;
-
-    resources.push({
-      id: String(obj.id || "").trim(),
-      category: String(obj.category || "other").trim().toLowerCase(),
-      title_ko: String(obj.title_ko || "").trim(),
-      title_en: String(obj.title_en || "").trim(),
-      title_es: String(obj.title_es || "").trim(),
-      description_ko: String(obj.description_ko || "").trim(),
-      description_en: String(obj.description_en || "").trim(),
-      description_es: String(obj.description_es || "").trim(),
-      url: String(obj.url || "").trim(),
-      sort_order: Number(obj.sort_order) || 999,
-      last_verified: String(obj.last_verified || "").trim(),
+  for (var i = 1; i < rows.length; i++) {
+    var row = rows[i];
+    var obj = {};
+    for (var c = 0; c < headers.length; c++) {
+      obj[headers[c]] = row[c];
+    }
+    var active = String(obj.active || "TRUE").toUpperCase();
+    if (active === "FALSE" || active === "0" || active === "NO") continue;
+    data.push({
+      id: String(obj.id || ""),
+      category: String(obj.category || "").toLowerCase(),
+      name_ko: String(obj.name_ko || ""),
+      name_en: String(obj.name_en || ""),
+      name_es: String(obj.name_es || ""),
+      desc_ko: String(obj.desc_ko || ""),
+      desc_en: String(obj.desc_en || ""),
+      desc_es: String(obj.desc_es || ""),
+      url: String(obj.url || ""),
     });
   }
 
-  resources.sort((a, b) => a.sort_order - b.sort_order);
-  return jsonResponse({resources});
+  return jsonResponse({data: data});
 }
 
-function jsonResponse(payload) {
-  return ContentService.createTextOutput(JSON.stringify(payload)).setMimeType(
-    ContentService.MimeType.JSON,
-  );
+function jsonResponse(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
 }

@@ -255,29 +255,22 @@
     "aboutCommunity": "Voluntariado y actividad comunitaria",
     "contactOffice": "Espacio de oficina para consultas y contacto"
   },
-  "Resources": {
-    "title": "Recursos Comunitarios y Públicos",
-    "metaTitle": "Guía de Recursos Comunitarios - HapVi Together",
-    "metaDescription": "Enlaces oficiales a vivienda, alimentos, salud, legal y emergencias para familias coreanas en LA.",
-    "intro": "Haga clic en cada recurso para visitar el sitio oficial. La elegibilidad y los pasos de solicitud los define cada agencia.",
-    "lastVerifiedNote": "La lista se administra en Google Sheets y los enlaces se revisan periódicamente.",
-    "empty": "No hay recursos listados por ahora. Vuelva más tarde o solicite una consulta gratuita.",
-    "officialSiteCta": "Ver en Sitio Oficial →",
-    "cardVerified": "Revisado",
+  "resources": {
+    "title": "Directorio de Recursos — Programas de asistencia gubernamental para familias en LA",
+    "metaTitle": "Directorio de Recursos - HapVi Together",
+    "metaDescription": "Enlaces oficiales a vivienda, alimentos, salud, servicios públicos y emergencias para familias coreanas en LA.",
+    "filterAll": "Todos",
     "categories": {
       "housing": "Vivienda",
       "food": "Alimentos",
       "health": "Salud",
-      "legal": "Legal e Inmigración",
-      "emergency": "Emergencia",
-      "community": "Comunidad",
-      "other": "Otros"
+      "utility": "Servicios",
+      "emergency": "Emergencia"
     },
-    "consult": {
-      "text": "¿No sabe qué recursos necesita? HapVi Together está aquí para ayudarle.",
-      "cta": "Solicitar Consulta Gratuita",
-      "eligibilityCta": "Ver Guía de Beneficios →"
-    }
+    "visitOfficial": "Visitar Sitio Oficial →",
+    "empty": "No hay recursos listados por ahora. Vuelva más tarde o contáctenos.",
+    "unknownResource": "¿Conoce un recurso que debería aparecer aquí?",
+    "contactCta": "Contactar"
   },
   "Eligibility": {
     "title": "Guía de Beneficios Públicos",

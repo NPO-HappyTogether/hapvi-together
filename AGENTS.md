@@ -50,7 +50,7 @@ lib/
   rate-limit.ts, sanitize.ts, analytics.ts, i18n.ts
   admin-mail.ts, waitlist-google-sheet.ts, waitlist-notify.ts
   seo.ts, site-images.ts
-  (Phase 9) resources-cms.ts → Google Sheets JSON → 자원 목록
+  resources.ts → Google Sheets JSON (`RESOURCES_WEBHOOK_URL?type=resources`)
 
 messages/
   ko.json, en.json, es.json
@@ -94,7 +94,7 @@ messages/
 
 ## 다음 개발 과제 (Phase 9+)
 
-- **Phase 9:** `/[locale]/resources` — Google Sheets CMS 지역·정부 자원 디렉토리 (코드 완료, `RESOURCES_CMS_URL`·Sheet 탭 배포 대기 — `docs/PHASE9.md`)
+- **Phase 9:** `/[locale]/resources` — 정부 자원 디렉토리 (Google Sheets CMS, `RESOURCES_WEBHOOK_URL` — `docs/PHASE9.md`)
 - **Phase 10 이후:** 예약·케이스 트래킹·문서 포털 (장기)
 - **선택:** Upstash Redis 무료 티어로 분산 rate limit (현재 인메모리 + honeypot)
 

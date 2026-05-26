@@ -1,8 +1,9 @@
 import type {Locale} from "@/lib/i18n";
 import {getMessages, isLocale} from "@/lib/i18n";
+import {fetchResources} from "@/lib/resources";
 import {buildPageMetadata, resourcesAlternates} from "@/lib/seo";
 import {notFound} from "next/navigation";
-import ResourcesDirectoryView from "./resources-directory-view";
+import ResourcesPageClient from "./resources-client";
 import ResourcesLocaleSync from "./resources-locale-sync";
 
 export function generateStaticParams(): {locale: Locale}[] {
@@ -12,7 +13,7 @@ export function generateStaticParams(): {locale: Locale}[] {
 export async function generateMetadata({params}: {params: Promise<{locale: string}>}) {
   const {locale: raw} = await params;
   if (!isLocale(raw)) return {};
-  const m = getMessages(raw).Resources;
+  const m = getMessages(raw).resources;
   return buildPageMetadata({
     title: m.metaTitle,
     description: m.metaDescription,
@@ -26,10 +27,13 @@ export default async function ResourcesPage({params}: {params: Promise<{locale: 
   const {locale: raw} = await params;
   if (!isLocale(raw)) notFound();
 
+  const items = await fetchResources();
+  const copy = getMessages(raw).resources;
+
   return (
     <>
       <ResourcesLocaleSync locale={raw} />
-      <ResourcesDirectoryView locale={raw} />
+      <ResourcesPageClient locale={raw} items={items} copy={copy} />
     </>
   );
 }

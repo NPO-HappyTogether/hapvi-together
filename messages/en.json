@@ -255,29 +255,22 @@
     "aboutCommunity": "Community volunteering and neighborhood activity",
     "contactOffice": "Office space for consultation and contact"
   },
-  "Resources": {
-    "title": "Community & Government Resources",
-    "metaTitle": "Community Resources Guide - HapVi Together",
-    "metaDescription": "Official links to housing, food, health, legal, and emergency resources for Korean-American families in LA.",
-    "intro": "Click each resource below to visit the official site. Eligibility and application steps are determined by each agency.",
-    "lastVerifiedNote": "This list is managed in Google Sheets and links are reviewed periodically.",
-    "empty": "No resources are listed right now. Please check back later or request a free consultation.",
-    "officialSiteCta": "Check on Official Site →",
-    "cardVerified": "Verified",
+  "resources": {
+    "title": "Resource Directory — Government assistance programs for Korean families in LA",
+    "metaTitle": "Resource Directory - HapVi Together",
+    "metaDescription": "Official links to housing, food, health, utility, and emergency assistance for Korean-American families in LA.",
+    "filterAll": "All",
     "categories": {
       "housing": "Housing",
-      "food": "Food & Nutrition",
+      "food": "Food",
       "health": "Health",
-      "legal": "Legal & Immigration",
-      "emergency": "Emergency",
-      "community": "Community",
-      "other": "Other"
+      "utility": "Utility",
+      "emergency": "Emergency"
     },
-    "consult": {
-      "text": "Not sure which resources you need? HapVi Together is here to help.",
-      "cta": "Request Free Consultation",
-      "eligibilityCta": "View Benefits Guide →"
-    }
+    "visitOfficial": "Visit Official Site →",
+    "empty": "No resources are listed right now. Please check back later or contact us.",
+    "unknownResource": "Know a resource that should be listed?",
+    "contactCta": "Contact Us"
   },
   "Eligibility": {
     "title": "Government Benefits Guide",
