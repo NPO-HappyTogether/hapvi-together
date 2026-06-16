@@ -22,7 +22,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Resend (이메일 발송, 월 3,000건 무료)
 - Vercel (호스팅, 무료 플랜)
 - Google Sheets + Apps Script (CRM 웹훅)
-- GA4 측정 ID: `G-LV7PFSGM3E`
+- GA4 측정 ID: `G-LY7PFSGM3E`
 
 ## 폴더 구조
 

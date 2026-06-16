@@ -17,7 +17,7 @@ import {
 } from "@/lib/seo";
 import "./globals.css";
 
-const GA_MEASUREMENT_ID = "G-LV7PFSGM3E";
+const GA_MEASUREMENT_ID = "G-LY7PFSGM3E";
 const isProduction = process.env.NODE_ENV === "production";
 
 const dmSans = DM_Sans({
